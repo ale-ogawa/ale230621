@@ -1,0 +1,10 @@
+D:\AleTechnoSystem\source_cs\repos\NervousBreakdown\NervousBreakdown\bin\Debug\NervousBreakdown.exe.config
+D:\AleTechnoSystem\source_cs\repos\NervousBreakdown\NervousBreakdown\bin\Debug\NervousBreakdown.exe
+D:\AleTechnoSystem\source_cs\repos\NervousBreakdown\NervousBreakdown\bin\Debug\NervousBreakdown.pdb
+D:\AleTechnoSystem\source_cs\repos\NervousBreakdown\NervousBreakdown\obj\Debug\NervousBreakdown.csproj.AssemblyReference.cache
+D:\AleTechnoSystem\source_cs\repos\NervousBreakdown\NervousBreakdown\obj\Debug\NervousBreakdown.Properties.Resources.resources
+D:\AleTechnoSystem\source_cs\repos\NervousBreakdown\NervousBreakdown\obj\Debug\NervousBreakdown.csproj.GenerateResource.cache
+D:\AleTechnoSystem\source_cs\repos\NervousBreakdown\NervousBreakdown\obj\Debug\NervousBreakdown.csproj.CoreCompileInputs.cache
+D:\AleTechnoSystem\source_cs\repos\NervousBreakdown\NervousBreakdown\obj\Debug\NervousBreakdown.exe
+D:\AleTechnoSystem\source_cs\repos\NervousBreakdown\NervousBreakdown\obj\Debug\NervousBreakdown.pdb
+D:\AleTechnoSystem\source_cs\repos\NervousBreakdown\NervousBreakdown\obj\Debug\NervousBreakdown.Form1.resources
