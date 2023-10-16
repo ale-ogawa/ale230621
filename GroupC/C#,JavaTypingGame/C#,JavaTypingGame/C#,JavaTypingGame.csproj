@@ -134,6 +134,7 @@
     <Compile Include="loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyMethod.cs" />
     <Compile Include="newRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
