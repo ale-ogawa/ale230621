@@ -23,6 +23,9 @@ namespace C__JavaTypingGame
         //照合する文字番号
         private int ProblemIndex = 0;
 
+        //照合する行番号
+        private int ProblemRow = 0;
+
         //ゲームの制限時間
         private const int Time = 60;
 
@@ -168,7 +171,49 @@ namespace C__JavaTypingGame
                 }
 
                 //複数行問題の処理
-                else { }
+                //問題文を行毎に取り出し照合する
+                else 
+                {
+                    string[] rows=questionLabel.Text.Split('\n');
+                    char c = char.Parse(rows[ProblemRow].Substring(ProblemIndex, ProblemIndex));
+                    //正解時の処理
+                    if (c== questionLabel.Text[ProblemIndex])
+                    {
+                        //照合文字を一文字進める
+                        ProblemIndex++;
+                    }
+
+                    //不正解処理
+                    else
+                    {
+                        //間違えた文字を削除
+                        answerTextBox.Text = answerTextBox.Text.Remove(ProblemIndex);
+
+                        //カーソル位置を最後尾へ移動
+                        answerTextBox.SelectionStart = answerTextBox.Text.Length;
+
+                        //UIを更新
+                        System.Windows.Forms.Application.DoEvents();
+
+                        //ミスカウントアップ
+                        MissCounter++;
+                    }
+                    //全ての文字が正しく入力されたか確認
+                    if (ProblemIndex == questionLabel.Text.Length&&ProblemRow==count)
+                    {
+                        //正解後の事後処理
+                        CorrectProcess();
+                    }
+                    else if(ProblemIndex == questionLabel.Text.Length)
+                    {
+                        //照合行を1行進める
+                        ProblemRow++;
+                        answerTextBox.Text+="\n";
+                        System.Windows.Forms.Application.DoEvents();
+
+                    }
+
+                }
             }
 
         }
