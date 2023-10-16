@@ -42,6 +42,7 @@
             this.backButton.TabIndex = 28;
             this.backButton.Text = "言語選択に戻る";
             this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // advancedButton
             // 
@@ -52,6 +53,7 @@
             this.advancedButton.TabIndex = 27;
             this.advancedButton.Text = "上級";
             this.advancedButton.UseVisualStyleBackColor = true;
+            this.advancedButton.Click += new System.EventHandler(this.advancedButton_Click);
             // 
             // intermediateButton
             // 
@@ -62,6 +64,7 @@
             this.intermediateButton.TabIndex = 26;
             this.intermediateButton.Text = "中級";
             this.intermediateButton.UseVisualStyleBackColor = true;
+            this.intermediateButton.Click += new System.EventHandler(this.intermediateButton_Click);
             // 
             // beginnerButton
             // 
@@ -72,6 +75,7 @@
             this.beginnerButton.TabIndex = 25;
             this.beginnerButton.Text = "初級";
             this.beginnerButton.UseVisualStyleBackColor = true;
+            this.beginnerButton.Click += new System.EventHandler(this.beginnerButton_Click);
             // 
             // C_DifficultyForm
             // 
