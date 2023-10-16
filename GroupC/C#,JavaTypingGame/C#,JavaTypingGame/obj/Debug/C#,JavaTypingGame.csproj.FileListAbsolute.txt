@@ -149,3 +149,11 @@ C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\C#,Ja
 C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\C#,JavaTypingGame.csproj.CopyComplete
 C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\C#,JavaTypingGame.exe
 C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\C#,JavaTypingGame.pdb
+C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\typingGame.C_DifficultyForm.resources
+C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\typingGame.Form1.resources
+C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\typingGame.JavaDifficultyForm.resources
+C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\typingGame.languageSelectionForm.resources
+C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\typingGame.loginForm.resources
+C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\typingGame.newRegistrationForm.resources
+C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\typingGame.RegistrationForm.resources
+C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\C#,JavaTypingGame\obj\Debug\typingGame.runkingForm.resources

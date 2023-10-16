@@ -27,7 +27,7 @@ namespace typingGame
 
         private void newRegistrationButton_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
             newRegistrationForm newRs = new newRegistrationForm();
             newRs.ShowDialog();
             this.Close();

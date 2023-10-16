@@ -28,49 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CButton = new System.Windows.Forms.Button();
-            this.JavaButton = new System.Windows.Forms.Button();
-            this.titleButton = new System.Windows.Forms.Button();
             this.runkingButton = new System.Windows.Forms.Button();
+            this.titleButton = new System.Windows.Forms.Button();
+            this.JavaButton = new System.Windows.Forms.Button();
+            this.CButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // CButton
+            // runkingButton
             // 
-            this.CButton.Font = new System.Drawing.Font("ＭＳ 明朝", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CButton.Location = new System.Drawing.Point(240, 54);
-            this.CButton.Name = "CButton";
-            this.CButton.Size = new System.Drawing.Size(255, 99);
-            this.CButton.TabIndex = 11;
-            this.CButton.Text = "C#";
-            this.CButton.UseVisualStyleBackColor = true;
+            this.runkingButton.Location = new System.Drawing.Point(105, 302);
+            this.runkingButton.Name = "runkingButton";
+            this.runkingButton.Size = new System.Drawing.Size(189, 48);
+            this.runkingButton.TabIndex = 18;
+            this.runkingButton.Text = "ランキング";
+            this.runkingButton.UseVisualStyleBackColor = true;
+            this.runkingButton.Click += new System.EventHandler(this.runkingButton_Click);
+            // 
+            // titleButton
+            // 
+            this.titleButton.Location = new System.Drawing.Point(502, 302);
+            this.titleButton.Name = "titleButton";
+            this.titleButton.Size = new System.Drawing.Size(189, 48);
+            this.titleButton.TabIndex = 17;
+            this.titleButton.Text = "タイトルに戻る";
+            this.titleButton.UseVisualStyleBackColor = true;
+            this.titleButton.Click += new System.EventHandler(this.titleButton_Click);
             // 
             // JavaButton
             // 
             this.JavaButton.Font = new System.Drawing.Font("ＭＳ 明朝", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.JavaButton.Location = new System.Drawing.Point(240, 195);
+            this.JavaButton.Location = new System.Drawing.Point(274, 165);
             this.JavaButton.Name = "JavaButton";
             this.JavaButton.Size = new System.Drawing.Size(255, 99);
-            this.JavaButton.TabIndex = 12;
+            this.JavaButton.TabIndex = 16;
             this.JavaButton.Text = "Java";
             this.JavaButton.UseVisualStyleBackColor = true;
+            this.JavaButton.Click += new System.EventHandler(this.JavaButton_Click);
             // 
-            // titleButton
+            // CButton
             // 
-            this.titleButton.Location = new System.Drawing.Point(468, 332);
-            this.titleButton.Name = "titleButton";
-            this.titleButton.Size = new System.Drawing.Size(189, 48);
-            this.titleButton.TabIndex = 13;
-            this.titleButton.Text = "タイトルに戻る";
-            this.titleButton.UseVisualStyleBackColor = true;
-            // 
-            // runkingButton
-            // 
-            this.runkingButton.Location = new System.Drawing.Point(71, 332);
-            this.runkingButton.Name = "runkingButton";
-            this.runkingButton.Size = new System.Drawing.Size(189, 48);
-            this.runkingButton.TabIndex = 14;
-            this.runkingButton.Text = "ランキング";
-            this.runkingButton.UseVisualStyleBackColor = true;
+            this.CButton.Font = new System.Drawing.Font("ＭＳ 明朝", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CButton.Location = new System.Drawing.Point(274, 24);
+            this.CButton.Name = "CButton";
+            this.CButton.Size = new System.Drawing.Size(255, 99);
+            this.CButton.TabIndex = 15;
+            this.CButton.Text = "C#";
+            this.CButton.UseVisualStyleBackColor = true;
+            this.CButton.Click += new System.EventHandler(this.CButton_Click);
             // 
             // languageSelectionForm
             // 
@@ -89,9 +93,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button CButton;
-        private System.Windows.Forms.Button JavaButton;
-        private System.Windows.Forms.Button titleButton;
         private System.Windows.Forms.Button runkingButton;
+        private System.Windows.Forms.Button titleButton;
+        private System.Windows.Forms.Button JavaButton;
+        private System.Windows.Forms.Button CButton;
     }
 }

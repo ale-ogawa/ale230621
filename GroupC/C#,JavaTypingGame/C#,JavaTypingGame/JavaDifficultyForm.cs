@@ -16,5 +16,10 @@ namespace typingGame
         {
             InitializeComponent();
         }
+
+        private void beginnerButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

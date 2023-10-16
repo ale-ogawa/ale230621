@@ -7,23 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace typingGame
 {
     public partial class newRegistrationForm : Form
     {
-        public  object userNameText;
-        public  object passwordText;
-
         public newRegistrationForm()
         {
             InitializeComponent();
         }
-
         private void backButton_Click(object sender, EventArgs e)
         {
-           
+            this.Hide();
+            Form1 title = new Form1();
+            title.ShowDialog();
             this.Close();
         }
 
@@ -39,19 +36,36 @@ namespace typingGame
         private void passText_TextChanged(object sender, EventArgs e)
         {
             passText.PasswordChar = '・';
-            passwordText = passText.Text;
+
         }
 
         private void checkButton_Click(object sender, EventArgs e)
         {
-            RegistrationForm Registration = new RegistrationForm();
+
+
+            if (this.userText.Text == null)
+            {
+                MessageBox.Show("ユーザー名が入力されていません");
+            }
+            else if (this.passText.Text == null)
+            {
+                MessageBox.Show("パスワードが入力されていません");
+            }
+            this.Hide();
+            RegistrationForm Registration = new RegistrationForm(this.userText.Text, this.passText.Text);
             Registration.ShowDialog();
-           
+
+            this.Close();
         }
 
         private void userText_TextChanged(object sender, EventArgs e)
         {
-            userNameText = userText.Text;
+
+        }
+
+        private void userText_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,7 +16,6 @@ namespace typingGame
         {
             InitializeComponent();
         }
-
         private void userText_TextChanged(object sender, EventArgs e)
         {
 
@@ -25,7 +24,7 @@ namespace typingGame
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 title=new Form1();
+            Form1 title = new Form1();
             title.ShowDialog();
             this.Close();
         }
@@ -41,6 +40,22 @@ namespace typingGame
         private void passText_TextChanged(object sender, EventArgs e)
         {
             passText.PasswordChar = '・';
+        }
+
+        private void userText_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            //DBに確認
+
+            //画面遷移
+            this.Hide();
+            languageSelectionForm ls=new languageSelectionForm();
+            ls.ShowDialog();
+            this.Close();
         }
     }
 }

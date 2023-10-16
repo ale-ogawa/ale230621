@@ -28,86 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.passText = new System.Windows.Forms.TextBox();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.userText = new System.Windows.Forms.TextBox();
-            this.passLabel = new System.Windows.Forms.Label();
-            this.passCheck = new System.Windows.Forms.CheckBox();
-            this.loginButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.passCheck = new System.Windows.Forms.CheckBox();
+            this.passLabel = new System.Windows.Forms.Label();
+            this.userText = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.passText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // passText
+            // backButton
             // 
-            this.passText.Location = new System.Drawing.Point(174, 180);
-            this.passText.Name = "passText";
-            this.passText.Size = new System.Drawing.Size(277, 19);
-            this.passText.TabIndex = 2;
-            this.passText.TextChanged += new System.EventHandler(this.passText_TextChanged);
+            this.backButton.Location = new System.Drawing.Point(506, 287);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(135, 40);
+            this.backButton.TabIndex = 15;
+            this.backButton.Text = "戻る";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // nameLabel
+            // loginButton
             // 
-            this.nameLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.nameLabel.Location = new System.Drawing.Point(98, 37);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(187, 38);
-            this.nameLabel.TabIndex = 3;
-            this.nameLabel.Text = "ユーザー名";
-            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // userText
-            // 
-            this.userText.Location = new System.Drawing.Point(185, 78);
-            this.userText.Name = "userText";
-            this.userText.Size = new System.Drawing.Size(277, 19);
-            this.userText.TabIndex = 4;
-            this.userText.TextChanged += new System.EventHandler(this.userText_TextChanged);
-            // 
-            // passLabel
-            // 
-            this.passLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.passLabel.Location = new System.Drawing.Point(98, 139);
-            this.passLabel.Name = "passLabel";
-            this.passLabel.Size = new System.Drawing.Size(187, 38);
-            this.passLabel.TabIndex = 5;
-            this.passLabel.Text = "パスワード";
-            this.passLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.loginButton.Location = new System.Drawing.Point(193, 273);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(151, 54);
+            this.loginButton.TabIndex = 14;
+            this.loginButton.Text = "ログイン";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // passCheck
             // 
             this.passCheck.AutoSize = true;
-            this.passCheck.Location = new System.Drawing.Point(174, 216);
+            this.passCheck.Location = new System.Drawing.Point(233, 242);
             this.passCheck.Name = "passCheck";
             this.passCheck.Size = new System.Drawing.Size(101, 16);
-            this.passCheck.TabIndex = 6;
+            this.passCheck.TabIndex = 13;
             this.passCheck.Text = "パスワードを見る";
             this.passCheck.UseVisualStyleBackColor = true;
-            this.passCheck.CheckedChanged += new System.EventHandler(this.passCheck_CheckedChanged);
+            this.passCheck.Click += new System.EventHandler(this.passCheck_CheckedChanged);
             // 
-            // loginButton
+            // passLabel
             // 
-            this.loginButton.Location = new System.Drawing.Point(134, 245);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(151, 54);
-            this.loginButton.TabIndex = 7;
-            this.loginButton.Text = "ログイン";
-            this.loginButton.UseVisualStyleBackColor = true;
+            this.passLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.passLabel.Location = new System.Drawing.Point(147, 167);
+            this.passLabel.Name = "passLabel";
+            this.passLabel.Size = new System.Drawing.Size(187, 38);
+            this.passLabel.TabIndex = 12;
+            this.passLabel.Text = "パスワード";
+            this.passLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // backButton
+            // userText
             // 
-            this.backButton.Location = new System.Drawing.Point(457, 259);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(135, 40);
-            this.backButton.TabIndex = 8;
-            this.backButton.Text = "戻る";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.userText.Location = new System.Drawing.Point(234, 106);
+            this.userText.Name = "userText";
+            this.userText.Size = new System.Drawing.Size(277, 19);
+            this.userText.TabIndex = 11;
+            this.userText.Click += new System.EventHandler(this.userText_TextChanged);
+            this.userText.TextChanged += new System.EventHandler(this.userText_TextChanged_1);
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.nameLabel.Location = new System.Drawing.Point(147, 65);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(187, 38);
+            this.nameLabel.TabIndex = 10;
+            this.nameLabel.Text = "ユーザー名";
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // passText
+            // 
+            this.passText.Location = new System.Drawing.Point(234, 208);
+            this.passText.Name = "passText";
+            this.passText.Size = new System.Drawing.Size(277, 19);
+            this.passText.TabIndex = 9;
+            this.passText.Click += new System.EventHandler(this.passText_TextChanged);
             // 
             // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 311);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passCheck);
@@ -116,7 +118,7 @@
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.passText);
             this.Name = "loginForm";
-            this.Text = "liginForm";
+            this.Text = "loginForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,12 +126,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox passText;
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox userText;
-        private System.Windows.Forms.Label passLabel;
-        private System.Windows.Forms.CheckBox passCheck;
-        private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.CheckBox passCheck;
+        private System.Windows.Forms.Label passLabel;
+        private System.Windows.Forms.TextBox userText;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.TextBox passText;
     }
 }

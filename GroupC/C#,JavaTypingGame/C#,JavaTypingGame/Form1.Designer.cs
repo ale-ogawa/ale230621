@@ -37,39 +37,39 @@
             // title
             // 
             this.title.Font = new System.Drawing.Font("ＭＳ 明朝", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.title.Location = new System.Drawing.Point(135, 29);
+            this.title.Location = new System.Drawing.Point(147, 36);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(495, 91);
-            this.title.TabIndex = 1;
+            this.title.TabIndex = 2;
             this.title.Text = "title";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(275, 140);
+            this.loginButton.Location = new System.Drawing.Point(291, 145);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(210, 65);
-            this.loginButton.TabIndex = 2;
+            this.loginButton.TabIndex = 3;
             this.loginButton.Text = "ログイン";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // newRegistrationButton
             // 
-            this.newRegistrationButton.Location = new System.Drawing.Point(275, 231);
+            this.newRegistrationButton.Location = new System.Drawing.Point(291, 227);
             this.newRegistrationButton.Name = "newRegistrationButton";
             this.newRegistrationButton.Size = new System.Drawing.Size(210, 65);
-            this.newRegistrationButton.TabIndex = 3;
+            this.newRegistrationButton.TabIndex = 4;
             this.newRegistrationButton.Text = "新規登録";
             this.newRegistrationButton.UseVisualStyleBackColor = true;
             this.newRegistrationButton.Click += new System.EventHandler(this.newRegistrationButton_Click);
             // 
             // endButton
             // 
-            this.endButton.Location = new System.Drawing.Point(275, 314);
+            this.endButton.Location = new System.Drawing.Point(291, 314);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(210, 65);
-            this.endButton.TabIndex = 4;
+            this.endButton.TabIndex = 5;
             this.endButton.Text = "終了";
             this.endButton.UseVisualStyleBackColor = true;
             this.endButton.Click += new System.EventHandler(this.endButton_Click);

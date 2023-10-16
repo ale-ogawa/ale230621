@@ -16,5 +16,29 @@ namespace typingGame
         {
             InitializeComponent();
         }
+        private void CButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void titleButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 title = new Form1();
+            title.ShowDialog();
+            this.Close();
+        }
+
+        private void JavaButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void runkingButton_Click(object sender, EventArgs e)
+        {
+            runkingForm ruking =new runkingForm();
+            ruking.ShowDialog();
+            
+        }
     }
 }

@@ -40,66 +40,67 @@
             // nameLabel
             // 
             this.nameLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.nameLabel.Location = new System.Drawing.Point(90, 37);
+            this.nameLabel.Location = new System.Drawing.Point(171, 53);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(187, 38);
-            this.nameLabel.TabIndex = 0;
+            this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "新規ユーザー名";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // userText
             // 
-            this.userText.Location = new System.Drawing.Point(181, 78);
+            this.userText.Location = new System.Drawing.Point(266, 94);
             this.userText.Name = "userText";
             this.userText.Size = new System.Drawing.Size(277, 19);
-            this.userText.TabIndex = 1;
-            this.userText.TextChanged += new System.EventHandler(this.userText_TextChanged);
+            this.userText.TabIndex = 2;
+            this.userText.Click += new System.EventHandler(this.userText_TextChanged);
+            this.userText.TextChanged += new System.EventHandler(this.userText_TextChanged_1);
             // 
             // passLabel
             // 
             this.passLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.passLabel.Location = new System.Drawing.Point(90, 144);
+            this.passLabel.Location = new System.Drawing.Point(171, 144);
             this.passLabel.Name = "passLabel";
             this.passLabel.Size = new System.Drawing.Size(187, 38);
-            this.passLabel.TabIndex = 2;
+            this.passLabel.TabIndex = 3;
             this.passLabel.Text = "パスワード";
             this.passLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // passText
             // 
-            this.passText.Location = new System.Drawing.Point(181, 185);
+            this.passText.Location = new System.Drawing.Point(266, 185);
             this.passText.Name = "passText";
             this.passText.Size = new System.Drawing.Size(277, 19);
-            this.passText.TabIndex = 3;
-            this.passText.TextChanged += new System.EventHandler(this.passText_TextChanged);
+            this.passText.TabIndex = 4;
+            this.passText.Click += new System.EventHandler(this.passText_TextChanged);
             // 
             // passCheck
             // 
             this.passCheck.AutoSize = true;
-            this.passCheck.Location = new System.Drawing.Point(181, 221);
+            this.passCheck.Location = new System.Drawing.Point(266, 221);
             this.passCheck.Name = "passCheck";
             this.passCheck.Size = new System.Drawing.Size(101, 16);
-            this.passCheck.TabIndex = 4;
+            this.passCheck.TabIndex = 5;
             this.passCheck.Text = "パスワードを見る";
             this.passCheck.UseVisualStyleBackColor = true;
-            this.passCheck.CheckedChanged += new System.EventHandler(this.passCheck_CheckedChanged);
+            this.passCheck.Click += new System.EventHandler(this.passCheck_CheckedChanged);
             // 
             // checkButton
             // 
-            this.checkButton.Location = new System.Drawing.Point(131, 243);
+            this.checkButton.Location = new System.Drawing.Point(137, 298);
             this.checkButton.Name = "checkButton";
             this.checkButton.Size = new System.Drawing.Size(151, 54);
-            this.checkButton.TabIndex = 8;
+            this.checkButton.TabIndex = 9;
             this.checkButton.Text = "確認";
             this.checkButton.UseVisualStyleBackColor = true;
             this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(411, 257);
+            this.backButton.Location = new System.Drawing.Point(529, 312);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(135, 40);
-            this.backButton.TabIndex = 9;
+            this.backButton.TabIndex = 10;
             this.backButton.Text = "戻る";
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
@@ -108,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 309);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.checkButton);
             this.Controls.Add(this.passCheck);
@@ -126,11 +127,11 @@
         #endregion
 
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox userText;
         private System.Windows.Forms.Label passLabel;
-        private System.Windows.Forms.TextBox passText;
         private System.Windows.Forms.CheckBox passCheck;
         private System.Windows.Forms.Button checkButton;
         private System.Windows.Forms.Button backButton;
+        public System.Windows.Forms.TextBox userText;
+        public System.Windows.Forms.TextBox passText;
     }
 }

@@ -16,7 +16,7 @@ namespace C__JavaTypingGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new playForm());
+            Application.Run(new typingGame.Form1());
         }
     }
 }
