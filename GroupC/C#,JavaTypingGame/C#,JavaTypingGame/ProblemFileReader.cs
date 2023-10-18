@@ -42,7 +42,7 @@ namespace C__JavaTypingGame
                     list.Add(lines);
                 }
             }
-            //選択言語と難易度の問題を取り出してリストに格納
+            //選択した言語と難易度の問題を取り出してリストに格納
             Problem = list.Where(x=>x[0]==PlayerDTO.Lang && x[1]==PlayerDTO.level.ToString()).ToList();
         }
     }

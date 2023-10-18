@@ -24,9 +24,6 @@ namespace C__JavaTypingGame
         //照合する文字番号
         private int ProblemIndex = 0;
 
-        //照合する行番号
-        private int ProblemRow = 0;
-
         //ゲームの制限時間
         private const int Time = 60;
 
@@ -53,8 +50,8 @@ namespace C__JavaTypingGame
                 pr.FileReader();
             }
             catch (FileNotFoundException) { MessageBox.Show("問題ファイルが見つかりません"); }
-            catch (IOException) { MessageBox.Show("問題ファイルが見つかりません"); }
-            catch (IndexOutOfRangeException) { MessageBox.Show("問題ファイルが見つかりません"); }
+            catch (IOException) { MessageBox.Show("問題ファイルの読み取りに問題が起きました"); }
+            catch (IndexOutOfRangeException) { MessageBox.Show("問題ファイルの内容に誤りがあります"); }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
@@ -133,7 +130,7 @@ namespace C__JavaTypingGame
             //リストからランダムに問題を取り出す
             String[] line = ProblemFileReader.Problem[random.Next(0, i)];
 
-            //問題文を返す
+            //問題文を整形して返す
             return line[2].Replace("改行", "\n").Replace("\"\"", "\"").Replace(" ", "□").Trim('"'); ;
         }
 
@@ -199,7 +196,6 @@ namespace C__JavaTypingGame
         {
             //各パラメーターの初期化
             ProblemIndex = 0;
-            ProblemRow = 0;
             answerTextBox.Text = "";
             System.Windows.Forms.Application.DoEvents();
 
