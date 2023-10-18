@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
 using System.Linq;
@@ -32,19 +33,6 @@ namespace C__JavaTypingGame
             Debug.WriteLine("コネクション確立");
         }
 
-        /// <summary>
-        ///重複確認
-        /// </summary>
-        /// <param name="name">playerName</param>
-        /// <returns>table内の名前が被っている件数</returns>
-        public int NameCheck(string name)
-        {
-            string sql = "select count(*) from user_table where user_name=@user_name";
-            MySqlCommand mySql = new MySqlCommand(sql, Conn);
-            mySql.Parameters.AddWithValue("@user_name", name);
-            int resultValue= mySql.ExecuteNonQuery();
-            return resultValue;
-        }
 
         /// <summary>
         /// 新規登録メソッド
@@ -62,11 +50,8 @@ namespace C__JavaTypingGame
             Conn.Open();
             MySqlCommand mySql = new MySqlCommand(sql, Conn);
             mySql.Parameters.AddWithValue("user_id", DBNull.Value);
-            //table内にユーザー名がかぶってないか判断
-            if (NameCheck(player.Name)!=0)
-                throw new ArgumentException("このユーザー名は既に使用されています");
 
-            else mySql.Parameters.AddWithValue("@user_name", player.Name);
+            mySql.Parameters.AddWithValue("@user_name", player.Name);
 
             //パスワード文字数判断
             if (MyMethod.IsAlphanumeric(player.Pass))
@@ -90,11 +75,9 @@ namespace C__JavaTypingGame
         }
         public bool PlayerLogin(PlayerDTO player)
         {
+            bool check=false;
             //sql文の用意
-            string sql = "SELECT user_id,user_name,user_password FROM USER_TABLE WHERE user_name=@user_name && user_password=@user_password ;";
-
-
-            MySqlDataAdapter da = null;
+            string sql = "SELECT * FROM USER_TABLE WHERE user_name=@user_name && user_password=@user_password";
             Conn.Open();
 
             //sql文に値を入れる
@@ -102,12 +85,14 @@ namespace C__JavaTypingGame
             com.Parameters.AddWithValue("@user_name", player.Name);
             com.Parameters.AddWithValue("@user_password", player.Pass);
 
-            //プレイヤー名とパスワードの一致を確認
-            da = new MySqlDataAdapter(sql, Conn);
+            MySqlDataReader reader = com.ExecuteReader(); //コマンドの読み取り//
 
-            //一致していればtrue,していなければfalseを返す
-            if (da != null) return true;
-            else return false;
+            while (reader.Read())
+            {
+                check= true;
+            }
+            reader.Close();
+            return check;
         }
 
         public void PlayerEntry(PlayerDTO player)
