@@ -25,7 +25,7 @@ namespace C__JavaTypingGame
         private int ProblemIndex = 0;
 
         //ゲームの制限時間
-        private const int Time = 60;
+        private const int Time = 0;
 
         //ミスカウンター
         public static int MissCounter = 0;

@@ -127,9 +127,10 @@ namespace C__JavaTypingGame
         {
             try
             {
-                string sql = "INSERT INTO typing_game.ranking_table(score_id, user_id, user_name, ranguage, user_score)" +
-                    " VALUES (null, select user_id from user_table where user_name=@user_name, @user_name, @ranguage, @user_score)";
+                string sql = "INSERT INTO ranking_table(score_id, user_id, user_name, ranguage, user_score)" +
+                    " VALUES (null, (select user_id from user_table where user_name=@user_name), @user_name, @ranguage, @user_score)";
 
+                Conn.Open();
                 MySqlCommand com = new MySqlCommand(sql, Conn);
                 com.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
                 com.Parameters.AddWithValue("@ranguage", PlayerDTO.Lang);
@@ -139,7 +140,7 @@ namespace C__JavaTypingGame
                 com.ExecuteNonQuery();
                 transaction.Commit();
             }catch (Exception e) { transaction.Rollback(); MessageBox.Show(e.Message);}
-
+            finally { Conn.Close(); }
         }
         public static bool IsAlphanumeric(string target)
         {
