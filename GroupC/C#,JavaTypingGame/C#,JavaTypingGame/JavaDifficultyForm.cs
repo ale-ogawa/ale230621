@@ -23,6 +23,9 @@ namespace typingGame
 
         private void beginnerButton_Click(object sender, EventArgs e)
         {
+            //Levelの設定
+            PlayerDTO.level = Level.初級;
+
             this.Hide();
             playForm pf = new playForm();
             pf.ShowDialog();
@@ -31,6 +34,9 @@ namespace typingGame
 
         private void intermediateButton_Click(object sender, EventArgs e)
         {
+            //Levelの設定
+            PlayerDTO.level = Level.中級;
+
             this.Hide();
             playForm pf = new playForm();
             pf.ShowDialog();
@@ -39,6 +45,9 @@ namespace typingGame
 
         private void advancedButton_Click(object sender, EventArgs e)
         {
+            //Levelの設定
+            PlayerDTO.level = Level.上級;
+
             this.Hide();
             playForm pf = new playForm();
             pf.ShowDialog();

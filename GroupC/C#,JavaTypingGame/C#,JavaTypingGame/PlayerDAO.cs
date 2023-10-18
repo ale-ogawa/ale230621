@@ -39,15 +39,11 @@ namespace C__JavaTypingGame
         /// <returns>table内の名前が被っている件数</returns>
         public int NameCheck(string name)
         {
-            int returnValue=0;
-            string sql = "SELECT user_name FROM typing_game.user_table WHERE user_name=@user_name";
+            string sql = "select count(*) from user_table where user_name=@user_name";
             MySqlCommand mySql = new MySqlCommand(sql, Conn);
             mySql.Parameters.AddWithValue("@user_name", name);
-            transaction = Conn.BeginTransaction();
-            returnValue = mySql.ExecuteNonQuery();
-            transaction.Commit();
-            return returnValue;
-
+            int resultValue= mySql.ExecuteNonQuery();
+            return resultValue;
         }
 
         /// <summary>
@@ -67,7 +63,7 @@ namespace C__JavaTypingGame
             MySqlCommand mySql = new MySqlCommand(sql, Conn);
             mySql.Parameters.AddWithValue("user_id", DBNull.Value);
             //table内にユーザー名がかぶってないか判断
-            if (NameCheck(player.Name) != -1)
+            if (NameCheck(player.Name)!=0)
                 throw new ArgumentException("このユーザー名は既に使用されています");
 
             else mySql.Parameters.AddWithValue("@user_name", player.Name);

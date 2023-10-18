@@ -120,7 +120,6 @@ namespace C__JavaTypingGame
             //リストからランダムに問題を取り出す
             String[] line = ProblemFileReader.Problem[random.Next(0, i)];
 
-
             //問題文を返す
             return line[2].Replace("改行", "\n").Replace("\"\"", "\"").Trim('"'); ;
         }

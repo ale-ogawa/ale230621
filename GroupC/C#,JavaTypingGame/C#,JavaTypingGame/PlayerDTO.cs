@@ -15,9 +15,9 @@ namespace C__JavaTypingGame
         //パスワード
         public string Pass { get; set; }
         //選択言語
-        public string Lang { get; set; }
+        static public string Lang { get; set; }
         //選択難易度
-        public Level level { get; set; }
+        static public Level level { get; set; }
 
         //コンストラクター
         public PlayerDTO(string name,string pass)

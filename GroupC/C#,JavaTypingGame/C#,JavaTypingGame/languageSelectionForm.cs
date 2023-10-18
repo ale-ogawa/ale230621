@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C__JavaTypingGame;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,9 @@ namespace typingGame
 
         private void CButton_Click(object sender, EventArgs e)
         {
+            //Langに言語を設定
+            PlayerDTO.Lang = "C#";
+
             this.Hide();
             C_DifficultyForm cForm=new C_DifficultyForm();
             cForm.ShowDialog();
@@ -35,6 +39,9 @@ namespace typingGame
  
         private void JavaButton_Click(object sender, EventArgs e)
         {
+            //Langに言語を設定
+            PlayerDTO.Lang = "Java";
+
             this.Hide();
             JavaDifficultyForm javaForm=new JavaDifficultyForm();
             javaForm.ShowDialog();
