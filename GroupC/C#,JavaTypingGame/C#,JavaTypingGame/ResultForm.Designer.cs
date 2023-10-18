@@ -38,6 +38,7 @@
             this.correctTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.langLevelTextBox = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,11 +145,21 @@
             this.label2.Text = "ミスタイプ数";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // langLevelTextBox
+            // 
+            this.langLevelTextBox.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.langLevelTextBox.Location = new System.Drawing.Point(64, 36);
+            this.langLevelTextBox.Name = "langLevelTextBox";
+            this.langLevelTextBox.Size = new System.Drawing.Size(696, 59);
+            this.langLevelTextBox.TabIndex = 5;
+            this.langLevelTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.langLevelTextBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.languageSelectionButton);
             this.Controls.Add(this.retryButton);
@@ -173,5 +184,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TotalScoreTextBox;
         private System.Windows.Forms.TextBox MissTextBox;
+        private System.Windows.Forms.Label langLevelTextBox;
     }
 }

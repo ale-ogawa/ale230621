@@ -36,6 +36,7 @@
             this.answerTextBox = new System.Windows.Forms.TextBox();
             this.startBottun = new System.Windows.Forms.Button();
             this.CountDownTimer = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox
@@ -107,11 +108,23 @@
             this.CountDownTimer.Interval = 1000;
             this.CountDownTimer.Tick += new System.EventHandler(this.CountDown);
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(122, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(302, 23);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "□は半角スペースキーを入力してください";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.UseWaitCursor = true;
+            // 
             // playForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 693);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.startBottun);
             this.Controls.Add(this.answerTextBox);
             this.Controls.Add(this.endBottun);
@@ -137,6 +150,7 @@
         private System.Windows.Forms.TextBox answerTextBox;
         private System.Windows.Forms.Button startBottun;
         private System.Windows.Forms.Timer CountDownTimer;
+        private System.Windows.Forms.Label label1;
     }
 }
 

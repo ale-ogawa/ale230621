@@ -35,6 +35,9 @@ namespace C__JavaTypingGame
             //リザルトの初期化
             playForm.CorrectCouter = 0;
             playForm.MissCounter = 0;
+
+            //選択言語、レベルの表示
+            langLevelTextBox.Text = $"<{PlayerDTO.Lang}>                             <{PlayerDTO.level.ToString()}>";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

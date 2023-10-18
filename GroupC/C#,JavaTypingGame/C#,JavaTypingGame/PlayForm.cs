@@ -134,7 +134,7 @@ namespace C__JavaTypingGame
             String[] line = ProblemFileReader.Problem[random.Next(0, i)];
 
             //問題文を返す
-            return line[2].Replace("改行", "\n").Replace("\"\"", "\"").Trim('"'); ;
+            return line[2].Replace("改行", "\n").Replace("\"\"", "\"").Replace(" ", "□").Trim('"'); ;
         }
 
 
@@ -152,7 +152,7 @@ namespace C__JavaTypingGame
                 {
                     //改行を文字列に含める
                     String[] questions = questionLabel.Text.Split('\n');
-                    string question = String.Join(",", questions);
+                    string question = String.Join(",", questions).Replace("□"," ");
 
                     //ユーザー回答の取り出し
                     String[] answers = answerTextBox.Text.Split('\n');
