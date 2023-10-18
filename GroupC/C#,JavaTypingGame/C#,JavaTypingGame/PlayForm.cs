@@ -47,8 +47,15 @@ namespace C__JavaTypingGame
             answerTextBox.Enabled = false;
 
             //問題の読み込み
-            ProblemFileReader pr = new ProblemFileReader();
-            pr.FileReader();
+            try
+            {
+                ProblemFileReader pr = new ProblemFileReader();
+                pr.FileReader();
+            }
+            catch (FileNotFoundException) { MessageBox.Show("問題ファイルが見つかりません"); }
+            catch (IOException) { MessageBox.Show("問題ファイルが見つかりません"); }
+            catch (IndexOutOfRangeException) { MessageBox.Show("問題ファイルが見つかりません"); }
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
         private void playForm_Load(object sender, EventArgs e) { }
@@ -64,7 +71,8 @@ namespace C__JavaTypingGame
             startBottun.Visible = false;
 
             //ゲーム開始前カウントダウン
-            StartCountDown();
+            try { StartCountDown(); }
+            catch(Exception excep) { MessageBox.Show($"{excep.Message}"); }
 
             //テキストボックスの入力を受付
             answerTextBox.Enabled = true;
@@ -73,14 +81,19 @@ namespace C__JavaTypingGame
             answerTextBox.Focus();
 
             //最初の問題の出題
-            questionLabel.Text = ProblemEntry();
-            System.Windows.Forms.Application.DoEvents();
+            try
+            {
+                questionLabel.Text = ProblemEntry();
+                System.Windows.Forms.Application.DoEvents();
+            }
+            catch (Exception e) { MessageBox.Show($"{e.Message}"); }
 
             //ゲーム制限時間のカウントダウン開始
             CountDownTimer = new System.Windows.Forms.Timer();
             CountDownTimer.Tick += new EventHandler(CountDown);
             CountDownTimer.Interval = 1000;
-            CountDownTimer.Start();
+            try{CountDownTimer.Start();}
+            catch(Exception ex) { MessageBox.Show($"{ex.Message}"); }
         }
 
         /// <summary>
@@ -132,46 +145,51 @@ namespace C__JavaTypingGame
         /// <param name="e"></param>
         private void answerTextBox_TextChanged(object sender, EventArgs e)
         {
-            //テキストボックスに文字が入力され配列の参照範囲内であれば判定処理に進む
-            if (ProblemIndex < questionLabel.Text.Length && answerTextBox.Text.Length >= ProblemIndex + 1)
+            try 
             {
-                //改行を文字列に含める
-                String[] questions = questionLabel.Text.Split('\n');
-                string question = String.Join(",", questions);
-
-                //ユーザー回答の取り出し
-                String[] answers = answerTextBox.Text.Split('\n');
-                string ans=String.Join(",", answers);
-                //正解時の処理
-                if (ans[ans.Length-1] == question[ProblemIndex])
+                //テキストボックスに文字が入力され配列の参照範囲内であれば判定処理に進む
+                if (ProblemIndex < questionLabel.Text.Length && answerTextBox.Text.Length >= ProblemIndex + 1)
                 {
-                    //照合文字を一文字進める
-                    ProblemIndex++;
+                    //改行を文字列に含める
+                    String[] questions = questionLabel.Text.Split('\n');
+                    string question = String.Join(",", questions);
+
+                    //ユーザー回答の取り出し
+                    String[] answers = answerTextBox.Text.Split('\n');
+                    string ans = String.Join(",", answers);
+                    //正解時の処理
+                    if (ans[ans.Length - 1] == question[ProblemIndex])
+                    {
+                        //照合文字を一文字進める
+                        ProblemIndex++;
+                    }
+
+                    //不正解処理
+                    else
+                    {
+                        //間違えた文字を削除
+                        answerTextBox.Text = answerTextBox.Text.Remove(ProblemIndex);
+
+                        //カーソル位置を最後尾へ移動
+                        answerTextBox.SelectionStart = answerTextBox.Text.Length;
+
+                        //UIを更新
+                        System.Windows.Forms.Application.DoEvents();
+
+                        //ミスカウントアップ
+                        MissCounter++;
+                    }
+
+                    //全ての文字が正しく入力された時の処理
+                    if (ProblemIndex == question.Length)
+                    {
+                        //正解後の事後処理
+                        CorrectProcess();
+                    }
                 }
-
-                //不正解処理
-                else
-                {
-                    //間違えた文字を削除
-                    answerTextBox.Text = answerTextBox.Text.Remove(ProblemIndex);
-
-                    //カーソル位置を最後尾へ移動
-                    answerTextBox.SelectionStart = answerTextBox.Text.Length;
-
-                    //UIを更新
-                    System.Windows.Forms.Application.DoEvents();
-
-                    //ミスカウントアップ
-                    MissCounter++;
-                }
-
-                //全ての文字が正しく入力された時の処理
-                if (ProblemIndex == question.Length)
-                {
-                    //正解後の事後処理
-                    CorrectProcess();
-                }
+                
             }
+            catch (Exception exc) { MessageBox.Show($"{exc.Message}"); }
         }
 
         /// <summary>
