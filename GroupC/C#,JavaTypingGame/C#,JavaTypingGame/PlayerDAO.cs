@@ -51,13 +51,13 @@ namespace C__JavaTypingGame
             MySqlCommand mySql = new MySqlCommand(sql, Conn);
             mySql.Parameters.AddWithValue("user_id", DBNull.Value);
 
-            mySql.Parameters.AddWithValue("@user_name", player.Name);
+            mySql.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
 
             //パスワード文字数判断
-            if (MyMethod.IsAlphanumeric(player.Pass))
+            if (MyMethod.IsAlphanumeric(PlayerDTO.Pass))
             {
-                if (player.Pass.Length >= 4 && player.Pass.Length <= 10)
-                    mySql.Parameters.AddWithValue("@user_password", player.Pass);
+                if (PlayerDTO.Pass.Length >= 4 && PlayerDTO.Pass.Length <= 10)
+                    mySql.Parameters.AddWithValue("@user_password", PlayerDTO.Pass);
                 else throw new ArgumentException("パスワードは4文字以上10文字以下の文字数で設定してください");
             }
             else { throw new ArgumentException("パスワードに英数字以外が入力されています"); }
@@ -82,8 +82,8 @@ namespace C__JavaTypingGame
 
             //sql文に値を入れる
             MySqlCommand com = new MySqlCommand(sql, Conn);
-            com.Parameters.AddWithValue("@user_name", player.Name);
-            com.Parameters.AddWithValue("@user_password", player.Pass);
+            com.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
+            com.Parameters.AddWithValue("@user_password", PlayerDTO.Pass);
 
             MySqlDataReader reader = com.ExecuteReader(); //コマンドの読み取り//
 
@@ -107,8 +107,8 @@ namespace C__JavaTypingGame
 
                 //sql文に値を入れる
                 MySqlCommand com = new MySqlCommand(sql, Conn);
-                com.Parameters.AddWithValue("@user_name", player.Name);
-                com.Parameters.AddWithValue("@user_password", player.Pass);
+                com.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
+                com.Parameters.AddWithValue("@user_password", PlayerDTO.Pass);
 
                 //トランザクションの開始
                 trn = Conn.BeginTransaction();
@@ -125,6 +125,20 @@ namespace C__JavaTypingGame
 
         public void Runking()
         {
+            try
+            {
+                string sql = "INSERT INTO typing_game.ranking_table(score_id, user_id, user_name, ranguage, user_score)" +
+                    " VALUES (null, select user_id from user_table where user_name=@user_name, @user_name, @ranguage, @user_score)";
+
+                MySqlCommand com = new MySqlCommand(sql, Conn);
+                com.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
+                com.Parameters.AddWithValue("@ranguage", PlayerDTO.Lang);
+                com.Parameters.AddWithValue("@user_score", PlayerDTO.score);
+
+                transaction = Conn.BeginTransaction();
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }catch (Exception e) { transaction.Rollback(); MessageBox.Show(e.Message);}
 
         }
 

@@ -22,15 +22,19 @@ namespace C__JavaTypingGame
             //Rateの設定
             switch (PlayerDTO.level)
             {
-                case Level.初級:Rate = 1; break;
+                case Level.初級: Rate = 1; break;
                 case Level.中級: Rate = 2; break;
                 case Level.上級: Rate = 3; break;
             }
 
             //リザルトの表示
-            correctTextBox.Text = (playForm.CorrectCouter.ToString())+"回";
+            correctTextBox.Text = (playForm.CorrectCouter.ToString()) + "回";
             MissTextBox.Text = (playForm.MissCounter.ToString()) + "回";
-            TotalScoreTextBox.Text=((playForm.CorrectCouter-playForm.MissCounter)>0)? ((playForm.CorrectCouter - playForm.MissCounter)*Rate).ToString():"0";
+            PlayerDTO.score = ((playForm.CorrectCouter - playForm.MissCounter) > 0) ? ((playForm.CorrectCouter - playForm.MissCounter) * Rate) : 0;
+            TotalScoreTextBox.Text = PlayerDTO.score.ToString();
+            //得点をランキングテーブルに保存
+            PlayerDAO playerDAO = new PlayerDAO();
+            playerDAO.Runking();
 
             //リザルトの初期化
             playForm.CorrectCouter = 0;
@@ -47,7 +51,7 @@ namespace C__JavaTypingGame
 
         private void retryButton_Click(object sender, EventArgs e)
         {
-            playForm play=new playForm();
+            playForm play = new playForm();
             this.Hide();
             play.ShowDialog();
             this.Close();
@@ -56,7 +60,7 @@ namespace C__JavaTypingGame
 
         private void ResultForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void languageSelectionButton_Click(object sender, EventArgs e)

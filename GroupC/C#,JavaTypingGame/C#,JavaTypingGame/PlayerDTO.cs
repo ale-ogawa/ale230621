@@ -9,15 +9,17 @@ namespace C__JavaTypingGame
     internal class PlayerDTO
     {
         //プレイヤーID
-        public int Id { get; set; }
+       static public int Id { get; set; }
         //プレイヤー名
-        public string Name { get; set; }
+       static public string Name { get; set; }
         //パスワード
-        public string Pass { get; set; }
+       static public string Pass { get; set; }
         //選択言語
         static public string Lang { get; set; }
         //選択難易度
         static public Level level { get; set; }
+        //得点
+        static public int score { set; get; }
 
         //コンストラクター
         public PlayerDTO(string name,string pass)
