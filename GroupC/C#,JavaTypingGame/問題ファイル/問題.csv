@@ -1,0 +1,319 @@
+C#,初級,abstract
+C#,初級,as
+C#,初級,async
+C#,初級,await
+C#,初級,base
+C#,初級,bool
+C#,初級,break
+C#,初級,byte
+C#,初級,case
+C#,初級,catch
+C#,初級,char
+C#,初級,checked
+C#,初級,class
+C#,初級,const
+C#,初級,continue
+C#,初級,decimal
+C#,初級,default
+C#,初級,delegate
+C#,初級,do
+C#,初級,double
+C#,初級,else
+C#,初級,enum
+C#,初級,event
+C#,初級,explicit
+C#,初級,extern
+C#,初級,FALSE
+C#,初級,TRUE
+C#,初級,finally
+C#,初級,fixed
+C#,初級,float
+C#,初級,for
+C#,初級,foreach
+C#,初級,goto
+C#,初級,if
+C#,初級,implicit
+C#,初級,in
+C#,初級,int
+C#,初級,interface
+C#,初級,internal
+C#,初級,is
+C#,初級,lock
+C#,初級,long
+C#,初級,namespace
+C#,初級,new
+C#,初級,null
+C#,初級,object
+C#,初級,operator
+C#,初級,out
+C#,初級,override
+C#,初級,params
+C#,初級,private
+C#,初級,protected
+C#,初級,public
+C#,初級,readonly
+C#,初級,ref
+C#,初級,return
+C#,初級,sbyte
+C#,初級,sealed
+C#,初級,short
+C#,初級,sizeof
+C#,初級,stackalloc
+C#,初級,static
+C#,初級,string
+C#,初級,struct
+C#,初級,switch
+C#,初級,this
+C#,初級,throw
+C#,初級,try
+C#,初級,typeof
+C#,初級,uint
+C#,初級,ulong
+C#,初級,unchecked
+C#,初級,unsafe
+C#,初級,ushort
+C#,初級,using
+C#,初級,virtual
+C#,初級,volatile
+C#,初級,void
+C#,初級,while
+C#,初級,add
+C#,初級,dynamic
+C#,初級,get
+C#,初級,partial
+C#,初級,remove
+C#,初級,set
+C#,初級,value
+C#,初級,var
+C#,初級,where
+C#,初級,yield
+C#,初級,when
+C#,中級,using System;
+C#,中級,namespace MySample{}
+C#,中級,class Program{}
+C#,中級,static void Main(string[] args){}
+C#,中級,"Console.WriteLine(""Hello"");"
+C#,中級,Console.ReadLine();
+C#,中級,Console.ReadKey();
+C#,中級,int num=100;
+C#,中級,int num=-100;
+C#,中級,var num=100;
+C#,中級,var num=-100;
+C#,中級,double num= -10.0;
+C#,中級,double num= 10.0;
+C#,中級,var num=10.0;
+C#,中級,var num=-10.0;
+C#,中級,decimal num=3.28m;
+C#,中級,var average=(a+b)/2;
+C#,中級,var x=+100;
+C#,中級,var y=-5;
+C#,中級,var a=+(x+y);
+C#,中級,var b=-(x+y);
+C#,中級,"Console.WriteLine(""a={0},b={1}"",a,b);"
+C#,中級,var num=3.28m;
+C#,中級,"var emptyString = """";"
+C#,中級,"string str=""abc"";"
+C#,中級,char alphabet='A';
+C#,中級,char alphabet='B';
+C#,中級,char alphabet='C';
+C#,中級,char symbol = '*';
+C#,中級,var numbers=new int[5];
+C#,中級,"var numbers=new int[]{4,3,2,1,0};"
+C#,中級,"int[]numbers={4,3,2,1,0};"
+C#,中級,DateTime date = new DateTime();
+C#,中級,int min = int.MaxValue;
+C#,中級,int max = int.MinValue;
+C#,中級,var score=(int)13.2;
+C#,中級,var score=(double)13;
+C#,中級,var discount=(int)(number)*0.1;
+C#,中級,var num = int.Parse(Console.ReadLine());
+C#,中級,var sum = double.Parse(Console.ReadLine());
+C#,中級,public string String { get; set; }
+C#,中級,public int Int { get; set; }
+C#,中級,internal class Class{}
+C#,中級,static void Method(){}
+C#,中級,class C:B{}
+C#,中級,class:I{}
+C#,中級,var class=new Class();
+C#,中級,Class class=new Class();
+C#,中級,public void Print(){}
+C#,中級,class.Print();
+C#,中級,base.method()
+C#,中級,for(;;)
+C#,中級,while (true)
+C#,中級,!a
+C#,中級,a<5
+C#,中級,a>5
+C#,中級,a<=5
+C#,中級,a>=5
+C#,中級,a==5
+C#,中級,a!=5
+C#,中級,a==1&&b==1
+C#,中級,a==1||b==1
+C#,中級,num%3==0||num%5==0
+C#,上級,"foreach (var item in array2dd){改行Console.WriteLine(""{0}"", item);改行}"
+C#,上級,"if(month>=1 && month <=12){改行Console.WriteLine(""1以上、12以下の数値です"");改行}"
+C#,上級,"if(isLeapYear) {改行Console.WriteLine(""うるう年です"");改行}"
+C#,上級,"catch(System.DivideByZeroException){改行Console.WriteLine(""ゼロは入力できません"");改行}"
+C#,上級,"catch(System.FormatException){改行Console.WriteLine(""数値を結合してください"");改行}"
+C#,上級,"catch(System.IndexOutOfRangeExeption){改行Console.WriteLine(""インデックスが有効範囲外です"");改行}"
+C#,上級,"catch(System.IO.FileNoteFoundException){改行Console.WriteLine(""ファイルが存在しません"");"改行
+C#,上級,"catch(System.IO.DirectoryNotFoundException){改行Console.WriteLine(""ディレクトリが存在しません"");改行}"
+C#,上級,"if(1<=n && n<= 12){改行Console.WriteLine(""1以上12以下の数値です"");改行}"
+C#,上級," foreach(var x in aaa){改行total += x;改行}"
+C#,上級," switch(value){改行case 1:Console.WriteLine(""case1"");改行break;改行case 2:改行Console.WriteLine(""case2"");改行break;改行case 3:改行Console.WriteLine(""case3"");改行break;
+C#,上級,"while (true){改行var line = Console.ReadLine();改行if (int.TryParse(line, out boxSize)){改行break;改行}改行else{改行Console.WriteLine(""整数を入力してください"");改行}"
+C#,上級,"Random rnd = new Random();改行var aaa = rnd.Next(0, 10);改行var array2d = new int[3, 3]{改行{45,1,2},改行{3,-8,5},改行{91,7,92},改行};"
+C#,上級,"for (int i = n; i > 0; i--){改行for (int j = 0; j < i; j++)改行{改行Console.Write(""●"");改行}改行Console.WriteLine();改行}"
+C#,上級," for (var col = 0; col < array2d.GetLength(1); col++){改行Console.Write(""{0}"", array2d[row,col]);改行}"
+C#,上級,"var lists = new List<string>();改行lists.Add(""おはよう"");改行lists.Add(""こんにちは"");改行lists.Add(""こんばんは"");"
+C#,上級," int n = 4;改行for (int i = 0; i < n; i++){改行for (int j = 0; j < n; j++){改行if (i > j){改行Console.Write("" "");改行}改行else{改行Console.Write(""●"");改行}改行}改行Console.WriteLine();改行}"
+C#,上級,"if (a >= b && a >= c) {改行Console.WriteLine(""最大値 : "" + a);改行} else if (b >= a && b >= c){改行Console.WriteLine(""最大値 : "" + b);改行}改行else {改行Console.WriteLine(""最大値 : "" + c);改行}"
+C#,上級,"string[] weekDays = { ""Sun"", ""Mon"", ""Tue"", ""Wed"", ""Thu"", ""Fri"", ""Sat"" };"
+C#,上級,"double[]numbers={55.1,54.8,54.5,58.4}"
+C#,上級,(year%4==0&&year%100!=0)||year%400==0
+C#,上級,"var person = new Person {改行FirstName = ""はるか"",改行LastName = ""佐々木"",改行Email = ""hsasaki@example.com""改行};改行person.Print();"
+C#,上級,"class Book {改行public string Title { get; set; }改行public string Author { get; set; }改行public int Pages { get; set; }改行public int Rating { get; set; }改行public Book(string title, string author, int pages, int rating) {改行Title = title;改行Author = author;改行Pages = pages;改行Rating = rating;改行}"
+C#,上級,"if (-12 < time && time < 12){改行DateTime newDt = dt.AddHours(time);改行Hour = newDt.Hour;改行Minute = newDt.Minute;改行Second = newDt.Second;改行}else{改行Console.WriteLine($""時刻が表示できません。"");改行return;改行}"
+C#,上級,"Counter counter = new Counter();改行Task[] tasks = new Task[3];改行for (int i = 0; i < 3; i++) {改行tasks[i] = Task.Run(() => {改行for (int j = 0; j < 1000; j++) {改行counter.Increment();改行}改行});改行}改行await Task.WhenAll(tasks);改行Console.WriteLine(""Final Count: "" + counter.GetCount());改行}"
+Java,初級,abstract
+Java,初級,case
+Java,初級,continue
+Java,初級,enum
+Java,初級,for
+Java,初級,instanseof
+Java,初級,new
+Java,初級,return
+Java,初級,switch
+Java,初級,transient
+Java,初級,assert
+Java,初級,catch
+Java,初級,default
+Java,初級,extends
+Java,初級,goto
+Java,初級,int
+Java,初級,package
+Java,初級,short
+Java,初級,synchronized
+Java,初級,try
+Java,初級,boolean
+Java,初級,char
+Java,初級,do
+Java,初級,final
+Java,初級,if
+Java,初級,interface
+Java,初級,private
+Java,初級,static
+Java,初級,this
+Java,初級,void
+Java,初級,break
+Java,初級,class
+Java,初級,double
+Java,初級,finally
+Java,初級,implements
+Java,初級,long
+Java,初級,protected
+Java,初級,strictfp
+Java,初級,throw
+Java,初級,volatile
+Java,初級,byte
+Java,初級,const
+Java,初級,else
+Java,初級,float
+Java,初級,import
+Java,初級,native
+Java,初級,public
+Java,初級,super
+Java,初級,throws
+Java,初級,while
+Java,初級,transient
+Java,初級,TRUE
+Java,初級,FALSE
+Java,初級,null
+Java,初級,Integer
+Java,初級,String
+Java,初級,Long
+Java,初級,Float
+Java,初級,Double
+Java,初級,Short
+Java,初級,Character
+Java,初級,Byte
+Java,初級,Boolean
+Java,初級,HashMap
+Java,初級,put
+Java,初級,clear
+Java,初級,remove
+Java,初級,get
+Java,初級,size
+Java,初級,@Override
+Java,中級,import java.lang.System;
+Java,中級,class Example {}
+Java,中級,public static void main(String[] args){}
+Java,中級,"System.out.println(""Hello"")"
+Java,中級,"System.out.println(""\""C#\""\""Java\""タイピングゲーム"");"
+Java,中級,int number=10;
+Java,中級,class C extendsB{}
+Java,中級,class C implements I{}
+Java,中級,super.method()
+Java,中級,int[] numbers=new int[5];
+Java,中級,"int[]numbers=new int[]{4,3,2,1,0};"
+Java,中級,"int[]numbers={4,3,2,1,0};"
+Java,中級,int[][]array=new int[2][3]
+Java,中級,"int[][]array=new int[][]{{1,2,3},{11,12,13}};"
+Java,中級,"int[][]array={{1,2,3},{11,12,13}};"
+Java,中級,ArrayList<String> list=new ArrayList<String>();
+Java,中級,class Point implements Comparable
+Java,中級,System.out.println(2 + 3);
+Java,中級,System.out.println(3 + 6 / 3); 
+Java,中級,System.out.println((3 + 6) /3);
+Java,中級,"String str=""abc"";"
+Java,中級,"HashMap<Integer,String> x = new HashMap<Integer,String>();"
+Java,中級,a<5
+Java,中級,a>5
+Java,中級,a<=5
+Java,中級,a>=5
+Java,中級,a==5
+Java,中級,a!=5
+Java,中級,a==1&&b==1
+Java,中級,a==1||b==1
+Java,中級,num%3==0||num%5==0
+Java,中級,char alphabet='A';
+Java,中級,char alphabet='B';
+Java,中級,char alphabet='C';
+Java,中級,char symbol = '*';
+Java,中級,final class Oya{}
+Java,上級,"classOya{改行final void FuncA(){}改行}"
+Java,上級,"if(age < 4){改行System.out.println(""入場料は無料です"");改行 }"
+Java,上級,"else if(age < 13){改行System.out.println(""子供料金で入場できます"");改行}"
+Java,上級,"else{改行System.out.println(""大人料金が必要です"");改行}"
+Java,上級,"for(int n = 0; n < 5; n++) {改行System.out.println(""こんにちは"");改行}"
+Java,上級,"abstract class AbstractPowerPlant implements EnergySupply{改行double capacity;改行public AbstractPowerPlant(double capacity) {改行this.capacity=capacity;改行}改行public void disp() {改行System.out.print(temp()+unit);改行}改行public abstract double temp();改行}"
+Java,上級,"class SolarPower extends AbstractPowerPlant {改行public SolarPower(double capacity) {改行super(capacity);改行}改行public double temp() {改行return(capacity*0.15);改行}改行}"
+Java,上級,"class Item {改行String code;改行public Item(String code) {改行this.code = code;改行}改行public String getCode() {改行return code;改行}改行}"
+Java,上級,"Item items[]= {new Item(""A100""),new Item(""B202"")};改行for(Item item:items) {改行System.out.println(item.getCode());改行}"
+Java,上級,"class NumberHolder{改行int number;改行void setNUmber(int number) {改行this.number=number;改行}改行}"
+Java,上級,"public class Q17{改行public static void main(String[]args) {改行NumberHolder n=new NumberHolder();改行n.setNUmber(123);改行}改行}"
+Java,上級,"class Code{改行int code;改行Code(){改行this.code=1;改行}改行}改行class ExcessCode extends Code{改行public int getCode() {改行return code+64;改行}改行}"
+Java,上級,"public class Q27{改行public static void main(String[]args) {改行int a=0x10;改行int b=0x08;改行System.out.println(a|b);改行}改行}"
+Java,上級,"import java.util.ArrayList;改行class Vehicle{}改行class Car extends Vehicle{}改行public class Q18{改行public static void main(String[]args) {改行ArrayList<Vehicle> list=new ArrayList<Vehicle>();改行list.add(new Car());改行}改行}"
+Java,上級,"boolean b=false;改行if(b=true) {改行System.out.println(""True"");改行}else {改行System.out.println(""False"");改行}
+Java,上級,"class Shape{}改行class Circle extends Shape{}改行Circle c=new Circle();改行if(c instanceof Shape) {改行System.out.print(""C is Shape"");改行}else if(c instanceof Circle) {改行System.out.print(""C is Circle"");改行}
+Java,上級,"Set<String>seasons=new TreeSet<String>();改行seasons.add(""Spring"");改行seasons.add(""Fall"");改行seasons.add(""Fall"");改行for(String s:seasons)改行System.out.print(s+"""");改行"
+Java,上級,"public class Q28{改行public static void main(String[]args) {改行double[] numbers= {1.2,3.0,5.5};改行for(Double n:numbers) {改行System.out.println(""[""+n+""]"");改行}改行}改行}"
+Java,上級,"enum Status{改行IDLE,RUN;改行public String toString() {改行return ""Status:""+name();改行}改行}"
+Java,上級,"public class Q28{改行public static void main(String[]args) {改行Status status;改行status=Status.IDLE;改行System.out.println(status);改行}改行}
+Java,上級,"interface widget{}改行class TextBox implements widget{}改行class MultiLineTextBox extends TextBox{}"改行
+Java,上級,"Set<String> name=new TreeSet<String>();改行names.add(""Taro"");改行names.add(""Jiro"");改行names.add(""Goro"");改行for(String name:names) {改行System.out.print(name+"""");改行}
+Java,上級,"class Drawable{}改行class DrawableLine extends Drawable{}改行public class Q19{改行public static void main(String[]args) {改行ArrayList<Drawable>list=new ArrayList<Drawable>();改行list.add(new DrawableLine());改行}改行}"
+Java,上級,"int value;改行try {改行System.out.print(""Try"");改行}catch(Exception e) {改行System.out.print(""Catch"");改行}finally {改行System.out.print(""Finally"");改行}改行"
+Java,上級,"class SomeException extends Exception{}改行int value;改行try {改行Exception ex=new SomeException();改行throw ex;改行}catch(SomeException e) {改行System.out.println(""SomeException occured"");改行}catch(Exception e) {改行System.out.println(""Exception occured"");改行}
+Java,上級,"String[][]mambers= {改行{""Alan"",""Bert""},改行{""Carl""},改行};改行System.out.println(mambers[1].length);
+Java,上級,"Set<String>codeSet=new HashSet<String>();改行codeSet.add(""X201"");改行codeSet.add(""X201"");改行codeSet.add(""X101"");改行System.out.println(codeSet);
+Java,上級,"class Furniture{改行String name;改行Furniture(String name){改行this.name=name;改行}改行}
+Java,上級,"class Chair extends Furniture{改行String color;改行Chair(String color,String name){改行super(name);改行this.color=color;改行}改行}
+Java,上級,"enum Condition{改行LOAD,MUD;改行public String getShowName() {改行return ""Condition:""+name();改行}改行}
+Java,上級,"int[][]t= {{1,2},{3,4},{5}};改行for(int[]a:t) {改行for(int n:a) {改行System.out.print(n+"","");改行}改行}
+Java,上級,"public class Q4{改行public static void main(String[]args) {改行int x=0x1a;改行int y=0x15;改行System.out.println(x^y);改行}改行}
+Java,上級,"interface Bow{}改行class Animal implements Bow{}改行class Dog extends Animal{}"
+Java,上級,"abstract class Item implements PrefixItem{改行protected String code;改行public Item() {改行code=""none"";改行}改行}"
+Java,上級,"class Area{改行String owner;改行public Area(String owner) {改行this.owner=owner;改行}改行public String toString() {改行return owner;改行}改行}"

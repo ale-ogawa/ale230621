@@ -54,7 +54,7 @@ namespace C__JavaTypingGame
             mySql.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
 
             //パスワード文字数判断
-            if (MyMethod.IsAlphanumeric(PlayerDTO.Pass))
+            if (IsAlphanumeric(PlayerDTO.Pass))
             {
                 if (PlayerDTO.Pass.Length >= 4 && PlayerDTO.Pass.Length <= 10)
                     mySql.Parameters.AddWithValue("@user_password", PlayerDTO.Pass);
@@ -140,6 +140,10 @@ namespace C__JavaTypingGame
                 transaction.Commit();
             }catch (Exception e) { transaction.Rollback(); MessageBox.Show(e.Message);}
 
+        }
+        public static bool IsAlphanumeric(string target)
+        {
+            return new Regex("^[0-9a-zA-Z]+$").IsMatch(target);
         }
 
     }
