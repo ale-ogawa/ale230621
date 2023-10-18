@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using typingGame;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -68,6 +69,7 @@ namespace C__JavaTypingGame
             //テキストボックスの入力を受付
             answerTextBox.Enabled = true;
             answerTextBox.Multiline = true;
+            answerTextBox.WordWrap = false;
             answerTextBox.Focus();
 
             //最初の問題の出題
@@ -116,8 +118,8 @@ namespace C__JavaTypingGame
             int i = ProblemFileReader.Problem.Count;
 
             //リストからランダムに問題を取り出す
-            //String[] line = ProblemFileReader.Problem[random.Next(0, i)];
-            string[] line = ProblemFileReader.Problem[156];
+            String[] line = ProblemFileReader.Problem[random.Next(0, i)];
+
 
             //問題文を返す
             return line[2].Replace("改行", "\n").Replace("\"\"", "\"").Trim('"'); ;
@@ -131,91 +133,46 @@ namespace C__JavaTypingGame
         /// <param name="e"></param>
         private void answerTextBox_TextChanged(object sender, EventArgs e)
         {
-            //行数の取得
-            int count = questionLabel.Text.Split('\n').Length;
-
             //テキストボックスに文字が入力され配列の参照範囲内であれば判定処理に進む
             if (ProblemIndex < questionLabel.Text.Length && answerTextBox.Text.Length >= ProblemIndex + 1)
             {
-                //1行の問題の処理
-                if (count == 1)
+                //改行を文字列に含める
+                String[] questions = questionLabel.Text.Split('\n');
+                string question = String.Join(",", questions);
+
+                //ユーザー回答の取り出し
+                String[] answers = answerTextBox.Text.Split('\n');
+                string ans=String.Join(",", answers);
+                //正解時の処理
+                if (ans[ans.Length-1] == question[ProblemIndex])
                 {
-                    //正解時の処理
-                    if (answerTextBox.Text[ProblemIndex] == questionLabel.Text[ProblemIndex])
-                    {
-                        //照合文字を一文字進める
-                        ProblemIndex++;
-                    }
-                    //不正解処理
-                    else
-                    {
-                        //間違えた文字を削除
-                        answerTextBox.Text = answerTextBox.Text.Remove(ProblemIndex);
-
-                        //カーソル位置を最後尾へ移動
-                        answerTextBox.SelectionStart = answerTextBox.Text.Length;
-
-                        //UIを更新
-                        System.Windows.Forms.Application.DoEvents();
-
-                        //ミスカウントアップ
-                        MissCounter++;
-                    }
-
-                    //全ての文字が正しく入力されたか確認
-                    if (ProblemIndex == questionLabel.Text.Length)
-                    {
-                        //正解後の事後処理
-                        CorrectProcess();
-                    }
+                    //照合文字を一文字進める
+                    ProblemIndex++;
                 }
 
-                //複数行問題の処理
-                //問題文を行毎に取り出し照合する
-                else 
+                //不正解処理
+                else
                 {
-                    string[] rows=questionLabel.Text.Split('\n');
-                    char c = char.Parse(rows[ProblemRow].Substring(ProblemIndex, ProblemIndex));
-                    //正解時の処理
-                    if (c== questionLabel.Text[ProblemIndex])
-                    {
-                        //照合文字を一文字進める
-                        ProblemIndex++;
-                    }
+                    //間違えた文字を削除
+                    answerTextBox.Text = answerTextBox.Text.Remove(ProblemIndex);
 
-                    //不正解処理
-                    else
-                    {
-                        //間違えた文字を削除
-                        answerTextBox.Text = answerTextBox.Text.Remove(ProblemIndex);
+                    //カーソル位置を最後尾へ移動
+                    answerTextBox.SelectionStart = answerTextBox.Text.Length;
 
-                        //カーソル位置を最後尾へ移動
-                        answerTextBox.SelectionStart = answerTextBox.Text.Length;
+                    //UIを更新
+                    System.Windows.Forms.Application.DoEvents();
 
-                        //UIを更新
-                        System.Windows.Forms.Application.DoEvents();
+                    //ミスカウントアップ
+                    MissCounter++;
+                }
 
-                        //ミスカウントアップ
-                        MissCounter++;
-                    }
-                    //全ての文字が正しく入力されたか確認
-                    if (ProblemIndex == questionLabel.Text.Length&&ProblemRow==count)
-                    {
-                        //正解後の事後処理
-                        CorrectProcess();
-                    }
-                    else if(ProblemIndex == questionLabel.Text.Length)
-                    {
-                        //照合行を1行進める
-                        ProblemRow++;
-                        answerTextBox.Text+="\n";
-                        System.Windows.Forms.Application.DoEvents();
-
-                    }
-
+                //全ての文字が正しく入力された時の処理
+                if (ProblemIndex == question.Length)
+                {
+                    //正解後の事後処理
+                    CorrectProcess();
                 }
             }
-
         }
 
         /// <summary>
@@ -225,6 +182,7 @@ namespace C__JavaTypingGame
         {
             //各パラメーターの初期化
             ProblemIndex = 0;
+            ProblemRow = 0;
             answerTextBox.Text = "";
             System.Windows.Forms.Application.DoEvents();
 
@@ -260,9 +218,11 @@ namespace C__JavaTypingGame
 
                 //リザルト画面への遷移
                 ResultForm result = new ResultForm();
-                result.Show();
                 this.Hide();
+                result.ShowDialog();
+                this.Close();
             }
+
             //カウントゼロ以上の処理
             else if (duration > 0)
             {
@@ -272,15 +232,17 @@ namespace C__JavaTypingGame
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            デバッグ d = new デバッグ();
-            d.Show();
-        }
-
         private void questionLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void endBottun_Click(object sender, EventArgs e)
+        {
+            languageSelectionForm lang = new languageSelectionForm();
+            this.Hide();
+            lang.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using typingGame;
 
 namespace C__JavaTypingGame
 {
@@ -35,14 +36,31 @@ namespace C__JavaTypingGame
         private void retryButton_Click(object sender, EventArgs e)
         {
             playForm play=new playForm();
-            play.Show();
             this.Hide();
+            play.ShowDialog();
+            this.Close();
 
         }
 
         private void ResultForm_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void languageSelectionButton_Click(object sender, EventArgs e)
+        {
+            languageSelectionForm lang = new languageSelectionForm();
+            this.Hide();
+            lang.ShowDialog();
+            this.Close();
+        }
+
+        private void runkingButton_Click(object sender, EventArgs e)
+        {
+            runkingForm runk = new runkingForm();
+            this.Hide();
+            runk.ShowDialog();
+            this.Close();
         }
     }
 }

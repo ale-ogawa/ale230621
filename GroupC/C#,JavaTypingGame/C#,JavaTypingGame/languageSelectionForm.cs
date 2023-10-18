@@ -16,11 +16,6 @@ namespace typingGame
         {
             InitializeComponent();
         }
-        private void CButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void titleButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -29,9 +24,21 @@ namespace typingGame
             this.Close();
         }
 
+        private void CButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            C_DifficultyForm cForm=new C_DifficultyForm();
+            cForm.ShowDialog();
+            this.Close();
+        }
+
+ 
         private void JavaButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            JavaDifficultyForm javaForm=new JavaDifficultyForm();
+            javaForm.ShowDialog();
+            this.Close();
         }
 
         private void runkingButton_Click(object sender, EventArgs e)

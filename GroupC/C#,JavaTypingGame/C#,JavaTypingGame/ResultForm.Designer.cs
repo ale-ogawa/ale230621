@@ -33,11 +33,11 @@
             this.languageSelectionButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.correctTextBox = new System.Windows.Forms.TextBox();
-            this.MissTextBox = new System.Windows.Forms.TextBox();
             this.TotalScoreTextBox = new System.Windows.Forms.TextBox();
+            this.MissTextBox = new System.Windows.Forms.TextBox();
+            this.correctTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@
             this.runkingButton.TabIndex = 0;
             this.runkingButton.Text = "ランキングを表示";
             this.runkingButton.UseVisualStyleBackColor = true;
+            this.runkingButton.Click += new System.EventHandler(this.runkingButton_Click);
             // 
             // retryButton
             // 
@@ -68,6 +69,7 @@
             this.languageSelectionButton.TabIndex = 2;
             this.languageSelectionButton.Text = "メニューに戻る";
             this.languageSelectionButton.UseVisualStyleBackColor = true;
+            this.languageSelectionButton.Click += new System.EventHandler(this.languageSelectionButton_Click);
             // 
             // label1
             // 
@@ -95,16 +97,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "リザルト";
             // 
-            // label2
+            // TotalScoreTextBox
             // 
-            this.label2.BackColor = System.Drawing.SystemColors.Window;
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(60, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 34);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "ミスタイプ数";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TotalScoreTextBox.Enabled = false;
+            this.TotalScoreTextBox.Location = new System.Drawing.Point(230, 210);
+            this.TotalScoreTextBox.Name = "TotalScoreTextBox";
+            this.TotalScoreTextBox.Size = new System.Drawing.Size(100, 19);
+            this.TotalScoreTextBox.TabIndex = 8;
+            // 
+            // MissTextBox
+            // 
+            this.MissTextBox.Enabled = false;
+            this.MissTextBox.Location = new System.Drawing.Point(230, 135);
+            this.MissTextBox.Name = "MissTextBox";
+            this.MissTextBox.Size = new System.Drawing.Size(100, 19);
+            this.MissTextBox.TabIndex = 7;
+            // 
+            // correctTextBox
+            // 
+            this.correctTextBox.Enabled = false;
+            this.correctTextBox.Location = new System.Drawing.Point(230, 57);
+            this.correctTextBox.Name = "correctTextBox";
+            this.correctTextBox.Size = new System.Drawing.Size(100, 19);
+            this.correctTextBox.TabIndex = 6;
+            this.correctTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
@@ -117,30 +133,16 @@
             this.label3.Text = "トータルスコア";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // correctTextBox
+            // label2
             // 
-            this.correctTextBox.Enabled = false;
-            this.correctTextBox.Location = new System.Drawing.Point(230, 57);
-            this.correctTextBox.Name = "correctTextBox";
-            this.correctTextBox.Size = new System.Drawing.Size(100, 19);
-            this.correctTextBox.TabIndex = 6;
-            this.correctTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // MissTextBox
-            // 
-            this.MissTextBox.Enabled = false;
-            this.MissTextBox.Location = new System.Drawing.Point(230, 135);
-            this.MissTextBox.Name = "MissTextBox";
-            this.MissTextBox.Size = new System.Drawing.Size(100, 19);
-            this.MissTextBox.TabIndex = 7;
-            // 
-            // TotalScoreTextBox
-            // 
-            this.TotalScoreTextBox.Enabled = false;
-            this.TotalScoreTextBox.Location = new System.Drawing.Point(230, 210);
-            this.TotalScoreTextBox.Name = "TotalScoreTextBox";
-            this.TotalScoreTextBox.Size = new System.Drawing.Size(100, 19);
-            this.TotalScoreTextBox.TabIndex = 8;
+            this.label2.BackColor = System.Drawing.SystemColors.Window;
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(60, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 34);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "ミスタイプ数";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ResultForm
             // 
