@@ -43,8 +43,8 @@ namespace C__JavaTypingGame
                 }
             }
             //選択言語と難易度の問題を取り出してリストに格納
-            // Problem = list.Where(x=>x[0]== "C#" && x[1]=="初級").ToList();
-            Problem = list;
+            Problem = list.Where(x=>x[0]==PlayerDTO.Lang && x[1]==PlayerDTO.level.ToString()).ToList();
+            
         }
     }
     internal static class ArraySplit
