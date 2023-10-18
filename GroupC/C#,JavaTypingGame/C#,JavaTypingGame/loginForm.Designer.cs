@@ -84,8 +84,6 @@
             this.userText.Name = "userText";
             this.userText.Size = new System.Drawing.Size(277, 19);
             this.userText.TabIndex = 11;
-            this.userText.Click += new System.EventHandler(this.userText_TextChanged);
-            this.userText.TextChanged += new System.EventHandler(this.userText_TextChanged_1);
             // 
             // nameLabel
             // 

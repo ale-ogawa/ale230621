@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C__JavaTypingGame;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,20 +43,26 @@ namespace typingGame
             passText.PasswordChar = '・';
         }
 
-        private void userText_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void loginButton_Click(object sender, EventArgs e)
         {
-            //DBに確認
-
-            //画面遷移
-            this.Hide();
-            languageSelectionForm ls=new languageSelectionForm();
-            ls.ShowDialog();
-            this.Close();
+            try
+            {
+                //DBに確認
+                PlayerDTO player = new PlayerDTO(userText.Text, passText.Text);
+                PlayerDAO playerDAO = new PlayerDAO();
+                bool check= playerDAO.PlayerLogin(player);
+                if (check != false)
+                {
+                    MessageBox.Show("ログインしました");
+                    //画面遷移
+                    this.Hide();
+                    languageSelectionForm ls = new languageSelectionForm();
+                    ls.ShowDialog();
+                    this.Close();
+                }
+                else MessageBox.Show("ログイン情報に誤りがあります");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }
