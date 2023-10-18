@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C__JavaTypingGame;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,10 @@ namespace typingGame
 
         private void RegistrationButton_Click(object sender, EventArgs e)
         {
+            //tableに新規登録
+            PlayerDTO player=new PlayerDTO(this.userName.Text,this.password.Text);
+            PlayerDAO dao = new PlayerDAO();
+            dao.PlayerRegistration(player);
 
             //画面遷移
             this.Hide();

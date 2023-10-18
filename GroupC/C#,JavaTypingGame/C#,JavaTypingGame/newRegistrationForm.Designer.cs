@@ -35,6 +35,7 @@
             this.passCheck = new System.Windows.Forms.CheckBox();
             this.checkButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -77,7 +78,7 @@
             // passCheck
             // 
             this.passCheck.AutoSize = true;
-            this.passCheck.Location = new System.Drawing.Point(266, 221);
+            this.passCheck.Location = new System.Drawing.Point(266, 210);
             this.passCheck.Name = "passCheck";
             this.passCheck.Size = new System.Drawing.Size(101, 16);
             this.passCheck.TabIndex = 5;
@@ -105,11 +106,22 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(202, 229);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(378, 30);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "*4文字以上10文字以下の英数字で設定してください。";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // newRegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.checkButton);
             this.Controls.Add(this.passCheck);
@@ -133,5 +145,6 @@
         private System.Windows.Forms.Button backButton;
         public System.Windows.Forms.TextBox userText;
         public System.Windows.Forms.TextBox passText;
+        private System.Windows.Forms.Label label1;
     }
 }
