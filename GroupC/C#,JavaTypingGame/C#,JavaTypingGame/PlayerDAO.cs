@@ -33,71 +33,63 @@ namespace C__JavaTypingGame
         }
 
         /// <summary>
+        ///重複確認
+        /// </summary>
+        /// <param name="name">playerName</param>
+        /// <returns>table内の名前が被っている件数</returns>
+        public int NameCheck(string name)
+        {
+            int returnValue=0;
+            string sql = "SELECT user_name FROM typing_game.user_table WHERE user_name=@user_name";
+            MySqlCommand mySql = new MySqlCommand(sql, Conn);
+            mySql.Parameters.AddWithValue("@user_name", name);
+            transaction = Conn.BeginTransaction();
+            returnValue = mySql.ExecuteNonQuery();
+            transaction.Commit();
+            return returnValue;
+
+        }
+
+        /// <summary>
         /// 新規登録メソッド
         /// </summary>
         /// <param name="player">ユーザー名,password</param>
         /// <returns>string</returns>
-        
-        //ここから　重複確認
-        public void NameCheck(string name)
-        {
-            string sql = "INSERT INTO typing_game.user_table(user_id, book_id)" +
-                " SELECT 5, 10, WHERE NOT EXISTS(SELECT user_id " +
-                "FROM users_books WHERE user_id = 5 AND book_id = 10)";
 
-        }
         public void PlayerRegistration(PlayerDTO player)
         {
-            string result = null;
-            try
+            //tableにユーザーを格納するsql
+            string sql = "INSERT INTO typing_game.user_table(user_id, user_name, user_password)" +
+                "VALUES(user_id, @user_name, @user_password)";
+
+            //sql分に値の代入
+            Conn.Open();
+            MySqlCommand mySql = new MySqlCommand(sql, Conn);
+            mySql.Parameters.AddWithValue("user_id", DBNull.Value);
+            //table内にユーザー名がかぶってないか判断
+            if (NameCheck(player.Name) != -1)
+                throw new ArgumentException("このユーザー名は既に使用されています");
+
+            else mySql.Parameters.AddWithValue("@user_name", player.Name);
+
+            //パスワード文字数判断
+            if (MyMethod.IsAlphanumeric(player.Pass))
             {
-                //tableにユーザーを格納するsql
-                string sql = "INSERT INTO typing_game.user_table(user_id, user_name, user_password)" +
-                    "VALUES(user_id, @user_name, @user_password)";
-
-                //sql分に値の代入
-                Conn.Open();
-                MySqlCommand mySql = new MySqlCommand(sql, Conn);
-                mySql.Parameters.AddWithValue("user_id", DBNull.Value);
-                //table内にユーザー名がかぶってないか判断
-
-                mySql.Parameters.AddWithValue("@user_name", player.Name);
-
-                //パスワード文字数判断
-                if (MyMethod.IsAlphanumeric(player.Pass))
-                {
-                    if (player.Pass.Length >= 4 && player.Pass.Length <= 10)
-                        mySql.Parameters.AddWithValue("@user_password", player.Pass);
-                    else throw new ArgumentException("パスワードは4文字以上10文字以下の文字数で設定してください");
-                }
-                else { throw new ArgumentException("パスワードに英数字以外が入力されています"); }
-                //transactionの開始
-                transaction = Conn.BeginTransaction();
-                int returnValue = mySql.ExecuteNonQuery();
-                transaction.Commit();
-                Conn.Close();
-
-                //ログイン
-                if (PlayerLogin(player) != false)
-                {
-                    result = "登録しました";
-                    MessageBox.Show(result);
-                }
-                //else
-                //{
-                //    result = "このユーザー名は既に使用されています";
-                //    MessageBox.Show(result);
-                //}
+                if (player.Pass.Length >= 4 && player.Pass.Length <= 10)
+                    mySql.Parameters.AddWithValue("@user_password", player.Pass);
+                else throw new ArgumentException("パスワードは4文字以上10文字以下の文字数で設定してください");
             }
-            catch (ArgumentException Aex)
+            else { throw new ArgumentException("パスワードに英数字以外が入力されています"); }
+            //transactionの開始
+            transaction = Conn.BeginTransaction();
+            mySql.ExecuteNonQuery();
+            transaction.Commit();
+            Conn.Close();
+
+            //ログイン
+            if (PlayerLogin(player) != false)
             {
-                MessageBox.Show(Aex.Message);
-                transaction.Rollback();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                transaction.Rollback();
+                MessageBox.Show("登録しました");
             }
         }
         public bool PlayerLogin(PlayerDTO player)
