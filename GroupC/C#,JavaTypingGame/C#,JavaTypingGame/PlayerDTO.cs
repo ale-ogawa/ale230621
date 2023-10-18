@@ -27,11 +27,11 @@ namespace C__JavaTypingGame
         }
     }
 
-    public enum Level : int
+    public enum Level
     {
-        初級=1,
-        中級=2,
-        上級=3,
+        初級,
+        中級,
+        上級,
     }
 }
 

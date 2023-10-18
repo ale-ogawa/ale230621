@@ -40,7 +40,7 @@
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(24, 35);
+            this.textBox.Location = new System.Drawing.Point(24, 12);
             this.textBox.Name = "textBox";
             this.textBox.ReadOnly = true;
             this.textBox.Size = new System.Drawing.Size(58, 19);
@@ -50,7 +50,7 @@
             // 
             // timeCountTextBox
             // 
-            this.timeCountTextBox.Location = new System.Drawing.Point(88, 35);
+            this.timeCountTextBox.Location = new System.Drawing.Point(88, 12);
             this.timeCountTextBox.Name = "timeCountTextBox";
             this.timeCountTextBox.Size = new System.Drawing.Size(28, 19);
             this.timeCountTextBox.TabIndex = 1;
@@ -62,16 +62,16 @@
             this.questionLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.questionLabel.Enabled = false;
             this.questionLabel.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.questionLabel.Location = new System.Drawing.Point(22, 56);
+            this.questionLabel.Location = new System.Drawing.Point(22, 34);
             this.questionLabel.Name = "questionLabel";
-            this.questionLabel.Size = new System.Drawing.Size(752, 158);
+            this.questionLabel.Size = new System.Drawing.Size(752, 305);
             this.questionLabel.TabIndex = 2;
             this.questionLabel.UseWaitCursor = true;
             this.questionLabel.Click += new System.EventHandler(this.questionLabel_Click);
             // 
             // endBottun
             // 
-            this.endBottun.Location = new System.Drawing.Point(677, 379);
+            this.endBottun.Location = new System.Drawing.Point(677, 653);
             this.endBottun.Name = "endBottun";
             this.endBottun.Size = new System.Drawing.Size(97, 38);
             this.endBottun.TabIndex = 4;
@@ -83,17 +83,17 @@
             // answerTextBox
             // 
             this.answerTextBox.AcceptsReturn = true;
-            this.answerTextBox.Location = new System.Drawing.Point(24, 217);
+            this.answerTextBox.Location = new System.Drawing.Point(24, 342);
             this.answerTextBox.Multiline = true;
             this.answerTextBox.Name = "answerTextBox";
-            this.answerTextBox.Size = new System.Drawing.Size(750, 158);
+            this.answerTextBox.Size = new System.Drawing.Size(750, 305);
             this.answerTextBox.TabIndex = 5;
             this.answerTextBox.UseWaitCursor = true;
             this.answerTextBox.TextChanged += new System.EventHandler(this.answerTextBox_TextChanged);
             // 
             // startBottun
             // 
-            this.startBottun.Location = new System.Drawing.Point(24, 386);
+            this.startBottun.Location = new System.Drawing.Point(24, 653);
             this.startBottun.Name = "startBottun";
             this.startBottun.Size = new System.Drawing.Size(97, 38);
             this.startBottun.TabIndex = 6;
@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 463);
+            this.ClientSize = new System.Drawing.Size(824, 693);
             this.Controls.Add(this.startBottun);
             this.Controls.Add(this.answerTextBox);
             this.Controls.Add(this.endBottun);

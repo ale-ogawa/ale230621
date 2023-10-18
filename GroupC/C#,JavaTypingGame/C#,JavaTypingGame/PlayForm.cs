@@ -86,7 +86,7 @@ namespace C__JavaTypingGame
                 questionLabel.Text = ProblemEntry();
                 System.Windows.Forms.Application.DoEvents();
             }
-            catch (Exception e) { MessageBox.Show($"{e.Message}"); }
+            catch (Exception exception) { MessageBox.Show($"{exception.Message}"); }
 
             //ゲーム制限時間のカウントダウン開始
             CountDownTimer = new System.Windows.Forms.Timer();

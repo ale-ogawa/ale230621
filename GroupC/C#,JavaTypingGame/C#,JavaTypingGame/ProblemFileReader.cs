@@ -15,7 +15,7 @@ namespace C__JavaTypingGame
     internal class ProblemFileReader
     {
         //アドレス
-        private static String Adrres = @"\\192.168.1.251\エール3f教室生徒\01_授業\10_グループ開発\GroupC\問題ファイル\問題デバッグ用.csv";
+        private static String Adrres = @"C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\問題ファイル\問題.csv";
 
         //格納リスト
         public static List<string[]> Problem = new List<string[]>();
@@ -44,7 +44,6 @@ namespace C__JavaTypingGame
             }
             //選択言語と難易度の問題を取り出してリストに格納
             Problem = list.Where(x=>x[0]==PlayerDTO.Lang && x[1]==PlayerDTO.level.ToString()).ToList();
-            
         }
     }
     internal static class ArraySplit

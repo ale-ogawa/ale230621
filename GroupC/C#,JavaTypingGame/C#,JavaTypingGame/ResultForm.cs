@@ -14,14 +14,23 @@ namespace C__JavaTypingGame
 {
     public partial class ResultForm : Form
     {
+        private int Rate { get; set; }
         public ResultForm()
         {
             InitializeComponent();
 
+            //Rateの設定
+            switch (PlayerDTO.level)
+            {
+                case Level.初級:Rate = 1; break;
+                case Level.中級: Rate = 2; break;
+                case Level.上級: Rate = 3; break;
+            }
+
             //リザルトの表示
             correctTextBox.Text = (playForm.CorrectCouter.ToString())+"回";
             MissTextBox.Text = (playForm.MissCounter.ToString()) + "回";
-            TotalScoreTextBox.Text=((playForm.CorrectCouter-playForm.MissCounter)>0)? (playForm.CorrectCouter - playForm.MissCounter).ToString():"0";
+            TotalScoreTextBox.Text=((playForm.CorrectCouter-playForm.MissCounter)>0)? ((playForm.CorrectCouter - playForm.MissCounter)*Rate).ToString():"0";
 
             //リザルトの初期化
             playForm.CorrectCouter = 0;
