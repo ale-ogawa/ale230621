@@ -13,6 +13,11 @@ namespace typingGame
 {
     public partial class JavaDifficultyForm : Form
     {
+        public JavaDifficultyForm()
+        {
+            InitializeComponent();
+        }
+
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();

@@ -40,6 +40,9 @@ namespace C__JavaTypingGame
         {
             InitializeComponent();
 
+            //画面の最大化
+            this.WindowState = FormWindowState.Maximized;
+
             //テキストボックスへの入力受付を停止
             answerTextBox.Enabled = false;
 
@@ -131,7 +134,7 @@ namespace C__JavaTypingGame
             String[] line = ProblemFileReader.Problem[random.Next(0, i)];
 
             //問題文を整形して返す
-            return line[2].Replace("改行", "\n").Replace("\"\"", "\"").Replace(" ", "□").Trim('"'); ;
+            return line[2].Replace("改行", "\n").Replace("\"\"", "\"").Replace(" ", "□").Trim('"').Trim(' ');
         }
 
 

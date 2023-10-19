@@ -65,14 +65,14 @@
             this.questionLabel.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.questionLabel.Location = new System.Drawing.Point(22, 34);
             this.questionLabel.Name = "questionLabel";
-            this.questionLabel.Size = new System.Drawing.Size(752, 305);
+            this.questionLabel.Size = new System.Drawing.Size(1300, 305);
             this.questionLabel.TabIndex = 2;
             this.questionLabel.UseWaitCursor = true;
             this.questionLabel.Click += new System.EventHandler(this.questionLabel_Click);
             // 
             // endBottun
             // 
-            this.endBottun.Location = new System.Drawing.Point(677, 653);
+            this.endBottun.Location = new System.Drawing.Point(1227, 653);
             this.endBottun.Name = "endBottun";
             this.endBottun.Size = new System.Drawing.Size(97, 38);
             this.endBottun.TabIndex = 4;
@@ -87,7 +87,7 @@
             this.answerTextBox.Location = new System.Drawing.Point(24, 342);
             this.answerTextBox.Multiline = true;
             this.answerTextBox.Name = "answerTextBox";
-            this.answerTextBox.Size = new System.Drawing.Size(750, 305);
+            this.answerTextBox.Size = new System.Drawing.Size(1300, 305);
             this.answerTextBox.TabIndex = 5;
             this.answerTextBox.UseWaitCursor = true;
             this.answerTextBox.TextChanged += new System.EventHandler(this.answerTextBox_TextChanged);
@@ -123,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 693);
+            this.ClientSize = new System.Drawing.Size(1370, 693);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.startBottun);
             this.Controls.Add(this.answerTextBox);
