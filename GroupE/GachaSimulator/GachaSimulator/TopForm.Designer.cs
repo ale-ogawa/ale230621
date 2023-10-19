@@ -49,6 +49,7 @@
             // rollButton
             // 
             this.rollButton.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rollButton.ForeColor = System.Drawing.Color.DarkGray;
             this.rollButton.Location = new System.Drawing.Point(201, 98);
             this.rollButton.Name = "rollButton";
             this.rollButton.Size = new System.Drawing.Size(208, 38);
