@@ -50,9 +50,10 @@ namespace typingGame
 
         private void runkingButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             runkingForm ruking =new runkingForm();
             ruking.ShowDialog();
-            
+            this.Close();
         }
     }
 }
