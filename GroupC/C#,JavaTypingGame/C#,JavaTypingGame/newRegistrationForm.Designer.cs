@@ -71,9 +71,10 @@
             // 
             this.passText.Location = new System.Drawing.Point(266, 185);
             this.passText.Name = "passText";
+            this.passText.PasswordChar = '・';
             this.passText.Size = new System.Drawing.Size(277, 19);
             this.passText.TabIndex = 4;
-            this.passText.Click += new System.EventHandler(this.passText_TextChanged);
+            
             // 
             // passCheck
             // 
@@ -84,7 +85,7 @@
             this.passCheck.TabIndex = 5;
             this.passCheck.Text = "パスワードを見る";
             this.passCheck.UseVisualStyleBackColor = true;
-            this.passCheck.Click += new System.EventHandler(this.passCheck_CheckedChanged);
+            this.passCheck.CheckedChanged += new System.EventHandler(this.passCheck_CheckedChanged);
             // 
             // checkButton
             // 
