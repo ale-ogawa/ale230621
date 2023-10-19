@@ -42,15 +42,6 @@ namespace typingGame
         private void checkButton_Click(object sender, EventArgs e)
         {
 
-
-            if (this.userText.Text == null)
-            {
-                MessageBox.Show("ユーザー名が入力されていません");
-            }
-            else if (this.passText.Text == null)
-            {
-                MessageBox.Show("パスワードが入力されていません");
-            }
             this.Hide();
             RegistrationForm Registration = new RegistrationForm(this.userText.Text, this.passText.Text);
             Registration.ShowDialog();

@@ -56,7 +56,7 @@ namespace C__JavaTypingGame
             mySql.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
 
             //パスワード文字数判断
-            if (PlayerDTO.Pass.Length >= 0)
+            if (PlayerDTO.Pass.Length <= 0)
                 throw new ArgumentException("パスワードが入力されていません");
             if (IsAlphanumeric(PlayerDTO.Pass))
             {
