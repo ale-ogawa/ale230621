@@ -36,6 +36,7 @@
             this.checkButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -74,7 +75,6 @@
             this.passText.PasswordChar = '・';
             this.passText.Size = new System.Drawing.Size(277, 19);
             this.passText.TabIndex = 4;
-            
             // 
             // passCheck
             // 
@@ -117,11 +117,22 @@
             this.label1.Text = "*4文字以上10文字以下の英数字で設定してください。";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(202, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(378, 30);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "*10文字以内で設定してください";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // newRegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.checkButton);
@@ -147,5 +158,6 @@
         public System.Windows.Forms.TextBox userText;
         public System.Windows.Forms.TextBox passText;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

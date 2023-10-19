@@ -129,10 +129,11 @@ namespace C__JavaTypingGame
             int i = ProblemFileReader.Problem.Count;
 
             //リストからランダムに問題を取り出す
-            String[] line = ProblemFileReader.Problem[random.Next(0, i)];
+            //String[] line = ProblemFileReader.Problem[random.Next(0, i)];
+            String[] line = ProblemFileReader.Problem[1];
 
-            //問題文を整形して返す
-            return line[2].Trim('"').Trim(' ').Replace(" ", "□").Replace("改行", "\n").Replace("\"\"", "\"").Replace("&&","&&&");
+            //問題文を整形して返す 「"」、スペース、改行、「&」を適切な表示に変換
+            return line[2].Trim('"').Trim(' ').Replace(" ", "□").Replace("改行", "\n").Replace("\"\"\"\"", "\"").Replace("&&","&&&&");
         }
 
 
@@ -149,12 +150,13 @@ namespace C__JavaTypingGame
                 if (ProblemIndex < questionLabel.Text.Length && answerTextBox.Text.Length >= ProblemIndex + 1)
                 {
                     //改行を文字列に含める
+                    //照合用に変換した文字列を戻す
                     String[] questions = questionLabel.Text.Split('\n');
-                    string question = String.Join(",", questions).Replace("□"," ");
+                    string question = String.Join(",", questions).Replace("□"," ").Replace("&&&&", "&&");
 
                     //ユーザー回答の取り出し
                     String[] answers = answerTextBox.Text.Split('\n');
-                    string ans = String.Join(",", answers); ;
+                    string ans = String.Join(",", answers);
 
                     //正解時の処理
                     if (ans[ans.Length - 1] == question[ProblemIndex])

@@ -30,8 +30,6 @@
         {
             this.CLabel = new System.Windows.Forms.Label();
             this.JavaLabel = new System.Windows.Forms.Label();
-            this.CdataGridView = new System.Windows.Forms.DataGridView();
-            this.JavadataGridView = new System.Windows.Forms.DataGridView();
             this.menueButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,7 +50,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.CUser1 = new System.Windows.Forms.Label();
             this.CUser2 = new System.Windows.Forms.Label();
             this.Cuser10 = new System.Windows.Forms.Label();
@@ -94,6 +91,8 @@
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
+            this.CdataGridView = new System.Windows.Forms.DataGridView();
+            this.JavadataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.CdataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JavadataGridView)).BeginInit();
             this.SuspendLayout();
@@ -117,32 +116,6 @@
             this.JavaLabel.TabIndex = 5;
             this.JavaLabel.Text = "Java";
             this.JavaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CdataGridView
-            // 
-            this.CdataGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
-            this.CdataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CdataGridView.Location = new System.Drawing.Point(283, 170);
-            this.CdataGridView.Name = "CdataGridView";
-            this.CdataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.CdataGridView.RowTemplate.Height = 21;
-            this.CdataGridView.Size = new System.Drawing.Size(184, 136);
-            this.CdataGridView.TabIndex = 6;
-            this.CdataGridView.Visible = false;
-            // 
-            // JavadataGridView
-            // 
-            this.JavadataGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
-            this.JavadataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.JavadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.JavadataGridView.Location = new System.Drawing.Point(276, 12);
-            this.JavadataGridView.Name = "JavadataGridView";
-            this.JavadataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.JavadataGridView.RowTemplate.Height = 21;
-            this.JavadataGridView.Size = new System.Drawing.Size(210, 125);
-            this.JavadataGridView.TabIndex = 7;
-            this.JavadataGridView.Visible = false;
             // 
             // menueButton
             // 
@@ -325,15 +298,6 @@
             this.label19.Size = new System.Drawing.Size(189, 14);
             this.label19.TabIndex = 37;
             this.label19.Text = "__________________________________________";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(0, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(41, 12);
-            this.label20.TabIndex = 38;
-            this.label20.Text = "label20";
             // 
             // CUser1
             // 
@@ -707,6 +671,33 @@
             this.label60.TabIndex = 50;
             this.label60.Text = "1位";
             // 
+            // CdataGridView
+            // 
+            this.CdataGridView.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.CdataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CdataGridView.Location = new System.Drawing.Point(-3, 398);
+            this.CdataGridView.Name = "CdataGridView";
+            this.CdataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.CdataGridView.RowTemplate.Height = 21;
+            this.CdataGridView.Size = new System.Drawing.Size(10, 10);
+            this.CdataGridView.TabIndex = 6;
+            this.CdataGridView.Visible = false;
+            // 
+            // JavadataGridView
+            // 
+            this.JavadataGridView.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.JavadataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.JavadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.JavadataGridView.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.JavadataGridView.Location = new System.Drawing.Point(12, 398);
+            this.JavadataGridView.Name = "JavadataGridView";
+            this.JavadataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.JavadataGridView.RowTemplate.Height = 21;
+            this.JavadataGridView.Size = new System.Drawing.Size(10, 10);
+            this.JavadataGridView.TabIndex = 7;
+            this.JavadataGridView.Visible = false;
+            // 
             // runkingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -753,7 +744,6 @@
             this.Controls.Add(this.Cuser10);
             this.Controls.Add(this.CUser2);
             this.Controls.Add(this.CUser1);
-            this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -783,7 +773,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CdataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.JavadataGridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -791,8 +780,6 @@
 
         private System.Windows.Forms.Label CLabel;
         private System.Windows.Forms.Label JavaLabel;
-        private System.Windows.Forms.DataGridView CdataGridView;
-        private System.Windows.Forms.DataGridView JavadataGridView;
         private System.Windows.Forms.Button menueButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -813,7 +800,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label CUser1;
         private System.Windows.Forms.Label CUser2;
         private System.Windows.Forms.Label Cuser10;
@@ -855,5 +841,7 @@
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.DataGridView CdataGridView;
+        private System.Windows.Forms.DataGridView JavadataGridView;
     }
 }
