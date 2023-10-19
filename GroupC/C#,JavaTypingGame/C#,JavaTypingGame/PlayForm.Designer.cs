@@ -68,7 +68,6 @@
             this.questionLabel.Size = new System.Drawing.Size(1300, 305);
             this.questionLabel.TabIndex = 2;
             this.questionLabel.UseWaitCursor = true;
-            this.questionLabel.Click += new System.EventHandler(this.questionLabel_Click);
             // 
             // endBottun
             // 
@@ -135,7 +134,6 @@
             this.Name = "playForm";
             this.Text = "問題画面";
             this.UseWaitCursor = true;
-            this.Load += new System.EventHandler(this.playForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

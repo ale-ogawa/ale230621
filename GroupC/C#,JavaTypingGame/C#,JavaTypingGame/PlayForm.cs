@@ -58,8 +58,6 @@ namespace C__JavaTypingGame
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
-        private void playForm_Load(object sender, EventArgs e) { }
-
         /// <summary>
         /// 開始ボタンを押す
         /// </summary>
@@ -134,7 +132,7 @@ namespace C__JavaTypingGame
             String[] line = ProblemFileReader.Problem[random.Next(0, i)];
 
             //問題文を整形して返す
-            return line[2].Replace("改行", "\n").Replace("\"\"", "\"").Replace(" ", "□").Trim('"').Trim(' ');
+            return line[2].Replace("改行", "\n").Replace("\"\"", "\"").Trim(' ').Replace(" ", "□").Trim('"');
         }
 
 
@@ -187,7 +185,6 @@ namespace C__JavaTypingGame
                         CorrectProcess();
                     }
                 }
-                
             }
             catch (Exception exc) { MessageBox.Show($"{exc.Message}"); }
         }
@@ -246,11 +243,6 @@ namespace C__JavaTypingGame
                 timeCountTextBox.Text = duration.ToString();
                 System.Windows.Forms.Application.DoEvents();
             }
-        }
-
-        private void questionLabel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void endBottun_Click(object sender, EventArgs e)
