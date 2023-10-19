@@ -129,11 +129,10 @@ namespace C__JavaTypingGame
             int i = ProblemFileReader.Problem.Count;
 
             //リストからランダムに問題を取り出す
-            //String[] line = ProblemFileReader.Problem[random.Next(0, i)];
-            String[] line = ProblemFileReader.Problem[1];
+            String[] line = ProblemFileReader.Problem[random.Next(0, i)];
 
             //問題文を整形して返す 「"」、スペース、改行、「&」を適切な表示に変換
-            return line[2].Trim('"').Trim(' ').Replace(" ", "□").Replace("改行", "\n").Replace("\"\"\"\"", "\"").Replace("&&","&&&&");
+            return line[2].Trim('"').Trim(' ').Replace(" ", "□").Replace("改行", "\n").Replace("\"\"", "\"").Replace("\"\"", "\"").Replace("&&","&&&&");
         }
 
 
