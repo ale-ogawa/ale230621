@@ -34,7 +34,7 @@ namespace C__JavaTypingGame
             TotalScoreTextBox.Text = PlayerDTO.score.ToString();
             //得点をランキングテーブルに保存
             PlayerDAO playerDAO = new PlayerDAO();
-            playerDAO.Runking();
+            playerDAO.RunkingData();
 
             //リザルトの初期化
             playForm.CorrectCouter = 0;

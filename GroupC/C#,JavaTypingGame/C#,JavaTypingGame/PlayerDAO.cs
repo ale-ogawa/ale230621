@@ -43,7 +43,7 @@ namespace C__JavaTypingGame
         public void PlayerRegistration(PlayerDTO player)
         {
             //tableにユーザーを格納するsql
-            string sql = "INSERT INTO typing_game.user_table(user_id, user_name, user_password)" +
+            string sql = "INSERT INTO user_table(user_id, user_name, user_password)" +
                 "VALUES(user_id, @user_name, @user_password)";
 
             //sql分に値の代入
@@ -123,7 +123,7 @@ namespace C__JavaTypingGame
             finally { Conn.Close(); }
         }
 
-        public void Runking()
+        public void RunkingData()
         {
             try
             {
@@ -145,6 +145,44 @@ namespace C__JavaTypingGame
         public static bool IsAlphanumeric(string target)
         {
             return new Regex("^[0-9a-zA-Z]+$").IsMatch(target);
+        }
+        public DataTable DetaGet()
+        {
+            DataTable dt = null;
+            try
+            {
+                Conn = new MySqlConnection(
+                ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString);
+                Debug.WriteLine("コネクション確立");
+
+                Conn.Open();//コネクションを開ける
+                string sql = "SELECT * FROM student";
+                MySqlCommand command = new MySqlCommand(sql, Conn);//作ったコネクションに対してのsql文
+                MySqlDataReader reader = command.ExecuteReader(); //コマンドの読み取り//
+                /*ここまでテンプレ*/
+
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        string columnName = reader.GetName(i);
+                        object columnValue = reader[i];
+                        Debug.Write($"{columnName}:{columnValue}");
+                    }
+                    Debug.WriteLine("");
+                }
+                reader.Close();
+                Conn.Close();//コネクションを閉める
+
+                dt = new DataTable();
+                //sql文と接続情報を指定し、データアダプタを作成
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, Conn);
+                //データを取得
+                da.Fill(dt);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return dt;
+
         }
 
     }

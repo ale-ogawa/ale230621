@@ -15,6 +15,7 @@ namespace typingGame
         public runkingForm()
         {
             InitializeComponent();
+
         }
 
         private void menueButton_Click(object sender, EventArgs e)
