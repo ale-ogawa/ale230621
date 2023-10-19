@@ -25,7 +25,7 @@ namespace C__JavaTypingGame
         private int ProblemIndex = 0;
 
         //ゲームの制限時間
-        private const int Time = 0;
+        private const int Time = 60;
 
         //ミスカウンター
         public static int MissCounter = 0;
@@ -132,7 +132,7 @@ namespace C__JavaTypingGame
             String[] line = ProblemFileReader.Problem[random.Next(0, i)];
 
             //問題文を整形して返す
-            return line[2].Replace("改行", "\n").Replace("\"\"", "\"").Trim(' ').Replace(" ", "□").Trim('"');
+            return line[2].Trim('"').Trim(' ').Replace(" ", "□").Replace("改行", "\n").Replace("\"\"", "\"").Replace("&&","&&&");
         }
 
 
@@ -154,7 +154,8 @@ namespace C__JavaTypingGame
 
                     //ユーザー回答の取り出し
                     String[] answers = answerTextBox.Text.Split('\n');
-                    string ans = String.Join(",", answers);
+                    string ans = String.Join(",", answers); ;
+
                     //正解時の処理
                     if (ans[ans.Length - 1] == question[ProblemIndex])
                     {
@@ -247,6 +248,9 @@ namespace C__JavaTypingGame
 
         private void endBottun_Click(object sender, EventArgs e)
         {
+            //タイマー停止
+            CountDownTimer.Stop();
+
             languageSelectionForm lang = new languageSelectionForm();
             this.Hide();
             lang.ShowDialog();

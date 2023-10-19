@@ -169,12 +169,6 @@
     <Compile Include="runkingForm.Designer.cs">
       <DependentUpon>runkingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="デバッグ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="デバッグ.Designer.cs">
-      <DependentUpon>デバッグ.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="C#DifficultyForm.resx">
       <DependentUpon>C#DifficultyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,9 +207,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="runkingForm.resx">
       <DependentUpon>runkingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="デバッグ.resx">
-      <DependentUpon>デバッグ.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
