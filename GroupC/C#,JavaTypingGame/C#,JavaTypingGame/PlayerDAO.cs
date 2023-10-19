@@ -51,12 +51,14 @@ namespace C__JavaTypingGame
             MySqlCommand mySql = new MySqlCommand(sql, Conn);
             mySql.Parameters.AddWithValue("user_id", DBNull.Value);
 
+            if (PlayerDTO.Name.Length <= 0 && PlayerDTO.Name.Length > 10)
+                throw new ArgumentException("ユーザー名は0文字以上10文字以内でお願いします");
             mySql.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
 
             //パスワード文字数判断
             if (IsAlphanumeric(PlayerDTO.Pass))
             {
-                if (PlayerDTO.Pass.Length >= 4 && PlayerDTO.Pass.Length <= 10)
+                if (PlayerDTO.Pass.Length<=0&&PlayerDTO.Pass.Length >= 4 && PlayerDTO.Pass.Length <= 10)
                     mySql.Parameters.AddWithValue("@user_password", PlayerDTO.Pass);
                 else throw new ArgumentException("パスワードは4文字以上10文字以下の文字数で設定してください");
             }
@@ -149,7 +151,7 @@ namespace C__JavaTypingGame
         public DataTable DetaGetC()
         {
             DataTable dt = null;
-                string sql = "SELECT user_name,user_score FROM ranking_table WHERE ranguage='C#' ORDER BY user_score ASC limit 10";
+                string sql = "SELECT user_name,user_score FROM ranking_table WHERE ranguage='C#' ORDER BY user_score DESC limit 10";
                 Conn.Open();//コネクションを開ける
                 MySqlCommand command = new MySqlCommand(sql, Conn);//作ったコネクションに対してのsql文
                 MySqlDataReader reader = command.ExecuteReader(); //コマンドの読み取り//
