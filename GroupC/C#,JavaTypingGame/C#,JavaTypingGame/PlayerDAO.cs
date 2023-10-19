@@ -146,17 +146,11 @@ namespace C__JavaTypingGame
         {
             return new Regex("^[0-9a-zA-Z]+$").IsMatch(target);
         }
-        public DataTable DetaGet()
+        public DataTable DetaGetC()
         {
             DataTable dt = null;
-            try
-            {
-                Conn = new MySqlConnection(
-                ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString);
-                Debug.WriteLine("コネクション確立");
-
+                string sql = "SELECT user_name,user_score FROM ranking_table WHERE ranguage='C#' ORDER BY user_score ASC limit 10";
                 Conn.Open();//コネクションを開ける
-                string sql = "SELECT * FROM student";
                 MySqlCommand command = new MySqlCommand(sql, Conn);//作ったコネクションに対してのsql文
                 MySqlDataReader reader = command.ExecuteReader(); //コマンドの読み取り//
                 /*ここまでテンプレ*/
@@ -179,11 +173,36 @@ namespace C__JavaTypingGame
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, Conn);
                 //データを取得
                 da.Fill(dt);
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return dt;
-
         }
+        public DataTable DetaGetJava()
+        {
+            DataTable dt = null;
+            string sql = "SELECT user_name,user_score FROM ranking_table WHERE ranguage='Java' ORDER BY user_score DESC limit 10";
+            Conn.Open();//コネクションを開ける
+            MySqlCommand command = new MySqlCommand(sql, Conn);//作ったコネクションに対してのsql文
+            MySqlDataReader reader = command.ExecuteReader(); //コマンドの読み取り//
+            /*ここまでテンプレ*/
 
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    string columnName = reader.GetName(i);
+                    object columnValue = reader[i];
+                    Debug.Write($"{columnName}:{columnValue}");
+                }
+                Debug.WriteLine("");
+            }
+            reader.Close();
+            Conn.Close();//コネクションを閉める
+
+            dt = new DataTable();
+            //sql文と接続情報を指定し、データアダプタを作成
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, Conn);
+            //データを取得
+            da.Fill(dt);
+            return dt;
+        }
     }
 }
