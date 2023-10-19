@@ -31,31 +31,64 @@ namespace WindowsFormsApp3
         //運動記録を追加する
         private void exerciseRecordAddButton_Click(object sender, EventArgs e)
         {
-            if (exerciseComboBox.SelectedIndex < 0)
+            try
             {
-                MessageBox.Show("追加する項目が選択されていません");
-            }
-            else
-            {
-                int index = exerciseComboBox.SelectedIndex;
-                List<string> mealList = File.ReadAllLines(@"C:\healthcare\exerciseList.txt", Encoding.GetEncoding("utf-8")).ToList();
-                string[] selectedExercise = mealList[index].Split(',');
-
-                string userId = LoginAccount.UserId;
-                string day = DateTime.Now.ToString("MM/dd");
-                string exercise = selectedExercise[0];
-                string exerciseTime = exerciseTimeTextBox.Text;
-                //消費カロリーの計算　METs×時間×体重(kg)×1.05
-                double energyCalc = double.Parse(selectedExercise[1]) * (double.Parse(exerciseTimeTextBox.Text) / 60) * int.Parse(weightTextBox.Text) * 1.05;
-                double energy = Math.Floor(energyCalc);
-                string addTime = DateTime.Now.ToString("HH:mm");
-
-                string path = @"C:\healthcare\week_exerciseRecord.txt";
-                using (StreamWriter writer = new StreamWriter(path, true, Encoding.GetEncoding("utf-8")))
+                //運動内容が選択されていない場合
+                if (exerciseComboBox.SelectedIndex < 0)
                 {
-                    writer.WriteLine(userId + "," + day + "," + exercise + "," + exerciseTime + "分," + energy + "kcal," + addTime);
+                    MessageBox.Show("追加する項目が選択されていません");
                 }
-                this.Clear();
+                //入力内容に「,」が含まれている場合
+                else if(exerciseTimeTextBox.Text.Contains(",") || weightTextBox.Text.Contains(","))
+                {
+                    MessageBox.Show(",は使用しないでください");
+                }
+                //運動時間、体重に入力がされていない場合
+                else if (exerciseTimeTextBox.Text == "" || weightTextBox.Text == "")
+                {
+                    MessageBox.Show("入力されていない項目が存在します");
+                }
+                //運動時間、体重に数値以外が入力されていない場合
+                else if((int.TryParse(exerciseTimeTextBox.Text, out int time) == false) || (int.TryParse(weightTextBox.Text, out int weight) == false))
+                {
+                    MessageBox.Show("数値以外を入力することはできません");
+                }
+                else
+                {
+                    int index = exerciseComboBox.SelectedIndex;
+                    List<string> mealList = File.ReadAllLines(@"C:\healthcare\exerciseList.txt", Encoding.GetEncoding("utf-8")).ToList();
+                    string[] selectedExercise = mealList[index].Split(',');
+
+                    string userId = LoginAccount.UserId;
+                    string day = DateTime.Now.ToString("MM/dd");
+                    string exercise = selectedExercise[0];
+                    string exerciseTime = exerciseTimeTextBox.Text;
+                    //消費カロリーの計算　METs×時間×体重(kg)×1.05
+                    double energyCalc = double.Parse(selectedExercise[1]) * (double.Parse(exerciseTimeTextBox.Text) / 60) * int.Parse(weightTextBox.Text) * 1.05;
+                    double energy = Math.Floor(energyCalc);
+                    string addTime = DateTime.Now.ToString("HH:mm");
+
+                    using (StreamWriter writer = new StreamWriter(@"C:\healthcare\week_exerciseRecord.txt", true, Encoding.GetEncoding("utf-8")))
+                    {
+                        writer.WriteLine(userId + "," + day + "," + exercise + "," + exerciseTime + "分," + energy + "kcal," + addTime);
+                    }
+                    this.Clear();
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
             }
         }
 
@@ -70,13 +103,20 @@ namespace WindowsFormsApp3
             //コンボボックスへの要素格納
             try
             {
-                string path = @"C:\healthcare\exerciseList.txt";
-                List<string> exerciseList = File.ReadAllLines(path, Encoding.GetEncoding("utf-8")).ToList();
+                List<string> exerciseList = File.ReadAllLines(@"C:\healthcare\exerciseList.txt", Encoding.GetEncoding("utf-8")).ToList();
                 foreach (var n in exerciseList)
                 {
                     string[] list = n.Split(',');
                     exerciseComboBox.Items.Add(list[0]);
                 }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -93,6 +133,5 @@ namespace WindowsFormsApp3
             exerciseTimeTextBox.Text = string.Empty;
             weightTextBox.Text = string.Empty;
         }
-
     }
 }

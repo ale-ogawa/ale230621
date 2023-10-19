@@ -58,7 +58,17 @@ namespace WindowsFormsApp3
         //入力値チェック
         private bool Check()
         {
-            if ((idTextBox.Text == "") || (passwordTextBox.Text == "") || (idTextBox.Text.Length != 8) || (passwordTextBox.Text.Length != 4))
+            int id, password;
+            if(idTextBox.Text == "" || passwordTextBox.Text == "")
+            {
+                MessageBox.Show("入力されていない項目が存在します");
+            }
+            if (idTextBox.Text.Length != 8 || int.TryParse(idTextBox.Text, out id) == false || idTextBox.Text == "")
+            {
+                MessageBox.Show("入力されている内容に誤りがあります");
+                return false;
+            }
+            else if (passwordTextBox.Text.Length != 4 || int.TryParse(passwordTextBox.Text, out password) == false || passwordTextBox.Text == "")
             {
                 MessageBox.Show("入力されている内容に誤りがあります");
                 return false;
@@ -72,17 +82,36 @@ namespace WindowsFormsApp3
         //アカウント認証　成功した場合はログインアカウントのインスタンス生成
         private bool Login()
         {
-            List<string> userList = File.ReadAllLines(@"C:\healthcare\userList.txt", Encoding.GetEncoding("utf-8")).ToList();
-            foreach (string line in userList)
+            try
             {
-                string[] userInfo = line.Split(',');
-                if (userInfo[0] == idTextBox.Text && userInfo[1] == passwordTextBox.Text)
+                List<string> userList = File.ReadAllLines(@"C:\healthcare\userList.txt", Encoding.GetEncoding("utf-8")).ToList();
+                foreach (string line in userList)
                 {
-                    LoginAccount account = new LoginAccount(new User(userInfo[0], userInfo[1], userInfo[2], userInfo[3]));
-                    return true;
+                    string[] userInfo = line.Split(',');
+                    if (userInfo[0] == idTextBox.Text && userInfo[1] == passwordTextBox.Text)
+                    {
+                        LoginAccount account = new LoginAccount(new User(userInfo[0], userInfo[1], userInfo[2], userInfo[3]));
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+            }
+            return true;
         }
 
     }

@@ -43,6 +43,10 @@ namespace WindowsFormsApp3
         //削除
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            if (this.exerciseDataGridView.CurrentCell.RowIndex < 0)
+            {
+                MessageBox.Show("削除する項目が選択されていません");
+            }
             //削除確認ダイアログ表示
             DialogResult result = MessageBox.Show("選択されている行を削除しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
@@ -63,6 +67,14 @@ namespace WindowsFormsApp3
                 int index = this.exerciseDataGridView.CurrentCell.RowIndex;
                 exerciseDataGridView.Rows.RemoveAt(index);
             }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -82,17 +94,35 @@ namespace WindowsFormsApp3
             exerciseDataGridView.Columns[2].HeaderText = "運動時間";
             exerciseDataGridView.Columns[3].HeaderText = "消費カロリー";
             exerciseDataGridView.Columns[4].HeaderText = "登録時刻";
-            //ファイルから読み込んだ内容をデータグリッドビューに表示
-            using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("utf-8")))
+            try
             {
-                while (reader.Peek() >= 0)
+                //ファイルから読み込んだ内容をデータグリッドビューに表示
+                using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("utf-8")))
                 {
-                    string[] record = reader.ReadLine().Split(',');
-                    if (record[0] == LoginAccount.UserId && ((record[1] == day1) || (record[1] == day2) || (record[1] == day3) || (record[1] == day4) || (record[1] == day5) || (record[1] == day6) || (record[1] == day7)))
+                    while (reader.Peek() >= 0)
                     {
-                        exerciseDataGridView.Rows.Add(record[1], record[2], record[3], record[4], record[5]);
+                        string[] record = reader.ReadLine().Split(',');
+                        if (record[0] == LoginAccount.UserId && ((record[1] == day1) || (record[1] == day2) || (record[1] == day3) || (record[1] == day4) || (record[1] == day5) || (record[1] == day6) || (record[1] == day7)))
+                        {
+                            exerciseDataGridView.Rows.Add(record[1], record[2], record[3], record[4], record[5]);
+                        }
                     }
                 }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
             }
         }
     }

@@ -26,10 +26,27 @@ namespace WindowsFormsApp1
 
         public void UserAdd(User user)
         {
-            string path = @"C:\healthcare\userList.txt";
-            using (StreamWriter file = new StreamWriter(path, true, Encoding.GetEncoding("shift-jis")))
+            try
             {
-                file.WriteLine(user.userId + "," + user.password + "," + user.birthday + "," + user.gender);
+                using (StreamWriter file = new StreamWriter(@"C:\healthcare\userList.txt", true, Encoding.GetEncoding("shift-jis")))
+                {
+                    file.WriteLine(user.userId + "," + user.password + "," + user.birthday + "," + user.gender);
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
             }
         }
     }

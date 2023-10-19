@@ -85,70 +85,119 @@ namespace WindowsFormsApp3
         //選択で記録追加する場合
         private void Choice()
         {
-            if (mealComboBox.SelectedIndex < 0)
+            try
             {
-                MessageBox.Show("追加する項目が選択されていません");
-            }
-            else
-            {
-                int index = mealComboBox.SelectedIndex;
-                List<string> mealList = File.ReadAllLines(@"C:\healthcare\mealList.txt", Encoding.GetEncoding("utf-8")).ToList();
-                string[] selectedMeal = mealList[index].Split(',');
-
-                string userId = LoginAccount.UserId;
-                string day = DateTime.Now.ToString("MM/dd");
-                string meal = selectedMeal[0];
-                string energy = selectedMeal[1];
-                string addTime = DateTime.Now.ToString("HH:mm");
-
-                string path = @"C:\healthcare\week_mealRecord.txt";
-                using (StreamWriter writer = new StreamWriter(path, true, Encoding.GetEncoding("utf-8")))
+                if (mealComboBox.SelectedIndex < 0)
                 {
-                    writer.WriteLine(userId + "," + day + "," + meal + "," + energy + "," + addTime);
+                    MessageBox.Show("食事内容が選択されていません");
                 }
-                this.Clear();
+                else
+                {
+                    int index = mealComboBox.SelectedIndex;
+                    List<string> mealList = File.ReadAllLines(@"C:\healthcare\mealList.txt", Encoding.GetEncoding("utf-8")).ToList();
+                    string[] selectedMeal = mealList[index].Split(',');
+
+                    string userId = LoginAccount.UserId;
+                    string day = DateTime.Now.ToString("MM/dd");
+                    string meal = selectedMeal[0];
+                    string energy = selectedMeal[1];
+                    string addTime = DateTime.Now.ToString("HH:mm");
+
+                    using (StreamWriter writer = new StreamWriter(@"C:\healthcare\week_mealRecord.txt", true, Encoding.GetEncoding("utf-8")))
+                    {
+                        writer.WriteLine(userId + "," + day + "," + meal + "," + energy + "," + addTime);
+                    }
+                    this.Clear();
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
             }
         }
 
         //入力で記録追加する場合
         private void Input()
         {
-            if ((int.TryParse(energyTextBox.Text, out int kcal) == false) || mealTextBox.Text == "" || energyTextBox.Text == "")
+            try
             {
-                MessageBox.Show("入力された項目が正しくありません");
-            }
-            else
-            {
-                string userId = LoginAccount.UserId;
-                string day = DateTime.Now.ToString("MM/dd");
-                string meal = mealTextBox.Text;
-                string energy = energyTextBox.Text;
-                string addTime = DateTime.Now.ToString("HH:mm");
-
-                string path = @"C:\healthcare\week_mealRecord.txt";
-                using (StreamWriter writer = new StreamWriter(path, true, Encoding.GetEncoding("utf-8")))
+                //入力内容に「,」が含まれている場合
+                if (energyTextBox.Text.Contains(",") || mealTextBox.Text.Contains(","))
                 {
-                    writer.WriteLine(userId + "," + day + "," + meal + "," + energy + "kcal," + addTime);
+                    MessageBox.Show(",は使用しないでください");
                 }
-                this.Clear();
+                //食事内容もしくは摂取カロリーが未入力の場合
+                if (mealTextBox.Text == "" || energyTextBox.Text == "")
+                {
+                    MessageBox.Show("入力されていない項目が存在します");
+                }
+                //摂取カロリーに数値以外が入力されている場合
+                else if((int.TryParse(energyTextBox.Text, out int kcal) == false))
+                {
+                    MessageBox.Show("摂取カロリーに数値以外を入力することはできません");
+                }
+                else
+                {
+                    string userId = LoginAccount.UserId;
+                    string day = DateTime.Now.ToString("MM/dd");
+                    string meal = mealTextBox.Text;
+                    string energy = energyTextBox.Text;
+                    string addTime = DateTime.Now.ToString("HH:mm");
+                    using (StreamWriter writer = new StreamWriter(@"C:\healthcare\week_mealRecord.txt", true, Encoding.GetEncoding("utf-8")))
+                    {
+                        writer.WriteLine(userId + "," + day + "," + meal + "," + energy + "kcal," + addTime);
+                    }
+                    this.Clear();
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
             }
         }
-
-
 
         private void Form5_Load(object sender, EventArgs e)
         {
             //コンボボックスへの要素格納
             try
             {
-                string path = @"C:\healthcare\mealList.txt";
-                using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("utf-8")))
+                using (StreamReader reader = new StreamReader(@"C:\healthcare\mealList.txt", Encoding.GetEncoding("utf-8")))
                 {
                     while (reader.Peek() >= 0)
                     {
                         mealComboBox.Items.Add(reader.ReadLine());
                     }
                 }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

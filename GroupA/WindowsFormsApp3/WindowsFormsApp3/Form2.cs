@@ -35,8 +35,6 @@ namespace WindowsFormsApp3
         //登録
         private void registerButton_Click(object sender, EventArgs e)
         {
-            try
-            {
                 //入力値チェック
                 bool tcheck = this.TextCheck();
                 if (tcheck == false)
@@ -47,7 +45,7 @@ namespace WindowsFormsApp3
                 bool dcheck = this.DuplicateCheck();
                 if (dcheck == false)
                 {
-                    MessageBox.Show($"入力されたユーザーIDは既に登録されています\n別のIDを入力してください");
+                    MessageBox.Show($"このユーザーIDは既に登録されています");
                     return;
                 }
                 //登録確認ダイアログボックスの表示
@@ -57,7 +55,7 @@ namespace WindowsFormsApp3
                     MessageBox.Show("キャンセルしました");
                     return;
                 }
-                //入力された項目にてUserクラスのインスタンス生成、userListファイルに追加
+                //入力された項目にてuserListファイルに追加
                 string gender = mRadioButton.Checked == true ? "男" : "女";
                 User user = new User(idTextBox.Text, passwordTextBox.Text, birthdayTextBox.Text, gender);
                 user.UserAdd(user);
@@ -67,20 +65,16 @@ namespace WindowsFormsApp3
                 this.Close();
                 Form3 form3 = new Form3();
                 form3.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-            }
         }
 
         //入力値チェック
         private bool TextCheck()
         {
             int id, password, birthday;
+            if(idTextBox.Text == "" || passwordTextBox.Text == "" || birthdayTextBox.Text == "")
+            {
+                MessageBox.Show("入力されていない項目が存在します");
+            }
             if (idTextBox.Text.Length != 8 || int.TryParse(idTextBox.Text, out id) == false)
             {
                 MessageBox.Show("設定条件を満たしていない項目があります");
@@ -105,14 +99,33 @@ namespace WindowsFormsApp3
         //アカウント重複チェック
         private bool DuplicateCheck()
         {
-            List<string> userList = File.ReadAllLines(@"C:\healthcare\userList.txt", Encoding.GetEncoding("utf-8")).ToList();
-            foreach (string line in userList)
+            try
             {
-                string[] userInfo = line.Split(',');
-                if (userInfo[0] == idTextBox.Text)
+                List<string> userList = File.ReadAllLines(@"C:\healthcare\userList.txt", Encoding.GetEncoding("utf-8")).ToList();
+                foreach (string line in userList)
                 {
-                    return false;
+                    string[] userInfo = line.Split(',');
+                    if (userInfo[0] == idTextBox.Text)
+                    {
+                        return false;
+                    }
                 }
+                return true;
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch(IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
             }
             return true;
         }
