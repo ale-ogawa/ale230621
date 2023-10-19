@@ -51,14 +51,16 @@ namespace C__JavaTypingGame
             MySqlCommand mySql = new MySqlCommand(sql, Conn);
             mySql.Parameters.AddWithValue("user_id", DBNull.Value);
 
-            if (PlayerDTO.Name.Length <= 0 && PlayerDTO.Name.Length > 10)
+            if (PlayerDTO.Name.Length <= 0 || PlayerDTO.Name.Length > 10)
                 throw new ArgumentException("ユーザー名は0文字以上10文字以内でお願いします");
             mySql.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
 
             //パスワード文字数判断
+            if (PlayerDTO.Pass.Length >= 0)
+                throw new ArgumentException("パスワードが入力されていません");
             if (IsAlphanumeric(PlayerDTO.Pass))
             {
-                if (PlayerDTO.Pass.Length<=0&&PlayerDTO.Pass.Length >= 4 && PlayerDTO.Pass.Length <= 10)
+                if (PlayerDTO.Pass.Length >= 4 && PlayerDTO.Pass.Length <= 10)
                     mySql.Parameters.AddWithValue("@user_password", PlayerDTO.Pass);
                 else throw new ArgumentException("パスワードは4文字以上10文字以下の文字数で設定してください");
             }
