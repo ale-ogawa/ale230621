@@ -79,5 +79,6 @@ namespace C__JavaTypingGame
             this.Close();
         }
 
+       
     }
 }

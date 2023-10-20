@@ -119,8 +119,8 @@
             // 
             // menueButton
             // 
-            this.menueButton.Location = new System.Drawing.Point(290, 337);
-
+            this.menueButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.menueButton.Location = new System.Drawing.Point(295, 369);
             this.menueButton.Name = "menueButton";
             this.menueButton.Size = new System.Drawing.Size(177, 48);
             this.menueButton.TabIndex = 18;
