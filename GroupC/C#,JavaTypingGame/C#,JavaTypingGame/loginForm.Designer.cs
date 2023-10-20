@@ -32,9 +32,9 @@
             this.loginButton = new System.Windows.Forms.Button();
             this.passCheck = new System.Windows.Forms.CheckBox();
             this.passLabel = new System.Windows.Forms.Label();
-            this.userText = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.passText = new System.Windows.Forms.TextBox();
+            this.userText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // backButton
@@ -82,13 +82,6 @@
             this.passLabel.Text = "パスワード";
             this.passLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // userText
-            // 
-            this.userText.Location = new System.Drawing.Point(234, 106);
-            this.userText.Name = "userText";
-            this.userText.Size = new System.Drawing.Size(277, 19);
-            this.userText.TabIndex = 11;
-            // 
             // nameLabel
             // 
             this.nameLabel.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -106,6 +99,13 @@
             this.passText.PasswordChar = '・';
             this.passText.Size = new System.Drawing.Size(277, 19);
             this.passText.TabIndex = 9;
+            // 
+            // userText
+            // 
+            this.userText.Location = new System.Drawing.Point(234, 106);
+            this.userText.Name = "userText";
+            this.userText.Size = new System.Drawing.Size(277, 19);
+            this.userText.TabIndex = 11;
             // 
             // loginForm
             // 
@@ -134,8 +134,8 @@
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.CheckBox passCheck;
         private System.Windows.Forms.Label passLabel;
-        private System.Windows.Forms.TextBox userText;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox passText;
+        private System.Windows.Forms.TextBox userText;
     }
 }
