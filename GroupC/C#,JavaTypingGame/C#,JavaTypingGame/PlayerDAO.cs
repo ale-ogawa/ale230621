@@ -204,9 +204,10 @@ namespace C__JavaTypingGame
             da.Fill(dt);
             return dt;
         }
-        public void ChengeForm(Form form)
+        public void ChengeForm(Form thisform,Form newForm)
         {
-            form.Hide();
+            thisform.Hide();
+            Form form = new Form();
 
         }
     }
