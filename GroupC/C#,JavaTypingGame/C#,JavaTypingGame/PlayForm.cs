@@ -58,10 +58,46 @@ namespace C__JavaTypingGame
                 ProblemFileReader pr = new ProblemFileReader();
                 pr.FileReader();
             }
-            catch (FileNotFoundException) { MessageBox.Show("問題ファイルが見つかりません"); }
-            catch (IOException) { MessageBox.Show("問題ファイルの読み取りに問題が起きました"); }
-            catch (IndexOutOfRangeException) { MessageBox.Show("問題ファイルの内容に誤りがあります"); }
-            catch (Exception e) { MessageBox.Show(e.Message); }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("問題ファイルが見つかりません");
+                this.Hide();
+                languageSelectionForm languageSelectionForm = new languageSelectionForm();
+                languageSelectionForm.ShowDialog();
+                this.Close();
+            }
+            catch (IOException) 
+            {
+                MessageBox.Show("問題ファイルの読み取りに問題が起きました");
+                this.Hide();
+                languageSelectionForm languageSelectionForm = new languageSelectionForm();
+                languageSelectionForm.ShowDialog();
+                this.Close();
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("問題ファイルの内容に誤りがあります");
+                this.Hide();
+                languageSelectionForm languageSelectionForm = new languageSelectionForm();
+                languageSelectionForm.ShowDialog();
+                this.Close();
+            }
+            catch (NotSupportedException noEX)
+            { 
+                MessageBox.Show("ファイルパスに誤りがあります");
+                this.Hide();
+                languageSelectionForm languageSelectionForm = new languageSelectionForm();
+                languageSelectionForm.ShowDialog();
+                this.Close();
+            }
+            catch (Exception e) 
+            {
+                MessageBox.Show(e.Message);
+                this.Hide();
+                languageSelectionForm languageSelectionForm = new languageSelectionForm();
+                languageSelectionForm.ShowDialog();
+                this.Close();
+            }
         }
 
         /// <summary>
