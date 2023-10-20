@@ -25,25 +25,28 @@ namespace C__JavaTypingGame
         /// </summary>
         public void FileReader()
         {
-            //リストの初期化
-            Problem = null;
+            //try
+            //{
+                //リストの初期化
+                Problem = null;
 
-            //一時格納用リスト
-            List<string[]> list = new List<string[]>();
+                //一時格納用リスト
+                List<string[]> list = new List<string[]>();
 
-            //ファイルの読み取りとリストへの追加
-            using (StreamReader sr = new StreamReader(Adrres, Encoding.Default))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
+                //ファイルの読み取りとリストへの追加
+                using (StreamReader sr = new StreamReader(Adrres, Encoding.Default))
                 {
-                    //問題分にカンマが含まれる場合を考慮しSplitLimited()を使用
-                    string[] lines = ArraySplit.SplitLimited(line, ',', 3);
-                    list.Add(lines);
+                    string line = null;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        //問題分にカンマが含まれる場合を考慮しSplitLimited()を使用
+                        string[] lines = ArraySplit.SplitLimited(line, ',', 3);
+                        list.Add(lines);
+                    }
                 }
-            }
-            //選択した言語と難易度の問題を取り出してリストに格納
-            Problem = list.Where(x=>x[0]==PlayerDTO.Lang && x[1]==PlayerDTO.level.ToString()).ToList();
+                //選択した言語と難易度の問題を取り出してリストに格納
+                Problem = list.Where(x => x[0] == PlayerDTO.Lang && x[1] == PlayerDTO.level.ToString()).ToList();
+            //}catch (Exception ex) { }
         }
     }
     internal static class ArraySplit

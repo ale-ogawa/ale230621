@@ -93,14 +93,19 @@
             this.label60 = new System.Windows.Forms.Label();
             this.CdataGridView = new System.Windows.Forms.DataGridView();
             this.JavadataGridView = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.CdataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JavadataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // CLabel
             // 
+            this.CLabel.BackColor = System.Drawing.Color.White;
             this.CLabel.Font = new System.Drawing.Font("ＭＳ 明朝", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CLabel.Location = new System.Drawing.Point(96, 19);
+            this.CLabel.Location = new System.Drawing.Point(97, 9);
             this.CLabel.Name = "CLabel";
             this.CLabel.Size = new System.Drawing.Size(165, 39);
             this.CLabel.TabIndex = 3;
@@ -109,8 +114,9 @@
             // 
             // JavaLabel
             // 
+            this.JavaLabel.BackColor = System.Drawing.Color.White;
             this.JavaLabel.Font = new System.Drawing.Font("ＭＳ 明朝", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.JavaLabel.Location = new System.Drawing.Point(492, 19);
+            this.JavaLabel.Location = new System.Drawing.Point(516, 9);
             this.JavaLabel.Name = "JavaLabel";
             this.JavaLabel.Size = new System.Drawing.Size(165, 39);
             this.JavaLabel.TabIndex = 5;
@@ -119,7 +125,8 @@
             // 
             // menueButton
             // 
-            this.menueButton.Location = new System.Drawing.Point(290, 337);
+            this.menueButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.menueButton.Location = new System.Drawing.Point(304, 390);
             this.menueButton.Name = "menueButton";
             this.menueButton.Size = new System.Drawing.Size(177, 48);
             this.menueButton.TabIndex = 18;
@@ -129,6 +136,7 @@
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.Location = new System.Drawing.Point(52, 72);
             this.label1.Name = "label1";
@@ -138,6 +146,7 @@
             // 
             // label2
             // 
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label2.Location = new System.Drawing.Point(52, 102);
             this.label2.Name = "label2";
@@ -147,6 +156,7 @@
             // 
             // label3
             // 
+            this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label3.Location = new System.Drawing.Point(52, 132);
             this.label3.Name = "label3";
@@ -156,6 +166,7 @@
             // 
             // label4
             // 
+            this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label4.Location = new System.Drawing.Point(52, 342);
             this.label4.Name = "label4";
@@ -165,6 +176,7 @@
             // 
             // label5
             // 
+            this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label5.Location = new System.Drawing.Point(52, 162);
             this.label5.Name = "label5";
@@ -174,6 +186,7 @@
             // 
             // label6
             // 
+            this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label6.Location = new System.Drawing.Point(52, 192);
             this.label6.Name = "label6";
@@ -183,6 +196,7 @@
             // 
             // label7
             // 
+            this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label7.Location = new System.Drawing.Point(52, 222);
             this.label7.Name = "label7";
@@ -192,6 +206,7 @@
             // 
             // label8
             // 
+            this.label8.BackColor = System.Drawing.Color.White;
             this.label8.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label8.Location = new System.Drawing.Point(52, 282);
             this.label8.Name = "label8";
@@ -201,6 +216,7 @@
             // 
             // label9
             // 
+            this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label9.Location = new System.Drawing.Point(52, 312);
             this.label9.Name = "label9";
@@ -210,6 +226,7 @@
             // 
             // label10
             // 
+            this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label10.Location = new System.Drawing.Point(52, 252);
             this.label10.Name = "label10";
@@ -219,6 +236,7 @@
             // 
             // label11
             // 
+            this.label11.BackColor = System.Drawing.Color.White;
             this.label11.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label11.Location = new System.Drawing.Point(100, 80);
             this.label11.Name = "label11";
@@ -228,6 +246,7 @@
             // 
             // label12
             // 
+            this.label12.BackColor = System.Drawing.Color.White;
             this.label12.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label12.Location = new System.Drawing.Point(100, 355);
             this.label12.Name = "label12";
@@ -237,6 +256,7 @@
             // 
             // label13
             // 
+            this.label13.BackColor = System.Drawing.Color.White;
             this.label13.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label13.Location = new System.Drawing.Point(95, 325);
             this.label13.Name = "label13";
@@ -247,6 +267,7 @@
             // 
             // label14
             // 
+            this.label14.BackColor = System.Drawing.Color.White;
             this.label14.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label14.Location = new System.Drawing.Point(100, 140);
             this.label14.Name = "label14";
@@ -256,6 +277,7 @@
             // 
             // label15
             // 
+            this.label15.BackColor = System.Drawing.Color.White;
             this.label15.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label15.Location = new System.Drawing.Point(100, 110);
             this.label15.Name = "label15";
@@ -265,6 +287,7 @@
             // 
             // label16
             // 
+            this.label16.BackColor = System.Drawing.Color.White;
             this.label16.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label16.Location = new System.Drawing.Point(100, 230);
             this.label16.Name = "label16";
@@ -274,6 +297,7 @@
             // 
             // label17
             // 
+            this.label17.BackColor = System.Drawing.Color.White;
             this.label17.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label17.Location = new System.Drawing.Point(100, 170);
             this.label17.Name = "label17";
@@ -283,6 +307,7 @@
             // 
             // label18
             // 
+            this.label18.BackColor = System.Drawing.Color.White;
             this.label18.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label18.Location = new System.Drawing.Point(100, 200);
             this.label18.Name = "label18";
@@ -292,8 +317,9 @@
             // 
             // label19
             // 
+            this.label19.BackColor = System.Drawing.Color.White;
             this.label19.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label19.Location = new System.Drawing.Point(100, 260);
+            this.label19.Location = new System.Drawing.Point(110, 262);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(189, 14);
             this.label19.TabIndex = 37;
@@ -301,6 +327,7 @@
             // 
             // CUser1
             // 
+            this.CUser1.BackColor = System.Drawing.Color.White;
             this.CUser1.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CUser1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CUser1.Location = new System.Drawing.Point(105, 70);
@@ -310,6 +337,7 @@
             // 
             // CUser2
             // 
+            this.CUser2.BackColor = System.Drawing.Color.White;
             this.CUser2.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CUser2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CUser2.Location = new System.Drawing.Point(105, 100);
@@ -319,6 +347,7 @@
             // 
             // Cuser10
             // 
+            this.Cuser10.BackColor = System.Drawing.Color.White;
             this.Cuser10.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.Cuser10.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Cuser10.Location = new System.Drawing.Point(105, 342);
@@ -328,6 +357,7 @@
             // 
             // CUser3
             // 
+            this.CUser3.BackColor = System.Drawing.Color.White;
             this.CUser3.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CUser3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CUser3.Location = new System.Drawing.Point(105, 130);
@@ -337,6 +367,7 @@
             // 
             // CUser4
             // 
+            this.CUser4.BackColor = System.Drawing.Color.White;
             this.CUser4.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CUser4.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CUser4.Location = new System.Drawing.Point(105, 160);
@@ -346,6 +377,7 @@
             // 
             // CUser9
             // 
+            this.CUser9.BackColor = System.Drawing.Color.White;
             this.CUser9.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CUser9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CUser9.Location = new System.Drawing.Point(105, 313);
@@ -355,6 +387,7 @@
             // 
             // CUser5
             // 
+            this.CUser5.BackColor = System.Drawing.Color.White;
             this.CUser5.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CUser5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CUser5.Location = new System.Drawing.Point(105, 190);
@@ -364,6 +397,7 @@
             // 
             // CUser8
             // 
+            this.CUser8.BackColor = System.Drawing.Color.White;
             this.CUser8.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CUser8.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CUser8.Location = new System.Drawing.Point(105, 277);
@@ -373,6 +407,7 @@
             // 
             // CUser7
             // 
+            this.CUser7.BackColor = System.Drawing.Color.White;
             this.CUser7.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CUser7.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CUser7.Location = new System.Drawing.Point(105, 250);
@@ -382,6 +417,7 @@
             // 
             // CUser6
             // 
+            this.CUser6.BackColor = System.Drawing.Color.White;
             this.CUser6.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CUser6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CUser6.Location = new System.Drawing.Point(105, 219);
@@ -391,6 +427,7 @@
             // 
             // label30
             // 
+            this.label30.BackColor = System.Drawing.Color.White;
             this.label30.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label30.Location = new System.Drawing.Point(100, 293);
             this.label30.Name = "label30";
@@ -401,6 +438,7 @@
             // 
             // label31
             // 
+            this.label31.BackColor = System.Drawing.Color.White;
             this.label31.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label31.Location = new System.Drawing.Point(526, 297);
             this.label31.Name = "label31";
@@ -411,6 +449,7 @@
             // 
             // JavaUser6
             // 
+            this.JavaUser6.BackColor = System.Drawing.Color.White;
             this.JavaUser6.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.JavaUser6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.JavaUser6.Location = new System.Drawing.Point(531, 220);
@@ -420,6 +459,7 @@
             // 
             // JavaUser7
             // 
+            this.JavaUser7.BackColor = System.Drawing.Color.White;
             this.JavaUser7.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.JavaUser7.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.JavaUser7.Location = new System.Drawing.Point(531, 250);
@@ -429,6 +469,7 @@
             // 
             // JavaUser8
             // 
+            this.JavaUser8.BackColor = System.Drawing.Color.White;
             this.JavaUser8.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.JavaUser8.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.JavaUser8.Location = new System.Drawing.Point(531, 277);
@@ -438,6 +479,7 @@
             // 
             // JavaUser5
             // 
+            this.JavaUser5.BackColor = System.Drawing.Color.White;
             this.JavaUser5.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.JavaUser5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.JavaUser5.Location = new System.Drawing.Point(531, 190);
@@ -447,6 +489,7 @@
             // 
             // JavaUser9
             // 
+            this.JavaUser9.BackColor = System.Drawing.Color.White;
             this.JavaUser9.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.JavaUser9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.JavaUser9.Location = new System.Drawing.Point(531, 313);
@@ -456,6 +499,7 @@
             // 
             // JavaUser4
             // 
+            this.JavaUser4.BackColor = System.Drawing.Color.White;
             this.JavaUser4.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.JavaUser4.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.JavaUser4.Location = new System.Drawing.Point(531, 160);
@@ -465,6 +509,7 @@
             // 
             // JavaUser3
             // 
+            this.JavaUser3.BackColor = System.Drawing.Color.White;
             this.JavaUser3.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.JavaUser3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.JavaUser3.Location = new System.Drawing.Point(531, 130);
@@ -474,6 +519,7 @@
             // 
             // JavaUser10
             // 
+            this.JavaUser10.BackColor = System.Drawing.Color.White;
             this.JavaUser10.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.JavaUser10.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.JavaUser10.Location = new System.Drawing.Point(531, 342);
@@ -483,6 +529,7 @@
             // 
             // JavaUser2
             // 
+            this.JavaUser2.BackColor = System.Drawing.Color.White;
             this.JavaUser2.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.JavaUser2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.JavaUser2.Location = new System.Drawing.Point(531, 100);
@@ -492,6 +539,7 @@
             // 
             // JavaUser1
             // 
+            this.JavaUser1.BackColor = System.Drawing.Color.White;
             this.JavaUser1.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.JavaUser1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.JavaUser1.Location = new System.Drawing.Point(531, 70);
@@ -501,6 +549,7 @@
             // 
             // label42
             // 
+            this.label42.BackColor = System.Drawing.Color.White;
             this.label42.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label42.Location = new System.Drawing.Point(526, 260);
             this.label42.Name = "label42";
@@ -510,6 +559,7 @@
             // 
             // label43
             // 
+            this.label43.BackColor = System.Drawing.Color.White;
             this.label43.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label43.Location = new System.Drawing.Point(526, 200);
             this.label43.Name = "label43";
@@ -519,6 +569,7 @@
             // 
             // label44
             // 
+            this.label44.BackColor = System.Drawing.Color.White;
             this.label44.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label44.Location = new System.Drawing.Point(526, 170);
             this.label44.Name = "label44";
@@ -528,6 +579,7 @@
             // 
             // label45
             // 
+            this.label45.BackColor = System.Drawing.Color.White;
             this.label45.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label45.Location = new System.Drawing.Point(526, 230);
             this.label45.Name = "label45";
@@ -537,6 +589,7 @@
             // 
             // label46
             // 
+            this.label46.BackColor = System.Drawing.Color.White;
             this.label46.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label46.Location = new System.Drawing.Point(526, 110);
             this.label46.Name = "label46";
@@ -546,6 +599,7 @@
             // 
             // label47
             // 
+            this.label47.BackColor = System.Drawing.Color.White;
             this.label47.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label47.Location = new System.Drawing.Point(526, 140);
             this.label47.Name = "label47";
@@ -555,6 +609,7 @@
             // 
             // label48
             // 
+            this.label48.BackColor = System.Drawing.Color.White;
             this.label48.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label48.Location = new System.Drawing.Point(521, 325);
             this.label48.Name = "label48";
@@ -565,6 +620,7 @@
             // 
             // label49
             // 
+            this.label49.BackColor = System.Drawing.Color.White;
             this.label49.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label49.Location = new System.Drawing.Point(526, 355);
             this.label49.Name = "label49";
@@ -574,6 +630,7 @@
             // 
             // label50
             // 
+            this.label50.BackColor = System.Drawing.Color.White;
             this.label50.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label50.Location = new System.Drawing.Point(526, 80);
             this.label50.Name = "label50";
@@ -583,6 +640,7 @@
             // 
             // label51
             // 
+            this.label51.BackColor = System.Drawing.Color.White;
             this.label51.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label51.Location = new System.Drawing.Point(478, 252);
             this.label51.Name = "label51";
@@ -592,6 +650,7 @@
             // 
             // label52
             // 
+            this.label52.BackColor = System.Drawing.Color.White;
             this.label52.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label52.Location = new System.Drawing.Point(478, 312);
             this.label52.Name = "label52";
@@ -601,6 +660,7 @@
             // 
             // label53
             // 
+            this.label53.BackColor = System.Drawing.Color.White;
             this.label53.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label53.Location = new System.Drawing.Point(478, 282);
             this.label53.Name = "label53";
@@ -610,6 +670,7 @@
             // 
             // label54
             // 
+            this.label54.BackColor = System.Drawing.Color.White;
             this.label54.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label54.Location = new System.Drawing.Point(478, 222);
             this.label54.Name = "label54";
@@ -619,6 +680,7 @@
             // 
             // label55
             // 
+            this.label55.BackColor = System.Drawing.Color.White;
             this.label55.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label55.Location = new System.Drawing.Point(478, 192);
             this.label55.Name = "label55";
@@ -628,6 +690,7 @@
             // 
             // label56
             // 
+            this.label56.BackColor = System.Drawing.Color.White;
             this.label56.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label56.Location = new System.Drawing.Point(478, 162);
             this.label56.Name = "label56";
@@ -637,6 +700,7 @@
             // 
             // label57
             // 
+            this.label57.BackColor = System.Drawing.Color.White;
             this.label57.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label57.Location = new System.Drawing.Point(478, 342);
             this.label57.Name = "label57";
@@ -646,6 +710,7 @@
             // 
             // label58
             // 
+            this.label58.BackColor = System.Drawing.Color.White;
             this.label58.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label58.Location = new System.Drawing.Point(478, 132);
             this.label58.Name = "label58";
@@ -655,6 +720,7 @@
             // 
             // label59
             // 
+            this.label59.BackColor = System.Drawing.Color.White;
             this.label59.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label59.Location = new System.Drawing.Point(478, 102);
             this.label59.Name = "label59";
@@ -664,6 +730,7 @@
             // 
             // label60
             // 
+            this.label60.BackColor = System.Drawing.Color.White;
             this.label60.Font = new System.Drawing.Font("ＭＳ 明朝", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label60.Location = new System.Drawing.Point(478, 72);
             this.label60.Name = "label60";
@@ -698,10 +765,28 @@
             this.JavadataGridView.TabIndex = 7;
             this.JavadataGridView.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 47);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(324, 336);
+            this.pictureBox1.TabIndex = 80;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Location = new System.Drawing.Point(435, 47);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(324, 336);
+            this.pictureBox2.TabIndex = 81;
+            this.pictureBox2.TabStop = false;
+            // 
             // runkingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(789, 450);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.JavaUser6);
@@ -768,10 +853,16 @@
             this.Controls.Add(this.CdataGridView);
             this.Controls.Add(this.JavaLabel);
             this.Controls.Add(this.CLabel);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "runkingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "runkingForm";
             ((System.ComponentModel.ISupportInitialize)(this.CdataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.JavadataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -843,5 +934,7 @@
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.DataGridView CdataGridView;
         private System.Windows.Forms.DataGridView JavadataGridView;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
