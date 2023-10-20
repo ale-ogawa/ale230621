@@ -78,5 +78,6 @@ namespace C__JavaTypingGame
             runk.ShowDialog();
             this.Close();
         }
+
     }
 }

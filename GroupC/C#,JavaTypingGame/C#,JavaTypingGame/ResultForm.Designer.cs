@@ -91,9 +91,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(347, 98);
+            this.groupBox1.Location = new System.Drawing.Point(355, 98);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(413, 264);
+            this.groupBox1.Size = new System.Drawing.Size(419, 264);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "リザルト";
@@ -156,15 +156,17 @@
             // 
             // ResultForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.langLevelTextBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.languageSelectionButton);
             this.Controls.Add(this.retryButton);
             this.Controls.Add(this.runkingButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ResultForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "リザルト画面";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
