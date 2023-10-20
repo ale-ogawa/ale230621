@@ -29,11 +29,9 @@ namespace C__JavaTypingGame
 
         public PlayerDAO()
         {
-            Conn = new MySqlConnection(ConnStr);
-            Debug.WriteLine("コネクション確立");
+                Conn = new MySqlConnection(ConnStr);
+                Debug.WriteLine("コネクション確立");
         }
-
-
         /// <summary>
         /// 新規登録メソッド
         /// </summary>
@@ -79,7 +77,7 @@ namespace C__JavaTypingGame
         }
         public bool PlayerLogin(PlayerDTO player)
         {
-            bool check=false;
+            bool check = false;
             //sql文の用意
             string sql = "SELECT * FROM USER_TABLE WHERE user_name=@user_name && user_password=@user_password";
             Conn.Open();
@@ -93,92 +91,70 @@ namespace C__JavaTypingGame
 
             while (reader.Read())
             {
-                check= true;
+                check = true;
             }
             reader.Close();
             return check;
-        }
-
-        public void PlayerEntry(PlayerDTO player)
-        {
-            //sql文の用意
-            string sql = "Insert into USER_TABLE values(null,@user_name,@user_password)";
-
-            MySqlTransaction trn = null;
-            try
-            {
-                Conn.Open();
-
-                //sql文に値を入れる
-                MySqlCommand com = new MySqlCommand(sql, Conn);
-                com.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
-                com.Parameters.AddWithValue("@user_password", PlayerDTO.Pass);
-
-                //トランザクションの開始
-                trn = Conn.BeginTransaction();
-
-                //実行
-                com.ExecuteNonQuery();
-
-                //確定               
-                trn.Commit();
-            }
-            catch (Exception e) { trn.Rollback(); MessageBox.Show(e.Message); throw e; }
-            finally { Conn.Close(); }
         }
 
         public void RunkingData()
         {
             try
             {
+                //sql文の作成
                 string sql = "INSERT INTO ranking_table(score_id, user_id, user_name, ranguage, user_score)" +
                     " VALUES (null, (select user_id from user_table where user_name=@user_name), @user_name, @ranguage, @user_score)";
 
                 Conn.Open();
                 MySqlCommand com = new MySqlCommand(sql, Conn);
+                //各パラメータへの代入
                 com.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
                 com.Parameters.AddWithValue("@ranguage", PlayerDTO.Lang);
                 com.Parameters.AddWithValue("@user_score", PlayerDTO.score);
-
+                //トランザクション
                 transaction = Conn.BeginTransaction();
                 com.ExecuteNonQuery();
                 transaction.Commit();
-            }catch (Exception e) { transaction.Rollback(); MessageBox.Show(e.Message);}
+            }
+            catch (Exception e) { transaction.Rollback(); MessageBox.Show(e.Message); }
             finally { Conn.Close(); }
         }
+        //英数字判別メソッド
         public static bool IsAlphanumeric(string target)
         {
             return new Regex("^[0-9a-zA-Z]+$").IsMatch(target);
         }
+        //ランキングテーブルからC#の情報を抽出
         public DataTable DetaGetC()
         {
             DataTable dt = null;
-                string sql = "SELECT user_name,user_score FROM ranking_table WHERE ranguage='C#' ORDER BY user_score DESC limit 10";
-                Conn.Open();//コネクションを開ける
-                MySqlCommand command = new MySqlCommand(sql, Conn);//作ったコネクションに対してのsql文
-                MySqlDataReader reader = command.ExecuteReader(); //コマンドの読み取り//
-                /*ここまでテンプレ*/
+            string sql = "SELECT user_name,user_score FROM ranking_table WHERE ranguage='C#' ORDER BY user_score DESC limit 10";
+            Conn.Open();//コネクションを開ける
+            MySqlCommand command = new MySqlCommand(sql, Conn);//作ったコネクションに対してのsql文
+            MySqlDataReader reader = command.ExecuteReader(); //コマンドの読み取り//
+            /*ここまでテンプレ*/
 
-                while (reader.Read())
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
                 {
-                    for (int i = 0; i < reader.FieldCount; i++)
-                    {
-                        string columnName = reader.GetName(i);
-                        object columnValue = reader[i];
-                        Debug.Write($"{columnName}:{columnValue}");
-                    }
-                    Debug.WriteLine("");
+                    string columnName = reader.GetName(i);
+                    object columnValue = reader[i];
+                    Debug.Write($"{columnName}:{columnValue}");
                 }
-                reader.Close();
-                Conn.Close();//コネクションを閉める
+                Debug.WriteLine("");
+            }
+            reader.Close();
+            Conn.Close();//コネクションを閉める
 
-                dt = new DataTable();
-                //sql文と接続情報を指定し、データアダプタを作成
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, Conn);
-                //データを取得
-                da.Fill(dt);
+            dt = new DataTable();
+            //sql文と接続情報を指定し、データアダプタを作成
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, Conn);
+            //データを取得
+            da.Fill(dt);
             return dt;
         }
+        //ランキングテーブルからJavaの情報を抽出
         public DataTable DetaGetJava()
         {
             DataTable dt = null;
