@@ -48,8 +48,10 @@
             // 
             this.mealDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mealDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.mealDataGridView.MultiSelect = false;
             this.mealDataGridView.Name = "mealDataGridView";
             this.mealDataGridView.RowTemplate.Height = 21;
+            this.mealDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.mealDataGridView.Size = new System.Drawing.Size(476, 257);
             this.mealDataGridView.TabIndex = 2;
             // 

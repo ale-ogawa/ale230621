@@ -43,10 +43,13 @@ namespace WindowsFormsApp3
         //削除
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if (this.exerciseDataGridView.CurrentCell.RowIndex < 0)
+            //削除する行が選択されていない時
+            if (exerciseDataGridView.SelectedRows.Count <= 0)
             {
                 MessageBox.Show("削除する項目が選択されていません");
+                return;
             }
+
             //削除確認ダイアログ表示
             DialogResult result = MessageBox.Show("選択されている行を削除しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
@@ -54,6 +57,7 @@ namespace WindowsFormsApp3
                 MessageBox.Show("キャンセルしました");
                 return;
             }
+
             try
             {
                 string day = exerciseDataGridView.CurrentRow.Cells[0].Value.ToString();
@@ -84,7 +88,6 @@ namespace WindowsFormsApp3
             }
         }
 
-        //Form10起動時に最初に実行されるメソッド
         private void Form10_Load(object sender, EventArgs e)
         {
             //データグリッドビューの項目設定
