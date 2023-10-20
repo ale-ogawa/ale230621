@@ -64,7 +64,7 @@
             // 
             this.passCheck.AutoSize = true;
             this.passCheck.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.passCheck.Location = new System.Drawing.Point(233, 242);
+            this.passCheck.Location = new System.Drawing.Point(275, 247);
             this.passCheck.Name = "passCheck";
             this.passCheck.Size = new System.Drawing.Size(120, 16);
             this.passCheck.TabIndex = 13;
@@ -84,7 +84,7 @@
             // 
             // userText
             // 
-            this.userText.Location = new System.Drawing.Point(234, 106);
+            this.userText.Location = new System.Drawing.Point(275, 106);
             this.userText.Name = "userText";
             this.userText.Size = new System.Drawing.Size(277, 19);
             this.userText.TabIndex = 11;
@@ -101,7 +101,7 @@
             // 
             // passText
             // 
-            this.passText.Location = new System.Drawing.Point(234, 208);
+            this.passText.Location = new System.Drawing.Point(275, 208);
             this.passText.Name = "passText";
             this.passText.PasswordChar = '・';
             this.passText.Size = new System.Drawing.Size(277, 19);
