@@ -82,16 +82,6 @@
             this.passLabel.Text = "パスワード";
             this.passLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-<<<<<<< HEAD
-=======
-            // userText
-            // 
-            this.userText.Location = new System.Drawing.Point(275, 106);
-            this.userText.Name = "userText";
-            this.userText.Size = new System.Drawing.Size(277, 19);
-            this.userText.TabIndex = 11;
-            // 
->>>>>>> 9e258764d65d9498a4f35f8ec10249cf2c251535
             // nameLabel
             // 
             this.nameLabel.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -112,7 +102,7 @@
             // 
             // userText
             // 
-            this.userText.Location = new System.Drawing.Point(234, 106);
+            this.userText.Location = new System.Drawing.Point(275, 106);
             this.userText.Name = "userText";
             this.userText.Size = new System.Drawing.Size(277, 19);
             this.userText.TabIndex = 11;
