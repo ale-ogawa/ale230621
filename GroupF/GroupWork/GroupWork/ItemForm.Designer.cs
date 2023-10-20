@@ -31,8 +31,8 @@
 			this.backButton = new System.Windows.Forms.Button();
 			this.itmLabel = new System.Windows.Forms.Label();
 			this.dateLabel = new System.Windows.Forms.Label();
-			this.itemInput = new System.Windows.Forms.TextBox();
-			this.date = new System.Windows.Forms.TextBox();
+			this.itemNameTextBox = new System.Windows.Forms.TextBox();
+			this.dateTextBox = new System.Windows.Forms.TextBox();
 			this.itemAddButton = new System.Windows.Forms.Button();
 			this.itemUpdateButton = new System.Windows.Forms.Button();
 			this.itemSortButton = new System.Windows.Forms.Button();
@@ -40,8 +40,8 @@
 			this.deleteButton = new System.Windows.Forms.Button();
 			this.itemBoxLabel = new System.Windows.Forms.Label();
 			this.sortLabel = new System.Windows.Forms.Label();
-			this.itemComboBox = new System.Windows.Forms.TextBox();
-			this.sortBox = new System.Windows.Forms.TextBox();
+			this.itemComboBox = new System.Windows.Forms.ComboBox();
+			this.menuChoice = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// backButton
@@ -75,19 +75,19 @@
 			this.dateLabel.Text = "賞味期限";
 			this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// itemInput
+			// itemNameTextBox
 			// 
-			this.itemInput.Location = new System.Drawing.Point(295, 74);
-			this.itemInput.Name = "itemInput";
-			this.itemInput.Size = new System.Drawing.Size(297, 19);
-			this.itemInput.TabIndex = 3;
+			this.itemNameTextBox.Location = new System.Drawing.Point(295, 74);
+			this.itemNameTextBox.Name = "itemNameTextBox";
+			this.itemNameTextBox.Size = new System.Drawing.Size(297, 19);
+			this.itemNameTextBox.TabIndex = 3;
 			// 
-			// date
+			// dateTextBox
 			// 
-			this.date.Location = new System.Drawing.Point(295, 113);
-			this.date.Name = "date";
-			this.date.Size = new System.Drawing.Size(297, 19);
-			this.date.TabIndex = 4;
+			this.dateTextBox.Location = new System.Drawing.Point(295, 113);
+			this.dateTextBox.Name = "dateTextBox";
+			this.dateTextBox.Size = new System.Drawing.Size(297, 19);
+			this.dateTextBox.TabIndex = 4;
 			// 
 			// itemAddButton
 			// 
@@ -98,6 +98,7 @@
 			this.itemAddButton.TabIndex = 5;
 			this.itemAddButton.Text = "食材登録";
 			this.itemAddButton.UseVisualStyleBackColor = false;
+			this.itemAddButton.Click += new System.EventHandler(this.itemAddButton_Click);
 			// 
 			// itemUpdateButton
 			// 
@@ -108,6 +109,7 @@
 			this.itemUpdateButton.TabIndex = 6;
 			this.itemUpdateButton.Text = "食材更新";
 			this.itemUpdateButton.UseVisualStyleBackColor = false;
+			this.itemUpdateButton.Click += new System.EventHandler(this.itemUpdateButton_Click);
 			// 
 			// itemSortButton
 			// 
@@ -139,6 +141,7 @@
 			this.deleteButton.TabIndex = 9;
 			this.deleteButton.Text = "食材消去";
 			this.deleteButton.UseVisualStyleBackColor = false;
+			this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
 			// 
 			// itemBoxLabel
 			// 
@@ -162,17 +165,19 @@
 			// 
 			// itemComboBox
 			// 
-			this.itemComboBox.Location = new System.Drawing.Point(68, 194);
+			this.itemComboBox.FormattingEnabled = true;
+			this.itemComboBox.Location = new System.Drawing.Point(68, 195);
 			this.itemComboBox.Name = "itemComboBox";
-			this.itemComboBox.Size = new System.Drawing.Size(221, 19);
+			this.itemComboBox.Size = new System.Drawing.Size(121, 20);
 			this.itemComboBox.TabIndex = 12;
 			// 
-			// sortBox
+			// menuChoice
 			// 
-			this.sortBox.Location = new System.Drawing.Point(68, 335);
-			this.sortBox.Name = "sortBox";
-			this.sortBox.Size = new System.Drawing.Size(221, 19);
-			this.sortBox.TabIndex = 13;
+			this.menuChoice.FormattingEnabled = true;
+			this.menuChoice.Location = new System.Drawing.Point(68, 335);
+			this.menuChoice.Name = "menuChoice";
+			this.menuChoice.Size = new System.Drawing.Size(121, 20);
+			this.menuChoice.TabIndex = 13;
 			// 
 			// ItemForm
 			// 
@@ -180,7 +185,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.sortBox);
+			this.Controls.Add(this.menuChoice);
 			this.Controls.Add(this.itemComboBox);
 			this.Controls.Add(this.sortLabel);
 			this.Controls.Add(this.itemBoxLabel);
@@ -189,13 +194,14 @@
 			this.Controls.Add(this.itemSortButton);
 			this.Controls.Add(this.itemUpdateButton);
 			this.Controls.Add(this.itemAddButton);
-			this.Controls.Add(this.date);
-			this.Controls.Add(this.itemInput);
+			this.Controls.Add(this.dateTextBox);
+			this.Controls.Add(this.itemNameTextBox);
 			this.Controls.Add(this.dateLabel);
 			this.Controls.Add(this.itmLabel);
 			this.Controls.Add(this.backButton);
 			this.Name = "ItemForm";
 			this.Text = "Form1";
+			this.Load += new System.EventHandler(this.ItemForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -206,8 +212,8 @@
 		private System.Windows.Forms.Button backButton;
 		private System.Windows.Forms.Label itmLabel;
 		private System.Windows.Forms.Label dateLabel;
-		private System.Windows.Forms.TextBox itemInput;
-		private System.Windows.Forms.TextBox date;
+		private System.Windows.Forms.TextBox itemNameTextBox;
+		private System.Windows.Forms.TextBox dateTextBox;
 		private System.Windows.Forms.Button itemAddButton;
 		private System.Windows.Forms.Button itemUpdateButton;
 		private System.Windows.Forms.Button itemSortButton;
@@ -215,7 +221,7 @@
 		private System.Windows.Forms.Button deleteButton;
 		private System.Windows.Forms.Label itemBoxLabel;
 		private System.Windows.Forms.Label sortLabel;
-		private System.Windows.Forms.TextBox itemComboBox;
-		private System.Windows.Forms.TextBox sortBox;
+		private System.Windows.Forms.ComboBox itemComboBox;
+		private System.Windows.Forms.ComboBox menuChoice;
 	}
 }

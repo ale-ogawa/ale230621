@@ -218,7 +218,7 @@ namespace WindowsFormsApp3
             }
             if (energyTextBox.Text == "")
             {
-                str += $"摂取カロリーが入力されていません";
+                str += $"摂取カロリーが入力されていません\n";
             }
             if (energyTextBox.Text != "" && (int.TryParse(energyTextBox.Text, out int kcal) == false))
             {
