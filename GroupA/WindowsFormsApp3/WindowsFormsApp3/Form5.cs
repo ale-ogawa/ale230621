@@ -132,34 +132,23 @@ namespace WindowsFormsApp3
         {
             try
             {
-                //入力内容に「,」が含まれている場合
-                if (energyTextBox.Text.Contains(",") || mealTextBox.Text.Contains(","))
+                //入力値チェック
+                bool check = this.Check();
+                if (check == false)
                 {
-                    MessageBox.Show(",は使用しないでください");
+                    return;
                 }
-                //食事内容もしくは摂取カロリーが未入力の場合
-                if (mealTextBox.Text == "" || energyTextBox.Text == "")
+
+                string userId = LoginAccount.UserId;
+                string day = DateTime.Now.ToString("MM/dd");
+                string meal = mealTextBox.Text;
+                string energy = energyTextBox.Text;
+                string addTime = DateTime.Now.ToString("HH:mm");
+                using (StreamWriter writer = new StreamWriter(@"C:\healthcare\week_mealRecord.txt", true, Encoding.GetEncoding("utf-8")))
                 {
-                    MessageBox.Show("入力されていない項目が存在します");
+                    writer.WriteLine(userId + "," + day + "," + meal + "," + energy + "kcal," + addTime);
                 }
-                //摂取カロリーに数値以外が入力されている場合
-                else if((int.TryParse(energyTextBox.Text, out int kcal) == false))
-                {
-                    MessageBox.Show("摂取カロリーに数値以外を入力することはできません");
-                }
-                else
-                {
-                    string userId = LoginAccount.UserId;
-                    string day = DateTime.Now.ToString("MM/dd");
-                    string meal = mealTextBox.Text;
-                    string energy = energyTextBox.Text;
-                    string addTime = DateTime.Now.ToString("HH:mm");
-                    using (StreamWriter writer = new StreamWriter(@"C:\healthcare\week_mealRecord.txt", true, Encoding.GetEncoding("utf-8")))
-                    {
-                        writer.WriteLine(userId + "," + day + "," + meal + "," + energy + "kcal," + addTime);
-                    }
-                    this.Clear();
-                }
+                this.Clear();
             }
             catch (FileNotFoundException)
             {
@@ -215,5 +204,37 @@ namespace WindowsFormsApp3
             mealTextBox.Text = string.Empty;
             energyTextBox.Text = string.Empty;
         }
+
+        private bool Check()
+        {
+            string str = "";
+            if (energyTextBox.Text.Contains(",") || mealTextBox.Text.Contains(","))
+            {
+                str += $"「,」は使用不可です\n";
+            }
+            if (mealTextBox.Text == "")
+            {
+                str += $"食事内容が入力されていません\n";
+            }
+            if (energyTextBox.Text == "")
+            {
+                str += $"摂取カロリーが入力されていません";
+            }
+            if (energyTextBox.Text != "" && (int.TryParse(energyTextBox.Text, out int kcal) == false))
+            {
+                str += $"摂取カロリーに数値以外を入力することはできません\n";
+            }
+
+            if (str != "")
+            {
+                MessageBox.Show(str);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
     }
 }

@@ -58,19 +58,30 @@ namespace WindowsFormsApp3
         //入力値チェック
         private bool Check()
         {
+            string str = "";
             int id, password;
-            if(idTextBox.Text == "" || passwordTextBox.Text == "")
+
+            if (idTextBox.Text == "")
             {
-                MessageBox.Show("入力されていない項目が存在します");
+                str += $"ユーザーIDが入力されていません\n";
             }
-            if (idTextBox.Text.Length != 8 || int.TryParse(idTextBox.Text, out id) == false || idTextBox.Text == "")
+            if (idTextBox.Text != "" && (idTextBox.Text.Length != 8 || int.TryParse(idTextBox.Text, out id) == false))
             {
-                MessageBox.Show("入力されている内容に誤りがあります");
-                return false;
+                str += $"ユーザーIDは半角数字8桁です\n";
             }
-            else if (passwordTextBox.Text.Length != 4 || int.TryParse(passwordTextBox.Text, out password) == false || passwordTextBox.Text == "")
+            if (passwordTextBox.Text == "")
             {
-                MessageBox.Show("入力されている内容に誤りがあります");
+                str += $"パスワードが入力されていません\n";
+            }
+            if (passwordTextBox.Text != "" && (passwordTextBox.Text.Length != 4 || int.TryParse(passwordTextBox.Text, out password) == false))
+            {
+                str += $"パスワードは半角数字4桁です\n";
+            }
+
+
+            if (str != "")
+            {
+                MessageBox.Show(str);
                 return false;
             }
             else
@@ -90,7 +101,7 @@ namespace WindowsFormsApp3
                     string[] userInfo = line.Split(',');
                     if (userInfo[0] == idTextBox.Text && userInfo[1] == passwordTextBox.Text)
                     {
-                        LoginAccount account = new LoginAccount(new User(userInfo[0], userInfo[1], userInfo[2], userInfo[3]));
+                        LoginAccount account = new LoginAccount(new User(userInfo[0], userInfo[1], userInfo[2], userInfo[3].ToCharArray()[0]));
                         return true;
                     }
                 }

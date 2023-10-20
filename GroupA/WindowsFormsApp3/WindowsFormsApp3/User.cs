@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
     internal class User
     {
         public User() { }
-        public User(string userId, string password, string birthday, string gender)
+        public User(string userId, string password, string birthday, char gender)
         {
             this.userId = userId;
             this.password = password;
@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         public string userId { get; set; }
         public string password { get; set; }
         public string birthday { get; set; }
-        public string gender { get; set; }
+        public char gender { get; set; }
 
         public void UserAdd(User user)
         {
