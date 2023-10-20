@@ -129,7 +129,6 @@
             this.correctTextBox.Name = "correctTextBox";
             this.correctTextBox.Size = new System.Drawing.Size(100, 19);
             this.correctTextBox.TabIndex = 6;
-            this.correctTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
