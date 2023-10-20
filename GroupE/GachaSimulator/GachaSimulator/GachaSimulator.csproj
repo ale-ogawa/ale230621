@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gacha.cs" />
     <Compile Include="ResultFormD.cs">
       <SubType>Form</SubType>
     </Compile>
