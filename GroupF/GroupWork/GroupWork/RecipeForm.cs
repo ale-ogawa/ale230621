@@ -72,7 +72,7 @@ namespace GroupWork
 				textBox1.Text = str2;
 				textBox2.Text = imagePath;
                 picDisplayBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                picDisplayBox.ImageLocation = str2;
+				picDisplayBox.ImageLocation = str2;
 
 
 				reader.Close();
