@@ -97,9 +97,9 @@
             this.checkText.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.checkText.Location = new System.Drawing.Point(253, 232);
             this.checkText.Name = "checkText";
-            this.checkText.Size = new System.Drawing.Size(293, 12);
+            this.checkText.Size = new System.Drawing.Size(305, 12);
             this.checkText.TabIndex = 13;
-            this.checkText.Text = "登録内容を確認し、よろしければ登録をしてください";
+            this.checkText.Text = "登録内容を確認し、よろしければ登録を押してください";
             // 
             // RegistrationButton
             // 
