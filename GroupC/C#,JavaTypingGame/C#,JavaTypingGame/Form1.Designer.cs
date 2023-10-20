@@ -40,7 +40,8 @@
             // 
             this.loginButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loginButton.BackgroundImage")));
             this.loginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.loginButton.Location = new System.Drawing.Point(291, 164);
+            this.loginButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.loginButton.Location = new System.Drawing.Point(291, 174);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(210, 65);
             this.loginButton.TabIndex = 3;
@@ -51,6 +52,7 @@
             // 
             this.newRegistrationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newRegistrationButton.BackgroundImage")));
             this.newRegistrationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.newRegistrationButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.newRegistrationButton.Location = new System.Drawing.Point(291, 261);
             this.newRegistrationButton.Name = "newRegistrationButton";
             this.newRegistrationButton.Size = new System.Drawing.Size(210, 65);
@@ -62,6 +64,7 @@
             // 
             this.endButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("endButton.BackgroundImage")));
             this.endButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.endButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.endButton.Location = new System.Drawing.Point(291, 352);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(210, 65);
@@ -71,12 +74,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(189, 34);
+            this.pictureBox1.Location = new System.Drawing.Point(226, 48);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(446, 124);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(340, 89);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
