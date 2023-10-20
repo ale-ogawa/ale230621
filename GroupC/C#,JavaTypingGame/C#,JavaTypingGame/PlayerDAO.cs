@@ -71,13 +71,14 @@ namespace C__JavaTypingGame
                 mySql.ExecuteNonQuery();
                 transaction.Commit();
                 Conn.Close();
-            }
-            catch (MySqlException mysqlEX) {throw new ConstraintException("データベースに接続できません。\\nsql文又はコネクション情報に誤りがある可能性があります。");}
             //ログイン
             if (PlayerLogin(player) != false)
             {
                 MessageBox.Show("登録しました");
             }
+            }
+            catch (MySqlException mysqlEX) { throw new ConstraintException("データベースに接続できません。\\nsql文又はコネクション情報に誤りがある可能性があります。"); }
+
         }
         public bool PlayerLogin(PlayerDTO player)
         {
@@ -98,6 +99,7 @@ namespace C__JavaTypingGame
                 check = true;
             }
             reader.Close();
+            Conn.Clone();
             return check;
         }
 
@@ -136,32 +138,41 @@ namespace C__JavaTypingGame
         //ランキングテーブルからC#の情報を抽出
         public DataTable DetaGetC()
         {
-            DataTable dt = null;
-            string sql = "SELECT user_name,user_score FROM ranking_table WHERE ranguage='C#' ORDER BY user_score DESC limit 10";
-            Conn.Open();//コネクションを開ける
-            MySqlCommand command = new MySqlCommand(sql, Conn);//作ったコネクションに対してのsql文
-            MySqlDataReader reader = command.ExecuteReader(); //コマンドの読み取り//
-            /*ここまでテンプレ*/
-
-            while (reader.Read())
+            try
             {
-                for (int i = 0; i < reader.FieldCount; i++)
-                {
-                    string columnName = reader.GetName(i);
-                    object columnValue = reader[i];
-                    Debug.Write($"{columnName}:{columnValue}");
-                }
-                Debug.WriteLine("");
-            }
-            reader.Close();
-            Conn.Close();//コネクションを閉める
+                DataTable dt = null;
+                string sql = "SELECT user_name,user_score FROM ranking_table WHERE ranguage='C#' ORDER BY user_score DESC limit 10";
+                Conn.Open();//コネクションを開ける
+                MySqlCommand command = new MySqlCommand(sql, Conn);//作ったコネクションに対してのsql文
+                MySqlDataReader reader = command.ExecuteReader(); //コマンドの読み取り//
+                /*ここまでテンプレ*/
 
-            dt = new DataTable();
-            //sql文と接続情報を指定し、データアダプタを作成
-            MySqlDataAdapter da = new MySqlDataAdapter(sql, Conn);
-            //データを取得
-            da.Fill(dt);
-            return dt;
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        string columnName = reader.GetName(i);
+                        object columnValue = reader[i];
+                        Debug.Write($"{columnName}:{columnValue}");
+                    }
+                    Debug.WriteLine("");
+                }
+                reader.Close();
+                dt = new DataTable();
+                //sql文と接続情報を指定し、データアダプタを作成
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, Conn);
+                //データを取得
+                da.Fill(dt);
+                return dt;
+            }
+            catch (MySqlException mysqlEX)
+            {
+                transaction.Rollback();
+                throw new ConstraintException("データベースに接続できません。\\nsql文又はコネクション情報に誤りがある可能性があります。");
+                return null;
+            }
+            catch (Exception e) { transaction.Rollback(); MessageBox.Show(e.Message); return null; }
+            finally { Conn.Close(); }
         }
         //ランキングテーブルからJavaの情報を抽出
         public DataTable DetaGetJava()

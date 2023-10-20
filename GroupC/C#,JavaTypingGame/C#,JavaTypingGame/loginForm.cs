@@ -17,7 +17,7 @@ namespace typingGame
         {
             InitializeComponent();
             userText.Focus();
-            Application.DoEvents();
+            //Application.DoEvents();
         }
         private void userText_TextChanged(object sender, EventArgs e)
         {
