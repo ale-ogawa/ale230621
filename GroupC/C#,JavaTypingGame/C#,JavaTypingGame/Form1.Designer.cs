@@ -41,6 +41,7 @@
             this.loginButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loginButton.BackgroundImage")));
             this.loginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.loginButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.loginButton.ForeColor = System.Drawing.Color.Transparent;
             this.loginButton.Location = new System.Drawing.Point(291, 174);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(210, 65);
@@ -74,9 +75,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(226, 48);
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(135, 27);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(340, 89);
+            this.pictureBox1.Size = new System.Drawing.Size(542, 131);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
