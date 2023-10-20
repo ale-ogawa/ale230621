@@ -53,17 +53,10 @@ namespace typingGame
                 this.Close();
 
             }
+            catch (ConstraintException cEx) { MessageBox.Show(cEx.Message); }
             catch (MySql.Data.MySqlClient.MySqlException MyEx) { MessageBox.Show("このユーザー名は既に使われています"); }
-            catch (ArgumentException ae)
-            {
-                MessageBox.Show(ae.Message);
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                
-            }
+            catch (ArgumentException ae){ MessageBox.Show(ae.Message);}
+            catch (Exception ex){MessageBox.Show(ex.Message);}
         }
     }
 }

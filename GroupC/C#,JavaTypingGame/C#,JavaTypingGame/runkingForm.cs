@@ -15,24 +15,31 @@ namespace typingGame
     {
         public runkingForm()
         {
-            DataTable dataTableC = new DataTable();
-            DataTable dataTableJava = new DataTable();
-
-            InitializeComponent();
-            PlayerDAO playerDAO = new PlayerDAO();
-            dataTableC = playerDAO.DetaGetC();
-            dataTableJava = playerDAO.DetaGetJava();
-
-            CdataGridView.DataSource = dataTableC;
-            JavadataGridView.DataSource = dataTableJava;
-
-            List<Label> labelC = new List<Label> { CUser1, CUser2, CUser3, CUser4, CUser5, CUser6, CUser7, CUser8, CUser9, Cuser10 };
-            List<Label> labelJava = new List<Label> { JavaUser1, JavaUser2, JavaUser3,JavaUser4,JavaUser5,JavaUser6,JavaUser7,JavaUser8,JavaUser9,JavaUser10 };
-            for (int i = 0; i < dataTableC.Rows.Count; i++)
+            try
             {
-                labelC[i].Text = CdataGridView.Rows[i].Cells[0].Value.ToString() + ":" + CdataGridView.Rows[i].Cells[1].Value.ToString() + "点";
-                labelJava[i].Text = JavadataGridView.Rows[i].Cells[0].Value.ToString() + ":" + JavadataGridView.Rows[i].Cells[1].Value.ToString() + "点";
+                //データテーブル型のインスタンス生成
+                DataTable dataTableC = new DataTable();
+                DataTable dataTableJava = new DataTable();
+
+                InitializeComponent();
+                //データベースの内容を各インスタンスに挿入
+                PlayerDAO playerDAO = new PlayerDAO();
+                dataTableC = playerDAO.DetaGetC();
+                dataTableJava = playerDAO.DetaGetJava();
+                //各データグリッドビューに反映
+                CdataGridView.DataSource = dataTableC;
+                JavadataGridView.DataSource = dataTableJava;
+                //データグリッドビューの内容をテキストに反映
+                List<Label> labelC = new List<Label> { CUser1, CUser2, CUser3, CUser4, CUser5, CUser6, CUser7, CUser8, CUser9, Cuser10 };
+                List<Label> labelJava = new List<Label> { JavaUser1, JavaUser2, JavaUser3, JavaUser4, JavaUser5, JavaUser6, JavaUser7, JavaUser8, JavaUser9, JavaUser10 };
+                for (int i = 0; i < CdataGridView.RowCount-1; i++)
+                        labelC[i].Text = CdataGridView.Rows[i].Cells[0].Value.ToString() + ":" + CdataGridView.Rows[i].Cells[1].Value.ToString() + "点";
+                for (int i = 0; i < JavadataGridView.RowCount-1; i++)
+                    labelJava[i].Text = JavadataGridView.Rows[i].Cells[0].Value.ToString() + ":" + JavadataGridView.Rows[i].Cells[1].Value.ToString() + "点";
+
             }
+            catch (ConstraintException cEx) { MessageBox.Show(cEx.Message); }
+            catch (Exception EX) { MessageBox.Show(EX.Message); }
         }
 
         private void menueButton_Click(object sender, EventArgs e)

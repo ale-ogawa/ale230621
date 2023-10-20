@@ -40,35 +40,39 @@ namespace C__JavaTypingGame
 
         public void PlayerRegistration(PlayerDTO player)
         {
-            //tableにユーザーを格納するsql
-            string sql = "INSERT INTO user_table(user_id, user_name, user_password)" +
-                "VALUES(user_id, @user_name, @user_password)";
-
-            //sql分に値の代入
-            Conn.Open();
-            MySqlCommand mySql = new MySqlCommand(sql, Conn);
-            mySql.Parameters.AddWithValue("user_id", DBNull.Value);
-
-            if (PlayerDTO.Name.Length <= 0 || PlayerDTO.Name.Length > 10)
-                throw new ArgumentException("ユーザー名は0文字以上10文字以内でお願いします");
-            mySql.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
-
-            //パスワード文字数判断
-            if (PlayerDTO.Pass.Length <= 0)
-                throw new ArgumentException("パスワードが入力されていません");
-            if (IsAlphanumeric(PlayerDTO.Pass))
+            try
             {
-                if (PlayerDTO.Pass.Length >= 4 && PlayerDTO.Pass.Length <= 10)
-                    mySql.Parameters.AddWithValue("@user_password", PlayerDTO.Pass);
-                else throw new ArgumentException("パスワードは4文字以上10文字以下の文字数で設定してください");
-            }
-            else { throw new ArgumentException("パスワードに英数字以外が入力されています"); }
-            //transactionの開始
-            transaction = Conn.BeginTransaction();
-            mySql.ExecuteNonQuery();
-            transaction.Commit();
-            Conn.Close();
+                //tableにユーザーを格納するsql
+                string sql = "INSERT INTO user_table(user_id, user_name, user_password)" +
+                    "VALUES(user_id, @user_name, @user_password)";
 
+                //sql分に値の代入
+                Conn.Open();
+                MySqlCommand mySql = new MySqlCommand(sql, Conn);
+                mySql.Parameters.AddWithValue("user_id", DBNull.Value);
+
+                //ユーザー名文字数判断
+                if (PlayerDTO.Name.Length <= 0 || PlayerDTO.Name.Length > 10)
+                    throw new ArgumentException("ユーザー名は0文字以上10文字以内でお願いします");
+                mySql.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
+
+                //パスワード文字数判断
+                if (PlayerDTO.Pass.Length <= 0)
+                    throw new ArgumentException("パスワードが入力されていません");
+                if (IsAlphanumeric(PlayerDTO.Pass))
+                {
+                    if (PlayerDTO.Pass.Length >= 4 && PlayerDTO.Pass.Length <= 10)
+                        mySql.Parameters.AddWithValue("@user_password", PlayerDTO.Pass);
+                    else throw new ArgumentException("パスワードは4文字以上10文字以下の文字数で設定してください");
+                }
+                else { throw new ArgumentException("パスワードに英数字以外が入力されています"); }
+                //transactionの開始
+                transaction = Conn.BeginTransaction();
+                mySql.ExecuteNonQuery();
+                transaction.Commit();
+                Conn.Close();
+            }
+            catch (MySqlException mysqlEX) {throw new ConstraintException("データベースに接続できません。\\nsql文又はコネクション情報に誤りがある可能性があります。");}
             //ログイン
             if (PlayerLogin(player) != false)
             {
@@ -115,6 +119,11 @@ namespace C__JavaTypingGame
                 transaction = Conn.BeginTransaction();
                 com.ExecuteNonQuery();
                 transaction.Commit();
+            }
+            catch (MySqlException mysqlEX)
+            {
+                transaction.Rollback(); 
+                throw new ConstraintException("データベースに接続できません。\\nsql文又はコネクション情報に誤りがある可能性があります。");
             }
             catch (Exception e) { transaction.Rollback(); MessageBox.Show(e.Message); }
             finally { Conn.Close(); }

@@ -16,6 +16,8 @@ namespace typingGame
         public loginForm()
         {
             InitializeComponent();
+            userText.Focus();
+            Application.DoEvents();
         }
         private void userText_TextChanged(object sender, EventArgs e)
         {
@@ -62,6 +64,7 @@ namespace typingGame
                 }
                 else MessageBox.Show("ログイン情報に誤りがあります");
             }
+            catch (MySql.Data.MySqlClient.MySqlException mysqlEX) { MessageBox.Show("データベースに接続できません。\nコネクション情報に誤りがある可能性があります。"); }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
