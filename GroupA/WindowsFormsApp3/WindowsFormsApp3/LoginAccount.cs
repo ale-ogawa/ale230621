@@ -15,13 +15,13 @@ namespace WindowsFormsApp1
         public LoginAccount(User user)
         {
             UserId = user.userId;
-            RecommendEnergy = this.RecommendEnergyCalc(user.gender.ToString(), user.birthday);
+            RecommendEnergy = this.RecommendEnergyCalc(user.gender, user.birthday);
         }
 
         //ログインアカウントの一日の推奨カロリー量を計算
-        private int RecommendEnergyCalc(string gender, string birthday)
+        private int RecommendEnergyCalc(char gender, string birthday)
         {
-            if (gender == "男")
+            if (gender == '男')
             {
                 int today = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
                 int age = (today - int.Parse(birthday)) / 10000;

@@ -36,6 +36,12 @@ namespace C__JavaTypingGame
         //タイマー用制限時間
         private int duration = Time;
 
+        //ミスフラグ
+        private bool MissFlag=false;
+
+        //コンボカウンター
+        private int Conb = 0;
+
         public playForm()
         {
             InitializeComponent();
@@ -145,11 +151,14 @@ namespace C__JavaTypingGame
         {
             try 
             {
-                //テキストボックスに文字が入力され配列の参照範囲内であれば判定処理に進む
+                //ミスタイプによるループを防ぐ
+                if(MissFlag) { MissFlag = false; return; }
+
+                //ユーザーのバックスペース入力は処理をしない
                 if (ProblemIndex < questionLabel.Text.Length && answerTextBox.Text.Length >= ProblemIndex + 1)
                 {
                     //改行を文字列に含める
-                    //照合用に変換した文字列を戻す
+                    //問題表示用に変換した文字列を戻す
                     String[] questions = questionLabel.Text.Split('\n');
                     string question = String.Join(",", questions).Replace("□"," ").Replace("&&&&", "&&");
 
@@ -162,11 +171,23 @@ namespace C__JavaTypingGame
                     {
                         //照合文字を一文字進める
                         ProblemIndex++;
+
+                        //コンボを進める
+                        Conb++;
                     }
 
                     //不正解処理
                     else
                     {
+                        //ミスカウントアップ
+                        MissCounter++;
+
+                        //コンボリセット
+                        Conb = 0;
+
+                        //ミスフラグの変更
+                        MissFlag = true;
+
                         //間違えた文字を削除
                         answerTextBox.Text = answerTextBox.Text.Remove(ProblemIndex);
 
@@ -175,9 +196,6 @@ namespace C__JavaTypingGame
 
                         //UIを更新
                         System.Windows.Forms.Application.DoEvents();
-
-                        //ミスカウントアップ
-                        MissCounter++;
                     }
 
                     //全ての文字が正しく入力された時の処理
@@ -186,6 +204,9 @@ namespace C__JavaTypingGame
                         //正解後の事後処理
                         CorrectProcess();
                     }
+
+                    //10の倍数コンボ毎に制限時間を1秒増やす
+                    if (Conb % 10 == 0 && Conb > 9) Conb++;
                 }
             }
             catch (Exception exc) { MessageBox.Show($"{exc.Message}"); }
@@ -241,6 +262,7 @@ namespace C__JavaTypingGame
             //カウントゼロ以上の処理
             else if (duration > 0)
             {
+                //カウントを進める
                 duration--;
                 timeCountTextBox.Text = duration.ToString();
                 System.Windows.Forms.Application.DoEvents();
