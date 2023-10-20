@@ -38,8 +38,10 @@
             // 
             this.exerciseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.exerciseDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.exerciseDataGridView.MultiSelect = false;
             this.exerciseDataGridView.Name = "exerciseDataGridView";
             this.exerciseDataGridView.RowTemplate.Height = 21;
+            this.exerciseDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.exerciseDataGridView.Size = new System.Drawing.Size(463, 260);
             this.exerciseDataGridView.TabIndex = 0;
             // 

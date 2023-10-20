@@ -101,6 +101,7 @@
             // energyTextBox
             // 
             this.energyTextBox.Location = new System.Drawing.Point(417, 172);
+            this.energyTextBox.MaxLength = 4;
             this.energyTextBox.Name = "energyTextBox";
             this.energyTextBox.Size = new System.Drawing.Size(94, 19);
             this.energyTextBox.TabIndex = 8;

@@ -1,4 +1,6 @@
-﻿namespace GachaSimulator
+﻿using System.Windows.Forms;
+
+namespace GachaSimulator
 {
     partial class CreateForm
     {
@@ -100,7 +102,7 @@
             this.saveCsvButton.Click += new System.EventHandler(this.saveCsvButton_Click);
             // 
             // CreateForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 250);

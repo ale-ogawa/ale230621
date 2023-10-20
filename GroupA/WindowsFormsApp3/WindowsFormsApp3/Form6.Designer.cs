@@ -111,6 +111,7 @@
             // exerciseTimeTextBox
             // 
             this.exerciseTimeTextBox.Location = new System.Drawing.Point(234, 120);
+            this.exerciseTimeTextBox.MaxLength = 3;
             this.exerciseTimeTextBox.Name = "exerciseTimeTextBox";
             this.exerciseTimeTextBox.Size = new System.Drawing.Size(100, 19);
             this.exerciseTimeTextBox.TabIndex = 7;
@@ -118,6 +119,7 @@
             // weightTextBox
             // 
             this.weightTextBox.Location = new System.Drawing.Point(234, 184);
+            this.weightTextBox.MaxLength = 3;
             this.weightTextBox.Name = "weightTextBox";
             this.weightTextBox.Size = new System.Drawing.Size(100, 19);
             this.weightTextBox.TabIndex = 8;
