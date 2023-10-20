@@ -39,7 +39,7 @@
             // 
             this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.backButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.backButton.Location = new System.Drawing.Point(240, 380);
+            this.backButton.Location = new System.Drawing.Point(237, 379);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(270, 37);
             this.backButton.TabIndex = 28;
@@ -87,7 +87,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("BIZ UDゴシック", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(250, 31);
+            this.label1.Location = new System.Drawing.Point(258, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(237, 19);
             this.label1.TabIndex = 31;
@@ -97,7 +97,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(792, 450);
+            this.ClientSize = new System.Drawing.Size(782, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.advancedButton);

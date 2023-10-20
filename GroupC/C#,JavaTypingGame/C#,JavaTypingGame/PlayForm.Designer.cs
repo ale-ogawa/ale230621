@@ -110,7 +110,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(122, 9);
+            this.label1.Location = new System.Drawing.Point(131, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(316, 23);
             this.label1.TabIndex = 7;

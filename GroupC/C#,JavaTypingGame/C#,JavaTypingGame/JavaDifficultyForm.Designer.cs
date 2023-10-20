@@ -39,7 +39,7 @@
             // 
             this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.backButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.backButton.Location = new System.Drawing.Point(237, 382);
+            this.backButton.Location = new System.Drawing.Point(238, 377);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(273, 38);
             this.backButton.TabIndex = 24;
@@ -88,7 +88,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("BIZ UDゴシック", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(259, 22);
+            this.label1.Location = new System.Drawing.Point(259, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(237, 19);
             this.label1.TabIndex = 30;
