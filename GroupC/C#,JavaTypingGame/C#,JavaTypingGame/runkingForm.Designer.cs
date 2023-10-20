@@ -120,6 +120,7 @@
             // menueButton
             // 
             this.menueButton.Location = new System.Drawing.Point(290, 337);
+
             this.menueButton.Name = "menueButton";
             this.menueButton.Size = new System.Drawing.Size(177, 48);
             this.menueButton.TabIndex = 18;
@@ -700,8 +701,8 @@
             // 
             // runkingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(789, 450);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.JavaUser6);
@@ -768,7 +769,9 @@
             this.Controls.Add(this.CdataGridView);
             this.Controls.Add(this.JavaLabel);
             this.Controls.Add(this.CLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "runkingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "runkingForm";
             ((System.ComponentModel.ISupportInitialize)(this.CdataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.JavadataGridView)).EndInit();
