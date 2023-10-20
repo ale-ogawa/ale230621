@@ -39,9 +39,9 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(506, 287);
+            this.backButton.Location = new System.Drawing.Point(503, 273);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(135, 40);
+            this.backButton.Size = new System.Drawing.Size(138, 54);
             this.backButton.TabIndex = 15;
             this.backButton.Text = "戻る";
             this.backButton.UseVisualStyleBackColor = true;
@@ -105,8 +105,7 @@
             // 
             // loginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.loginButton);
