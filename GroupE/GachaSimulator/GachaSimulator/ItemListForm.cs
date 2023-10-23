@@ -31,7 +31,7 @@ namespace GachaSimulator
                 dt.Columns.Add("レア度");
                 dt.Columns.Add("名前");
 
-                dt.Rows.Add(firstLine);
+                //dt.Rows.Add(firstLine);
 
                 while (!rd.EndOfStream)
                 {
