@@ -150,14 +150,6 @@ namespace WindowsFormsApp3
                 }
                 this.Clear();
             }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -169,6 +161,26 @@ namespace WindowsFormsApp3
 
         private void Form5_Load(object sender, EventArgs e)
         {
+            //ファイルの存在確認
+            string str = "";
+            if (Directory.Exists(@"C:\healthcare") == false)
+            {
+                str += $"healthcareファイルが存在しません\n";
+            }
+            if (File.Exists(@"C:\healthcare\mealList.txt") == false)
+            {
+                str += $"mealListファイルが存在しません\n";
+            }
+            if (File.Exists(@"C:\healthcare\week_mealRecord.txt") == false)
+            {
+                str += $"mealRecord.txtファイルが存在しません\n";
+            }
+            if (str != "")
+            {
+                MessageBox.Show(str);
+                this.Close();
+                return;
+            }
             //コンボボックスへの要素格納
             try
             {
@@ -179,14 +191,6 @@ namespace WindowsFormsApp3
                         mealComboBox.Items.Add(reader.ReadLine());
                     }
                 }
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
