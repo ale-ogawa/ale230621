@@ -94,7 +94,7 @@ namespace GroupWork
                     //DBに保存するときはSQL側が「\マーク」を消してしまう。
                     //そのため「\マーク」を代替処理として「他の文字」をかまして保存する。呼び出すときに「\マーク」に入れ替える
                     string str2 = boxpic.Replace("\\", "変更用");
-
+					//14:17更新
                     //★INSERT文の定義
                     string Selectall5;
 					if (menuBox.Text == "" || menuBox.Text == "" || kcalBox.Text == "" || timeBox.Text == ""
