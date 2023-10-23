@@ -35,6 +35,22 @@ namespace WindowsFormsApp3
         //登録
         private void registerButton_Click(object sender, EventArgs e)
         {
+            //フォルダの存在確認
+            if (Directory.Exists(@"C:\healthcare\") == false)
+            {
+                MessageBox.Show("healthcareフォルダが存在しません");
+                this.Close();
+                return;
+            }
+
+            //ファイルの存在確認
+            if (File.Exists(@"C:\healthcare\userList.txt") == false)
+            {
+                MessageBox.Show("userListファイルが存在しません");
+                this.Close();
+                return;
+            }
+
             //入力値チェック
             bool tcheck = this.TextCheck();
             if (tcheck == false)
@@ -128,10 +144,6 @@ namespace WindowsFormsApp3
                     }
                 }
                 return true;
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
             }
             catch (IOException ex)
             {

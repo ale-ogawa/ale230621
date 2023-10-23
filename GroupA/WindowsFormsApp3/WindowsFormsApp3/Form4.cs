@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1;
 
 namespace WindowsFormsApp3
 {
@@ -57,6 +58,7 @@ namespace WindowsFormsApp3
                 MessageBox.Show("キャンセルしました");
                 return;
             }
+            LoginAccount account = new LoginAccount();
             this.Close();
         }
     }

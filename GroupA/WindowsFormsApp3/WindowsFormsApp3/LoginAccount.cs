@@ -18,6 +18,12 @@ namespace WindowsFormsApp1
             RecommendEnergy = this.RecommendEnergyCalc(user.gender, user.birthday);
         }
 
+        public LoginAccount()
+        {
+            UserId = "";
+            RecommendEnergy = 0;
+        }
+
         //ログインアカウントの一日の推奨カロリー量を計算
         private int RecommendEnergyCalc(char gender, string birthday)
         {

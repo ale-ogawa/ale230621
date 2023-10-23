@@ -59,14 +59,6 @@ namespace WindowsFormsApp3
                 }
                 this.Clear();
             }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -84,6 +76,26 @@ namespace WindowsFormsApp3
 
         private void Form6_Load(object sender, EventArgs e)
         {
+            //ファイルの存在確認
+            string str = "";
+            if (Directory.Exists(@"C:\healthcare") == false)
+            {
+                str += $"healthcareファイルが存在しません\n";
+            }
+            if (File.Exists(@"C:\healthcare\exerciseList.txt") == false)
+            {
+                str += $"exerciseListファイルが存在しません\n";
+            }
+            if (File.Exists(@"C:\healthcare\week_exerciseRecord.txt") == false)
+            {
+                str += $"exerciseRecord.txtファイルが存在しません\n";
+            }
+            if (str != "")
+            {
+                MessageBox.Show(str);
+                this.Close();
+                return;
+            }
             //コンボボックスへの要素格納
             try
             {
@@ -93,14 +105,6 @@ namespace WindowsFormsApp3
                     string[] list = n.Split(',');
                     exerciseComboBox.Items.Add(list[0]);
                 }
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

@@ -32,12 +32,42 @@ namespace WindowsFormsApp3
 
         private void Form11_Load(object sender, EventArgs e)
         {
+            //フォルダの存在確認
+            if (Directory.Exists(@"C:\healthcare\") == false)
+            {
+                MessageBox.Show("healthcareフォルダが存在しません");
+                this.Close();
+                return;
+            }
+            //ファイルの存在確認
+            string str = "";
+            if (File.Exists(@"C:\healthcare\week_mealRecord.txt") == false)
+            {
+                str += $"week_mealRecordファイルが存在しません\n";
+            }
+            if (File.Exists(@"C:\healthcare\week_exerciseRecord.txt") == false)
+            {
+                str += $"week_exerciseRecordファイルが存在しません\n";
+            }
+            if (File.Exists(@"C:\healthcare\week_energyRecord.txt") == false)
+            {
+                str += $"week_energyRecordファイルが存在しません\n";
+            }
+
+            if (str != "")
+            {
+                MessageBox.Show(str);
+                this.Close();
+                return;
+            }
+
             //データグリッドビューの項目設定
             energyDataGridView.ColumnCount = 4;
             energyDataGridView.Columns[0].HeaderText = "日付";
             energyDataGridView.Columns[1].HeaderText = "摂取カロリー";
             energyDataGridView.Columns[2].HeaderText = "消費カロリー";
             energyDataGridView.Columns[3].HeaderText = "摂取カロリーと消費カロリーの差";
+
             try
             {
                 //1日の推奨カロリーを表示
@@ -64,10 +94,6 @@ namespace WindowsFormsApp3
                         energyDataGridView.Rows.Add(record[1], record[2], record[3], record[4]);
                     }
                 }
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
             }
             catch (IOException ex)
             {
@@ -116,10 +142,6 @@ namespace WindowsFormsApp3
                 {
                     writer.WriteLine(LoginAccount.UserId + "," + day + "," + inputEnergy + "kcal," + outputEnergy + "kcal," + totalEnergy + "kcal");
                 }
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
             }
             catch (IOException ex)
             {

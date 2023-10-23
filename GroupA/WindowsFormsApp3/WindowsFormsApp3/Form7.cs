@@ -29,6 +29,27 @@ namespace WindowsFormsApp3
         //各種メッセージ表示
         private void Form7_Load(object sender, EventArgs e)
         {
+            //ファイルの存在確認
+            string str = "";
+            if (Directory.Exists(@"C:\healthcare") == false)
+            {
+                str += $"healthcareファイルが存在しません\n";
+            }
+            if (File.Exists(@"C:\healthcare\week_exerciseRecord.txt") == false)
+            {
+                str += $"week_exerciseRecordファイルが存在しません\n";
+            }
+            if (File.Exists(@"C:\healthcare\week_mealRecord.txt") == false)
+            {
+                str += $"mealRecord.txtファイルが存在しません\n";
+            }
+            if (str != "")
+            {
+                MessageBox.Show(str);
+                this.Close();
+                return ;
+            }
+            
             recommendEnergyLabel.Text = "あなたの一日の必要エネルギー量は" + LoginAccount.RecommendEnergy + "kcalです。";
             inputEnergyLabel.Text = "摂取カロリー:"+this.InputEnergyCalc()+"kcal";
             outputEnergyLabel.Text = "消費カロリー:" + this.OutputEnergyCalc() + "kcal";
@@ -50,7 +71,7 @@ namespace WindowsFormsApp3
         private int InputEnergyCalc()
         {
             try
-            {
+            { 
                 int inputEnergy = 0;
                 List<string> mRecord = File.ReadAllLines(@"C:\healthcare\week_mealRecord.txt", Encoding.GetEncoding("utf-8")).ToList();
                 foreach (var n in mRecord)
@@ -63,14 +84,6 @@ namespace WindowsFormsApp3
                 }
                 return inputEnergy;
             }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -79,11 +92,13 @@ namespace WindowsFormsApp3
             {
             }
             return 0;
-       }
+        }
 
         //運動履歴より今日の消費カロリーを計算
         private int OutputEnergyCalc()
         {
+           
+
             try
             {
                 int outputEnergy = 0;
@@ -97,14 +112,6 @@ namespace WindowsFormsApp3
                     }
                 }
                 return outputEnergy;
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

@@ -37,10 +37,5 @@ namespace typingGame
         {
             this.Close();
         }
-
-        private void title_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

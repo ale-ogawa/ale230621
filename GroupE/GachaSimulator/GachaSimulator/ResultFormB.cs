@@ -35,13 +35,13 @@ namespace GachaSimulator
 
             //ここからcsvファイルに書き込むプログラムを作成する
 
+
             using (StreamWriter sw = new StreamWriter(filePath, true))
             {
                 // ID,level,name
                 sw.WriteLine(id + "," + level + "," + nameB.Text);
 
-                RollForm rollForm = new RollForm();
-                rollForm.Show();
+
                 this.Close();
 
                 ////残りの回数が0の場合
