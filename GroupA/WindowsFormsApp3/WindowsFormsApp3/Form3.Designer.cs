@@ -59,6 +59,7 @@
             // idTextBox
             // 
             this.idTextBox.Location = new System.Drawing.Point(72, 72);
+            this.idTextBox.MaxLength = 8;
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(137, 19);
             this.idTextBox.TabIndex = 2;
@@ -66,6 +67,7 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(72, 150);
+            this.passwordTextBox.MaxLength = 4;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(137, 19);
             this.passwordTextBox.TabIndex = 3;

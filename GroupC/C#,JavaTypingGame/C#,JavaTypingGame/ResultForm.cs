@@ -44,11 +44,6 @@ namespace C__JavaTypingGame
             langLevelTextBox.Text = $"<{PlayerDTO.Lang}>                             <{PlayerDTO.level.ToString()}>";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void retryButton_Click(object sender, EventArgs e)
         {
             playForm play = new playForm();
@@ -58,10 +53,6 @@ namespace C__JavaTypingGame
 
         }
 
-        private void ResultForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void languageSelectionButton_Click(object sender, EventArgs e)
         {
@@ -77,6 +68,11 @@ namespace C__JavaTypingGame
             this.Hide();
             runk.ShowDialog();
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

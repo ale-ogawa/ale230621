@@ -30,44 +30,21 @@ namespace typingGame
                 passText.PasswordChar = (char)0;
             else if (passCheck.Checked == false)
                 passText.PasswordChar = (char)1;
-
         }
 
         private void passText_TextChanged(object sender, EventArgs e)
         {
             passText.PasswordChar = '・';
-
         }
 
         private void checkButton_Click(object sender, EventArgs e)
         {
 
-
-            if (this.userText.Text == null)
-            {
-                MessageBox.Show("ユーザー名が入力されていません");
-            }
-            else if (this.passText.Text == null)
-            {
-                MessageBox.Show("パスワードが入力されていません");
-            }
             this.Hide();
             RegistrationForm Registration = new RegistrationForm(this.userText.Text, this.passText.Text);
             Registration.ShowDialog();
 
             this.Close();
-        }
-
-        private void userText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userText_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-       
+        }       
     }
 }

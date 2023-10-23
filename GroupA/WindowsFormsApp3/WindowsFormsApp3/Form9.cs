@@ -44,6 +44,13 @@ namespace WindowsFormsApp3
         //削除
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            //削除する行が選択されていない時
+            if (mealDataGridView.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("削除する項目が選択されていません");
+                return;
+            }
+
             //削除確認ダイアログ表示
             DialogResult result = MessageBox.Show("選択されている行を削除しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
@@ -51,31 +58,36 @@ namespace WindowsFormsApp3
                 MessageBox.Show("キャンセルしました");
                 return;
             }
-            else
+
+            try
             {
-                try
-                {
-                    string day = mealDataGridView.CurrentRow.Cells[0].Value.ToString();
-                    string meal = mealDataGridView.CurrentRow.Cells[1].Value.ToString();
-                    string energy = mealDataGridView.CurrentRow.Cells[2].Value.ToString();
-                    string addTime = mealDataGridView.CurrentRow.Cells[3].Value.ToString();
-                    List<string> updateList = File.ReadAllLines(path).ToList();
-                    updateList.Remove(LoginAccount.UserId + "," + day + "," + meal + "," + energy + "," + addTime);
-                    File.WriteAllLines(path, updateList);
-                    int index = this.mealDataGridView.CurrentCell.RowIndex;
-                    mealDataGridView.Rows.RemoveAt(index);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                }
+                string day = mealDataGridView.CurrentRow.Cells[0].Value.ToString();
+                string meal = mealDataGridView.CurrentRow.Cells[1].Value.ToString();
+                string energy = mealDataGridView.CurrentRow.Cells[2].Value.ToString();
+                string addTime = mealDataGridView.CurrentRow.Cells[3].Value.ToString();
+                List<string> updateList = File.ReadAllLines(path).ToList();
+                updateList.Remove(LoginAccount.UserId + "," + day + "," + meal + "," + energy + "," + addTime);
+                File.WriteAllLines(path, updateList);
+                int index = this.mealDataGridView.CurrentCell.RowIndex;
+                mealDataGridView.Rows.RemoveAt(index);
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
             }
         }
 
-        //Form9ロード時最初に実行されるメソッド
         private void Form9_Load(object sender, EventArgs e)
         {
             //データグリッドビューの項目設定
@@ -84,17 +96,35 @@ namespace WindowsFormsApp3
             mealDataGridView.Columns[1].HeaderText = "食事内容";
             mealDataGridView.Columns[2].HeaderText = "摂取カロリー";
             mealDataGridView.Columns[3].HeaderText = "登録時刻";
-            //ファイルから読み込んだ内容をデータグリッドビューに表示
-            using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("utf-8")))
+            try
             {
-                while (reader.Peek() >= 0)
+                //ファイルから読み込んだ内容をデータグリッドビューに表示
+                using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("utf-8")))
                 {
-                    string[] record = reader.ReadLine().Split(',');
-                    if (record[0] == LoginAccount.UserId && ((record[1] == day1) || (record[1] == day2) || (record[1] == day3) || (record[1] == day4) || (record[1] == day5) || (record[1] == day6) || (record[1] == day7)))
+                    while (reader.Peek() >= 0)
                     {
-                        mealDataGridView.Rows.Add(record[1], record[2], record[3], record[4]);
+                        string[] record = reader.ReadLine().Split(',');
+                        if (record[0] == LoginAccount.UserId && ((record[1] == day1) || (record[1] == day2) || (record[1] == day3) || (record[1] == day4) || (record[1] == day5) || (record[1] == day6) || (record[1] == day7)))
+                        {
+                            mealDataGridView.Rows.Add(record[1], record[2], record[3], record[4]);
+                        }
                     }
                 }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
             }
         }
     }

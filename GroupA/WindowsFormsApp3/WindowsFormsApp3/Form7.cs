@@ -49,33 +49,71 @@ namespace WindowsFormsApp3
         //食事履歴より今日の摂取カロリーを計算
         private int InputEnergyCalc()
         {
-            int inputEnergy = 0;
-            List<string> mRecord = File.ReadAllLines(@"C:\healthcare\week_mealRecord.txt", Encoding.GetEncoding("utf-8")).ToList();
-            foreach (var n in mRecord)
+            try
             {
-                string[] list = n.Split(',');
-                if (list[0] == LoginAccount.UserId && list[1] == DateTime.Now.ToString("MM/dd"))
+                int inputEnergy = 0;
+                List<string> mRecord = File.ReadAllLines(@"C:\healthcare\week_mealRecord.txt", Encoding.GetEncoding("utf-8")).ToList();
+                foreach (var n in mRecord)
                 {
-                    inputEnergy += int.Parse(list[3].Replace("kcal", ""));
+                    string[] list = n.Split(',');
+                    if (list[0] == LoginAccount.UserId && list[1] == DateTime.Now.ToString("MM/dd"))
+                    {
+                        inputEnergy += int.Parse(list[3].Replace("kcal", ""));
+                    }
                 }
+                return inputEnergy;
             }
-            return inputEnergy;
-        }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+            }
+            return 0;
+       }
 
         //運動履歴より今日の消費カロリーを計算
         private int OutputEnergyCalc()
         {
-            int outputEnergy = 0;
-            List<string> eRecord = File.ReadAllLines(@"C:\healthcare\week_exerciseRecord.txt", Encoding.GetEncoding("utf-8")).ToList();
-            foreach (var n in eRecord)
+            try
             {
-                string[] list = n.Split(',');
-                if (list[0] == LoginAccount.UserId && list[1] == DateTime.Now.ToString("MM/dd"))
+                int outputEnergy = 0;
+                List<string> eRecord = File.ReadAllLines(@"C:\healthcare\week_exerciseRecord.txt", Encoding.GetEncoding("utf-8")).ToList();
+                foreach (var n in eRecord)
                 {
-                    outputEnergy += int.Parse(list[4].Replace("kcal", ""));
+                    string[] list = n.Split(',');
+                    if (list[0] == LoginAccount.UserId && list[1] == DateTime.Now.ToString("MM/dd"))
+                    {
+                        outputEnergy += int.Parse(list[4].Replace("kcal", ""));
+                    }
                 }
+                return outputEnergy;
             }
-            return outputEnergy;
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+            }
+            return 0;
         }
 
         //1日の摂取カロリーと推奨カロリーの差を計算

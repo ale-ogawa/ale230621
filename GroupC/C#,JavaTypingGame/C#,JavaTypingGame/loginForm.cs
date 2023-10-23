@@ -17,11 +17,6 @@ namespace typingGame
         {
             InitializeComponent();
         }
-        private void userText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -37,7 +32,6 @@ namespace typingGame
             else if (passCheck.Checked == false)
                 passText.PasswordChar = (char)1;
         }
-
         private void passText_TextChanged(object sender, EventArgs e)
         {
             passText.PasswordChar = '・';
@@ -62,7 +56,13 @@ namespace typingGame
                 }
                 else MessageBox.Show("ログイン情報に誤りがあります");
             }
+            catch (MySql.Data.MySqlClient.MySqlException mysqlEX) { MessageBox.Show("データベースに接続できません。\nコネクション情報に誤りがある可能性があります。"); }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void loginForm_Activated(object sender, EventArgs e)
+        {
+            userText.Focus();
         }
     }
 }

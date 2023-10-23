@@ -41,10 +41,11 @@
             // 
             // nameLabel
             // 
-            this.nameLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.nameLabel.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.nameLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.nameLabel.Location = new System.Drawing.Point(220, 79);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(100, 23);
+            this.nameLabel.Size = new System.Drawing.Size(112, 23);
             this.nameLabel.TabIndex = 2;
             this.nameLabel.Text = "ユーザー名：";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -60,10 +61,10 @@
             // 
             // passLabel
             // 
-            this.passLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.passLabel.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.passLabel.Location = new System.Drawing.Point(220, 161);
             this.passLabel.Name = "passLabel";
-            this.passLabel.Size = new System.Drawing.Size(100, 23);
+            this.passLabel.Size = new System.Drawing.Size(112, 23);
             this.passLabel.TabIndex = 5;
             this.passLabel.Text = "パスワード：";
             this.passLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -81,9 +82,10 @@
             // passCheck
             // 
             this.passCheck.AutoSize = true;
+            this.passCheck.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.passCheck.Location = new System.Drawing.Point(329, 199);
             this.passCheck.Name = "passCheck";
-            this.passCheck.Size = new System.Drawing.Size(101, 16);
+            this.passCheck.Size = new System.Drawing.Size(120, 16);
             this.passCheck.TabIndex = 12;
             this.passCheck.Text = "パスワードを見る";
             this.passCheck.UseVisualStyleBackColor = true;
@@ -92,17 +94,19 @@
             // checkText
             // 
             this.checkText.AutoSize = true;
-            this.checkText.Location = new System.Drawing.Point(250, 241);
+            this.checkText.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.checkText.Location = new System.Drawing.Point(253, 232);
             this.checkText.Name = "checkText";
-            this.checkText.Size = new System.Drawing.Size(245, 12);
+            this.checkText.Size = new System.Drawing.Size(305, 12);
             this.checkText.TabIndex = 13;
-            this.checkText.Text = "登録内容を確認し、よろしければ登録をしてください";
+            this.checkText.Text = "登録内容を確認し、よろしければ登録を押してください";
             // 
             // RegistrationButton
             // 
+            this.RegistrationButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.RegistrationButton.Location = new System.Drawing.Point(190, 295);
             this.RegistrationButton.Name = "RegistrationButton";
-            this.RegistrationButton.Size = new System.Drawing.Size(157, 59);
+            this.RegistrationButton.Size = new System.Drawing.Size(142, 59);
             this.RegistrationButton.TabIndex = 14;
             this.RegistrationButton.Text = "登録";
             this.RegistrationButton.UseVisualStyleBackColor = true;
@@ -110,9 +114,10 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(468, 304);
+            this.backButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.backButton.Location = new System.Drawing.Point(468, 295);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(135, 40);
+            this.backButton.Size = new System.Drawing.Size(135, 57);
             this.backButton.TabIndex = 15;
             this.backButton.Text = "戻る";
             this.backButton.UseVisualStyleBackColor = true;
@@ -129,8 +134,8 @@
             // 
             // RegistrationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
@@ -141,7 +146,9 @@
             this.Controls.Add(this.passLabel);
             this.Controls.Add(this.userName);
             this.Controls.Add(this.nameLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistrationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrationForm";
             this.ResumeLayout(false);
             this.PerformLayout();

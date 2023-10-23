@@ -39,12 +39,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.langLevelTextBox = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // runkingButton
             // 
-            this.runkingButton.Location = new System.Drawing.Point(66, 98);
+            this.runkingButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.runkingButton.Location = new System.Drawing.Point(66, 85);
             this.runkingButton.Name = "runkingButton";
             this.runkingButton.Size = new System.Drawing.Size(232, 55);
             this.runkingButton.TabIndex = 0;
@@ -54,7 +56,8 @@
             // 
             // retryButton
             // 
-            this.retryButton.Location = new System.Drawing.Point(66, 197);
+            this.retryButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.retryButton.Location = new System.Drawing.Point(66, 169);
             this.retryButton.Name = "retryButton";
             this.retryButton.Size = new System.Drawing.Size(232, 55);
             this.retryButton.TabIndex = 1;
@@ -64,7 +67,8 @@
             // 
             // languageSelectionButton
             // 
-            this.languageSelectionButton.Location = new System.Drawing.Point(66, 298);
+            this.languageSelectionButton.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.languageSelectionButton.Location = new System.Drawing.Point(66, 264);
             this.languageSelectionButton.Name = "languageSelectionButton";
             this.languageSelectionButton.Size = new System.Drawing.Size(232, 55);
             this.languageSelectionButton.TabIndex = 2;
@@ -91,9 +95,10 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(347, 98);
+            this.groupBox1.Font = new System.Drawing.Font("ＭＳ 明朝", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox1.Location = new System.Drawing.Point(347, 85);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(413, 264);
+            this.groupBox1.Size = new System.Drawing.Size(427, 277);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "リザルト";
@@ -101,6 +106,7 @@
             // TotalScoreTextBox
             // 
             this.TotalScoreTextBox.Enabled = false;
+            this.TotalScoreTextBox.ForeColor = System.Drawing.Color.Black;
             this.TotalScoreTextBox.Location = new System.Drawing.Point(230, 210);
             this.TotalScoreTextBox.Name = "TotalScoreTextBox";
             this.TotalScoreTextBox.Size = new System.Drawing.Size(100, 19);
@@ -109,6 +115,7 @@
             // MissTextBox
             // 
             this.MissTextBox.Enabled = false;
+            this.MissTextBox.ForeColor = System.Drawing.Color.Black;
             this.MissTextBox.Location = new System.Drawing.Point(230, 135);
             this.MissTextBox.Name = "MissTextBox";
             this.MissTextBox.Size = new System.Drawing.Size(100, 19);
@@ -117,11 +124,11 @@
             // correctTextBox
             // 
             this.correctTextBox.Enabled = false;
+            this.correctTextBox.ForeColor = System.Drawing.Color.Black;
             this.correctTextBox.Location = new System.Drawing.Point(230, 57);
             this.correctTextBox.Name = "correctTextBox";
             this.correctTextBox.Size = new System.Drawing.Size(100, 19);
             this.correctTextBox.TabIndex = 6;
-            this.correctTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
@@ -148,23 +155,37 @@
             // langLevelTextBox
             // 
             this.langLevelTextBox.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.langLevelTextBox.Location = new System.Drawing.Point(64, 36);
+            this.langLevelTextBox.Location = new System.Drawing.Point(60, 23);
             this.langLevelTextBox.Name = "langLevelTextBox";
             this.langLevelTextBox.Size = new System.Drawing.Size(696, 59);
             this.langLevelTextBox.TabIndex = 5;
             this.langLevelTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button1.Location = new System.Drawing.Point(66, 349);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(232, 55);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "終了";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ResultForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.langLevelTextBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.languageSelectionButton);
             this.Controls.Add(this.retryButton);
             this.Controls.Add(this.runkingButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ResultForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "リザルト画面";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -185,5 +206,6 @@
         private System.Windows.Forms.TextBox TotalScoreTextBox;
         private System.Windows.Forms.TextBox MissTextBox;
         private System.Windows.Forms.Label langLevelTextBox;
+        private System.Windows.Forms.Button button1;
     }
 }

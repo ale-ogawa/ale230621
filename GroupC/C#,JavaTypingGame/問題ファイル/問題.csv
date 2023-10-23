@@ -23,7 +23,7 @@ C#,初級,enum
 C#,初級,event
 C#,初級,explicit
 C#,初級,extern
-C#,初級,false
+C#,初級,FALSE
 C#,初級,ture
 C#,初級,finally
 C#,初級,fixed
@@ -111,7 +111,7 @@ C#,中級,var a=+(x+y);
 C#,中級,var b=-(x+y);
 C#,中級,"Console.WriteLine(""a={0},b={1}"",a,b);"
 C#,中級,var num=3.28m;
-C#,中級,"var emptyString = """";"
+C#,中級,"var emptyString = "" "";"
 C#,中級,"string str=""abc"";"
 C#,中級,char alphabet='A';
 C#,中級,char alphabet='B';
@@ -167,14 +167,14 @@ C#,上級,"Random rnd = new Random();改行var aaa = rnd.Next(0, 10);改行var array2d
 C#,上級,for (int i = n; i > 0; i--)改行{改行for (int j = 0; j < i; j++)改行{改行Console.Write(""""●"""");改行}改行Console.WriteLine();改行}"
 C#,上級," for (var col = 0; col < array2d.GetLength(1); col++)改行{改行Console.Write(""{0}"", array2d[row,col]);改行}
 C#,上級,var lists = new List<string>();改行lists.Add(""""おはよう"""");改行lists.Add(""""こんにちは"""");改行lists.Add(""""こんばんは"""");"""
-C#,上級," int n = 4;改行for (int i = 0; i < n; i++)改行{改行for (int j = 0; j < n; j++)改行{改行if (i > j)改行{改行Console.Write("" "");改行}改行}改行else改行{改行Console.Write(""●"");改行}改行Console.WriteLine();改行}
+C#,上級," int n = 4;改行for (int i = 0; i < n; i++)改行{改行for (int j = 0; j < n; j++)改行{改行if (i > j)改行{改行Console.Write("" "");改行}改行}改行else{Console.Write(""●"");}Console.WriteLine();}
 C#,上級,if (a >= b && a >= c)改行{改行Console.WriteLine(""""最大値 : """" + a);改行}改行else if (b >= a && b >= c){改行Console.WriteLine(""""最大値 : """" + b);改行}改行else改行{改行Console.WriteLine(""""最大値 : """" + c);改行}"
 C#,上級,"string[] weekDays = { ""Sun"", ""Mon"", ""Tue"", ""Wed"", ""Thu"", ""Fri"", ""Sat"" };"
 C#,上級,"double[]numbers={55.1,54.8,54.5,58.4}"
-C#,上級,(year%4==0&&year%100!=0)||year%400==0
+C#,上級,(year%4==0&&year%100!=0)||year%400==0)
 C#,上級,"var person = new Person改行{改行FirstName = ""はるか"",改行LastName = ""佐々木"",改行Email = ""hsasaki@example.com""改行};改行person.Print();"
-C#,上級,"class Book改行{改行public string Title { get; set; }改行public string Author { get; set; }改行public int Pages { get; set; }改行public int Rating { get; set; }改行public Book(string title, string author, int pages, int rating)改行{改行Title = title;改行Author = author;改行Pages = pages;改行Rating = rating;改行}
-C#,上級,if (-12 < time && time < 12)改行{改行DateTime newDt = dt.AddHours(time);改行Hour = newDt.Hour;改行Minute = newDt.Minute;改行Second = newDt.Second;改行}改行else改行{改行Console.WriteLine($""""時刻が表示できません。"""");改行return;改行}"
+C#,上級,"class Book改行{改行public string Title { get; set; }改行public string Author { get; set; }改行public int Pages { get; set; }改行public int Rating { get; set; }改行public Book(string title, string author, int pages, int rating)改行{改行Title = title; Author = author; Pages = pages; Rating = rating;改行}
+C#,上級,if (-12 < time && time < 12)改行{改行DateTime newDt = dt.AddHours(time);改行Hour = newDt.Hour;改行Minute = newDt.Minute;改行Second = newDt.Second;改行}改行else{Console.WriteLine($""""時刻が表示できません。""""); return;}"
 Java,初級,abstract
 Java,初級,case
 Java,初級,continue

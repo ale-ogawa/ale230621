@@ -31,12 +31,15 @@ namespace WindowsFormsApp3
         //運動記録を追加する
         private void exerciseRecordAddButton_Click(object sender, EventArgs e)
         {
-            if (exerciseComboBox.SelectedIndex < 0)
+            try
             {
-                MessageBox.Show("追加する項目が選択されていません");
-            }
-            else
-            {
+                //入力値チェック
+                bool check = this.Check();
+                if (check == false)
+                {
+                    return;
+                }
+
                 int index = exerciseComboBox.SelectedIndex;
                 List<string> mealList = File.ReadAllLines(@"C:\healthcare\exerciseList.txt", Encoding.GetEncoding("utf-8")).ToList();
                 string[] selectedExercise = mealList[index].Split(',');
@@ -50,12 +53,26 @@ namespace WindowsFormsApp3
                 double energy = Math.Floor(energyCalc);
                 string addTime = DateTime.Now.ToString("HH:mm");
 
-                string path = @"C:\healthcare\week_exerciseRecord.txt";
-                using (StreamWriter writer = new StreamWriter(path, true, Encoding.GetEncoding("utf-8")))
+                using (StreamWriter writer = new StreamWriter(@"C:\healthcare\week_exerciseRecord.txt", true, Encoding.GetEncoding("utf-8")))
                 {
                     writer.WriteLine(userId + "," + day + "," + exercise + "," + exerciseTime + "分," + energy + "kcal," + addTime);
                 }
                 this.Clear();
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
             }
         }
 
@@ -70,13 +87,20 @@ namespace WindowsFormsApp3
             //コンボボックスへの要素格納
             try
             {
-                string path = @"C:\healthcare\exerciseList.txt";
-                List<string> exerciseList = File.ReadAllLines(path, Encoding.GetEncoding("utf-8")).ToList();
+                List<string> exerciseList = File.ReadAllLines(@"C:\healthcare\exerciseList.txt", Encoding.GetEncoding("utf-8")).ToList();
                 foreach (var n in exerciseList)
                 {
                     string[] list = n.Split(',');
                     exerciseComboBox.Items.Add(list[0]);
                 }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("ファイルが存在しません");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -87,12 +111,50 @@ namespace WindowsFormsApp3
             }
         }
 
+        private bool Check()
+        {
+            string str = "";
+            if (exerciseComboBox.SelectedIndex < 0)
+            {
+                str += $"運動内容が選択されていません\n";
+            }
+            if (exerciseTimeTextBox.Text.Contains(",") || weightTextBox.Text.Contains(","))
+            {
+                str += $"「,」は使用不可です\n";
+            }
+            if (exerciseTimeTextBox.Text == "")
+            {
+                str += $"運動時間が入力されていません\n";
+            }
+            if (weightTextBox.Text == "")
+            {
+                str += $"体重が入力されていません\n";
+            }
+            if (exerciseTimeTextBox.Text != "" && (int.TryParse(exerciseTimeTextBox.Text, out int time) == false))
+            {
+                str += $"運動時間に数値以外を入力することはできません\n";
+            }
+            if (weightTextBox.Text != "" && (int.TryParse(weightTextBox.Text, out int weight) == false))
+            {
+                str += $"体重に数値以外を入力することはできません\n";
+            }
+
+            if (str != "")
+            {
+                MessageBox.Show(str);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void Clear()
         {
             exerciseComboBox.SelectedIndex = -1;
             exerciseTimeTextBox.Text = string.Empty;
             weightTextBox.Text = string.Empty;
         }
-
     }
 }
