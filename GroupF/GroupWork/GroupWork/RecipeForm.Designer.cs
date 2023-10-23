@@ -228,7 +228,7 @@
             this.Controls.Add(this.picDisplayBox);
             this.Controls.Add(this.backButton);
             this.Name = "RecipeForm";
-            this.Text = "Form1";
+            this.Text = "レシピ";
             this.Load += new System.EventHandler(this.RecipeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picDisplayBox)).EndInit();
             this.ResumeLayout(false);
