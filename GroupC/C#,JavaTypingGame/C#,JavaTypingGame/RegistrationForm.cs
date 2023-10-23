@@ -1,4 +1,5 @@
 ﻿using C__JavaTypingGame;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,7 +54,11 @@ namespace typingGame
                 this.Close();
 
             }
-            catch (MySql.Data.MySqlClient.MySqlException MyEx) { MessageBox.Show("このユーザー名は既に使われています"); }
+            catch (MySqlException mysqlEX) 
+            {
+                throw new ConstraintException("データベースに接続できません。\nsql文又はコネクション情報に誤りがある可能性があります。");
+            }
+            catch (ConstraintException conEX) { MessageBox.Show(conEX.Message); }
             catch (ArgumentException ae)
             {
                 MessageBox.Show(ae.Message);
