@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResultFormB));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.nameB = new System.Windows.Forms.Label();
             this.nextButton = new System.Windows.Forms.Button();
             this.skipAllButton = new System.Windows.Forms.Button();
+            this.gacha_silver = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.gacha_silver)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -50,6 +53,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(174, 168);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(182, 21);
@@ -66,16 +70,16 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "です！";
             // 
-            // label4
+            // nameB
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(164, 189);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(192, 29);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "あいうえお";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.nameB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nameB.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.nameB.Location = new System.Drawing.Point(164, 189);
+            this.nameB.Name = "nameB";
+            this.nameB.Size = new System.Drawing.Size(192, 29);
+            this.nameB.TabIndex = 3;
+            this.nameB.Text = "あいうえお";
+            this.nameB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nextButton
             // 
@@ -99,19 +103,32 @@
             this.skipAllButton.UseVisualStyleBackColor = true;
             this.skipAllButton.Click += new System.EventHandler(this.skipAllButton_Click);
             // 
+            // gacha_silver
+            // 
+            this.gacha_silver.Image = ((System.Drawing.Image)(resources.GetObject("gacha_silver.Image")));
+            this.gacha_silver.Location = new System.Drawing.Point(158, 36);
+            this.gacha_silver.Name = "gacha_silver";
+            this.gacha_silver.Size = new System.Drawing.Size(198, 129);
+            this.gacha_silver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gacha_silver.TabIndex = 6;
+            this.gacha_silver.TabStop = false;
+            // 
             // ResultFormB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(534, 266);
+            this.Controls.Add(this.gacha_silver);
             this.Controls.Add(this.skipAllButton);
             this.Controls.Add(this.nextButton);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.nameB);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ResultFormB";
             this.Text = "ガチャ結果画面";
+            ((System.ComponentModel.ISupportInitialize)(this.gacha_silver)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,8 +139,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label nameB;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button skipAllButton;
+        private System.Windows.Forms.PictureBox gacha_silver;
     }
 }
