@@ -116,7 +116,7 @@
 			this.addUpdateButton.Name = "addUpdateButton";
 			this.addUpdateButton.Size = new System.Drawing.Size(111, 59);
 			this.addUpdateButton.TabIndex = 10;
-			this.addUpdateButton.Text = "メニュー\r\n登録/編集";
+			this.addUpdateButton.Text = "メニュー\r\n登録";
 			this.addUpdateButton.UseVisualStyleBackColor = false;
 			this.addUpdateButton.Click += new System.EventHandler(this.addUpdateButton_Click);
 			// 

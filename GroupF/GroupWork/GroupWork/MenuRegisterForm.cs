@@ -91,12 +91,8 @@ namespace GroupWork
 					boxrecipe = "'" + recipeBox.Text + "'";
 					boxpic = "'" + picturePassBox.Text + "'";
 
-                    //DBに保存するときはSQL側が「\マーク」を消してしまう。
-                    //そのため「\マーク」を代替処理として「他の文字」をかまして保存する。呼び出すときに「\マーク」に入れ替える
-                    string str2 = boxpic.Replace("\\", "変更用");
-
-                    //★INSERT文の定義
-                    string Selectall5;
+					//★INSERT文の定義
+					string Selectall5;
 					if (menuBox.Text == "" || menuBox.Text == "" || kcalBox.Text == "" || timeBox.Text == ""
 					|| genreBox.Text == "" || itemBox.Text == "" || recipeBox.Text == "" || picturePassBox.Text == "")
 					{
@@ -111,7 +107,7 @@ namespace GroupWork
 
 					else if (recipeBox != null)//画像バスの登録がある場合はパスをDBテーブルへ登録
 					{
-						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},{boxtime},{boxgenre},{boxitem},{boxrecipe},{str2});";
+						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},{boxtime},{boxgenre},{boxitem},{boxrecipe},{boxpic});";
 						command.CommandText = Selectall5;
 					}
 
@@ -162,9 +158,8 @@ namespace GroupWork
 
 			//テキストボックスにパスを表示
 			picturePassBox.Text = path;
-            //ピクチャーボックスに読み込んだパスから画像表示
-            addPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            addPictureBox.ImageLocation = $@"{path}";
+			//ピクチャーボックスに読み込んだパスから画像表示
+			addPictureBox.ImageLocation = $@"{path}";
 		}
 
 		private void clearTextButton_Click(object sender, EventArgs e)
