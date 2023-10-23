@@ -33,11 +33,11 @@
 			this.dateLabel = new System.Windows.Forms.Label();
 			this.itemNameTextBox = new System.Windows.Forms.TextBox();
 			this.dateTextBox = new System.Windows.Forms.TextBox();
-			this.itemAddButton = new System.Windows.Forms.Button();
+			this.itemRegisterButton = new System.Windows.Forms.Button();
 			this.itemUpdateButton = new System.Windows.Forms.Button();
-			this.itemSortButton = new System.Windows.Forms.Button();
-			this.selectMenuButton = new System.Windows.Forms.Button();
-			this.deleteButton = new System.Windows.Forms.Button();
+			this.menuChoiceButton = new System.Windows.Forms.Button();
+			this.menuShowButton = new System.Windows.Forms.Button();
+			this.itemDeleteButton = new System.Windows.Forms.Button();
 			this.itemBoxLabel = new System.Windows.Forms.Label();
 			this.sortLabel = new System.Windows.Forms.Label();
 			this.itemComboBox = new System.Windows.Forms.ComboBox();
@@ -89,16 +89,16 @@
 			this.dateTextBox.Size = new System.Drawing.Size(297, 19);
 			this.dateTextBox.TabIndex = 4;
 			// 
-			// itemAddButton
+			// itemRegisterButton
 			// 
-			this.itemAddButton.BackColor = System.Drawing.Color.DarkOrange;
-			this.itemAddButton.Location = new System.Drawing.Point(422, 168);
-			this.itemAddButton.Name = "itemAddButton";
-			this.itemAddButton.Size = new System.Drawing.Size(140, 26);
-			this.itemAddButton.TabIndex = 5;
-			this.itemAddButton.Text = "食材登録";
-			this.itemAddButton.UseVisualStyleBackColor = false;
-			this.itemAddButton.Click += new System.EventHandler(this.itemAddButton_Click);
+			this.itemRegisterButton.BackColor = System.Drawing.Color.DarkOrange;
+			this.itemRegisterButton.Location = new System.Drawing.Point(422, 168);
+			this.itemRegisterButton.Name = "itemRegisterButton";
+			this.itemRegisterButton.Size = new System.Drawing.Size(140, 26);
+			this.itemRegisterButton.TabIndex = 5;
+			this.itemRegisterButton.Text = "食材登録";
+			this.itemRegisterButton.UseVisualStyleBackColor = false;
+			this.itemRegisterButton.Click += new System.EventHandler(this.itemRegisterButton_Click);
 			// 
 			// itemUpdateButton
 			// 
@@ -111,37 +111,38 @@
 			this.itemUpdateButton.UseVisualStyleBackColor = false;
 			this.itemUpdateButton.Click += new System.EventHandler(this.itemUpdateButton_Click);
 			// 
-			// itemSortButton
+			// menuChoiceButton
 			// 
-			this.itemSortButton.BackColor = System.Drawing.Color.DarkOrange;
-			this.itemSortButton.Location = new System.Drawing.Point(329, 219);
-			this.itemSortButton.Name = "itemSortButton";
-			this.itemSortButton.Size = new System.Drawing.Size(244, 83);
-			this.itemSortButton.TabIndex = 7;
-			this.itemSortButton.Text = "この食材でメニューを\r\n絞り込む";
-			this.itemSortButton.UseVisualStyleBackColor = false;
-			this.itemSortButton.Click += new System.EventHandler(this.itemSortButton_Click);
+			this.menuChoiceButton.BackColor = System.Drawing.Color.DarkOrange;
+			this.menuChoiceButton.Location = new System.Drawing.Point(329, 219);
+			this.menuChoiceButton.Name = "menuChoiceButton";
+			this.menuChoiceButton.Size = new System.Drawing.Size(244, 83);
+			this.menuChoiceButton.TabIndex = 7;
+			this.menuChoiceButton.Text = "この食材でメニューを\r\n絞り込む";
+			this.menuChoiceButton.UseVisualStyleBackColor = false;
+			this.menuChoiceButton.Click += new System.EventHandler(this.menuChoiceButton_Click);
 			// 
-			// selectMenuButton
+			// menuShowButton
 			// 
-			this.selectMenuButton.BackColor = System.Drawing.Color.DarkOrange;
-			this.selectMenuButton.Location = new System.Drawing.Point(329, 319);
-			this.selectMenuButton.Name = "selectMenuButton";
-			this.selectMenuButton.Size = new System.Drawing.Size(244, 83);
-			this.selectMenuButton.TabIndex = 8;
-			this.selectMenuButton.Text = "選択したメニュー\r\nを表示する";
-			this.selectMenuButton.UseVisualStyleBackColor = false;
+			this.menuShowButton.BackColor = System.Drawing.Color.DarkOrange;
+			this.menuShowButton.Location = new System.Drawing.Point(329, 319);
+			this.menuShowButton.Name = "menuShowButton";
+			this.menuShowButton.Size = new System.Drawing.Size(244, 83);
+			this.menuShowButton.TabIndex = 8;
+			this.menuShowButton.Text = "選択したメニュー\r\nを表示する";
+			this.menuShowButton.UseVisualStyleBackColor = false;
+			this.menuShowButton.Click += new System.EventHandler(this.menuShowButton_Click);
 			// 
-			// deleteButton
+			// itemDeleteButton
 			// 
-			this.deleteButton.BackColor = System.Drawing.Color.DarkOrange;
-			this.deleteButton.Location = new System.Drawing.Point(620, 219);
-			this.deleteButton.Name = "deleteButton";
-			this.deleteButton.Size = new System.Drawing.Size(105, 83);
-			this.deleteButton.TabIndex = 9;
-			this.deleteButton.Text = "食材消去";
-			this.deleteButton.UseVisualStyleBackColor = false;
-			this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+			this.itemDeleteButton.BackColor = System.Drawing.Color.DarkOrange;
+			this.itemDeleteButton.Location = new System.Drawing.Point(620, 219);
+			this.itemDeleteButton.Name = "itemDeleteButton";
+			this.itemDeleteButton.Size = new System.Drawing.Size(105, 83);
+			this.itemDeleteButton.TabIndex = 9;
+			this.itemDeleteButton.Text = "食材消去";
+			this.itemDeleteButton.UseVisualStyleBackColor = false;
+			this.itemDeleteButton.Click += new System.EventHandler(this.itemDeleteButton_Click);
 			// 
 			// itemBoxLabel
 			// 
@@ -166,18 +167,18 @@
 			// itemComboBox
 			// 
 			this.itemComboBox.FormattingEnabled = true;
-			this.itemComboBox.Location = new System.Drawing.Point(68, 195);
+			this.itemComboBox.Location = new System.Drawing.Point(68, 194);
 			this.itemComboBox.Name = "itemComboBox";
-			this.itemComboBox.Size = new System.Drawing.Size(121, 20);
-			this.itemComboBox.TabIndex = 12;
+			this.itemComboBox.Size = new System.Drawing.Size(221, 20);
+			this.itemComboBox.TabIndex = 14;
 			// 
 			// menuChoice
 			// 
 			this.menuChoice.FormattingEnabled = true;
 			this.menuChoice.Location = new System.Drawing.Point(68, 335);
 			this.menuChoice.Name = "menuChoice";
-			this.menuChoice.Size = new System.Drawing.Size(121, 20);
-			this.menuChoice.TabIndex = 13;
+			this.menuChoice.Size = new System.Drawing.Size(221, 20);
+			this.menuChoice.TabIndex = 15;
 			// 
 			// ItemForm
 			// 
@@ -189,11 +190,11 @@
 			this.Controls.Add(this.itemComboBox);
 			this.Controls.Add(this.sortLabel);
 			this.Controls.Add(this.itemBoxLabel);
-			this.Controls.Add(this.deleteButton);
-			this.Controls.Add(this.selectMenuButton);
-			this.Controls.Add(this.itemSortButton);
+			this.Controls.Add(this.itemDeleteButton);
+			this.Controls.Add(this.menuShowButton);
+			this.Controls.Add(this.menuChoiceButton);
 			this.Controls.Add(this.itemUpdateButton);
-			this.Controls.Add(this.itemAddButton);
+			this.Controls.Add(this.itemRegisterButton);
 			this.Controls.Add(this.dateTextBox);
 			this.Controls.Add(this.itemNameTextBox);
 			this.Controls.Add(this.dateLabel);
@@ -201,7 +202,7 @@
 			this.Controls.Add(this.backButton);
 			this.Name = "ItemForm";
 			this.Text = "Form1";
-			this.Load += new System.EventHandler(this.ItemForm_Load);
+			this.Load += new System.EventHandler(this.ItemForm_Load_1);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -214,11 +215,11 @@
 		private System.Windows.Forms.Label dateLabel;
 		private System.Windows.Forms.TextBox itemNameTextBox;
 		private System.Windows.Forms.TextBox dateTextBox;
-		private System.Windows.Forms.Button itemAddButton;
+		private System.Windows.Forms.Button itemRegisterButton;
 		private System.Windows.Forms.Button itemUpdateButton;
-		private System.Windows.Forms.Button itemSortButton;
-		private System.Windows.Forms.Button selectMenuButton;
-		private System.Windows.Forms.Button deleteButton;
+		private System.Windows.Forms.Button menuChoiceButton;
+		private System.Windows.Forms.Button menuShowButton;
+		private System.Windows.Forms.Button itemDeleteButton;
 		private System.Windows.Forms.Label itemBoxLabel;
 		private System.Windows.Forms.Label sortLabel;
 		private System.Windows.Forms.ComboBox itemComboBox;

@@ -59,5 +59,10 @@ namespace typingGame
             pf.ShowDialog();
             this.Close();
         }
+
+        private void C_DifficultyForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

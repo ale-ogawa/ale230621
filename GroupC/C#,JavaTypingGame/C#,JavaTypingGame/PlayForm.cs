@@ -61,42 +61,37 @@ namespace C__JavaTypingGame
             catch (FileNotFoundException)
             {
                 MessageBox.Show("問題ファイルが見つかりません");
-                this.Hide();
-                languageSelectionForm languageSelectionForm = new languageSelectionForm();
-                languageSelectionForm.ShowDialog();
-                this.Close();
+
+                //言語選択画面へ遷移
+                ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
             }
             catch (IOException) 
             {
                 MessageBox.Show("問題ファイルの読み取りに問題が起きました");
-                this.Hide();
-                languageSelectionForm languageSelectionForm = new languageSelectionForm();
-                languageSelectionForm.ShowDialog();
-                this.Close();
+
+                //言語選択画面へ遷移
+                ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
             }
             catch (IndexOutOfRangeException)
             {
                 MessageBox.Show("問題ファイルの内容に誤りがあります");
-                this.Hide();
-                languageSelectionForm languageSelectionForm = new languageSelectionForm();
-                languageSelectionForm.ShowDialog();
-                this.Close();
+
+                //言語選択画面へ遷移
+                ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
             }
-            catch (NotSupportedException noEX)
+            catch (NotSupportedException)
             { 
                 MessageBox.Show("ファイルパスに誤りがあります");
-                this.Hide();
-                languageSelectionForm languageSelectionForm = new languageSelectionForm();
-                languageSelectionForm.ShowDialog();
-                this.Close();
+
+                //言語選択画面へ遷移
+                ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
             }
             catch (Exception e) 
             {
                 MessageBox.Show(e.Message);
-                this.Hide();
-                languageSelectionForm languageSelectionForm = new languageSelectionForm();
-                languageSelectionForm.ShowDialog();
-                this.Close();
+
+                //言語選択画面へ遷移
+                ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
             }
         }
 
@@ -289,10 +284,7 @@ namespace C__JavaTypingGame
                 MessageBox.Show("制限時間終了のためゲームが終了しました。リザルト画面に移行します。");
 
                 //リザルト画面への遷移
-                ResultForm result = new ResultForm();
-                this.Hide();
-                result.ShowDialog();
-                this.Close();
+                ControlForm.CloseAndShow(this,typeof(ResultForm));
             }
 
             //カウントゼロ以上の処理
@@ -310,10 +302,8 @@ namespace C__JavaTypingGame
             //タイマー停止
             CountDownTimer.Stop();
 
-            languageSelectionForm lang = new languageSelectionForm();
-            this.Hide();
-            lang.ShowDialog();
-            this.Close();
+            //言語選択画面へ遷移
+            ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
         }
     }
 }

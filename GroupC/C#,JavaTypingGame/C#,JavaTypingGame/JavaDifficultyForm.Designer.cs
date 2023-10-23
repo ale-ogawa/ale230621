@@ -33,6 +33,7 @@
             this.intermediateButton = new System.Windows.Forms.Button();
             this.beginnerButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // backButton
@@ -94,11 +95,23 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "難易度を選択してください";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("ＭＳ 明朝", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(110, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 29);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Java";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // JavaDifficultyForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(773, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.advancedButton);
@@ -120,5 +133,6 @@
         private System.Windows.Forms.Button intermediateButton;
         private System.Windows.Forms.Button beginnerButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

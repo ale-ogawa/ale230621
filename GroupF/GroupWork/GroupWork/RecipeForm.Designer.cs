@@ -41,10 +41,7 @@
             this.kcalDisplayLabel = new System.Windows.Forms.Label();
             this.timeDisplayLabel = new System.Windows.Forms.Label();
             this.itemDisplaayLabel = new System.Windows.Forms.Label();
-            this.recipeDisplayLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.recipeDisplayTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplayBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +63,6 @@
             this.picDisplayBox.Size = new System.Drawing.Size(315, 279);
             this.picDisplayBox.TabIndex = 1;
             this.picDisplayBox.TabStop = false;
-            this.picDisplayBox.Click += new System.EventHandler(this.picDisplayBox_Click);
             // 
             // menuNameLabel
             // 
@@ -173,36 +169,14 @@
             this.itemDisplaayLabel.TabIndex = 12;
             this.itemDisplaayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // recipeDisplayLabel
+            // recipeDisplayTextBox
             // 
-            this.recipeDisplayLabel.BackColor = System.Drawing.Color.White;
-            this.recipeDisplayLabel.Location = new System.Drawing.Point(533, 255);
-            this.recipeDisplayLabel.Name = "recipeDisplayLabel";
-            this.recipeDisplayLabel.Size = new System.Drawing.Size(255, 183);
-            this.recipeDisplayLabel.TabIndex = 13;
-            this.recipeDisplayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(126, 315);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(257, 19);
-            this.textBox1.TabIndex = 14;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(135, 340);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(257, 19);
-            this.textBox2.TabIndex = 15;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(165, 365);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(257, 73);
-            this.textBox3.TabIndex = 16;
+            this.recipeDisplayTextBox.Location = new System.Drawing.Point(535, 255);
+            this.recipeDisplayTextBox.Multiline = true;
+            this.recipeDisplayTextBox.Name = "recipeDisplayTextBox";
+            this.recipeDisplayTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.recipeDisplayTextBox.Size = new System.Drawing.Size(253, 183);
+            this.recipeDisplayTextBox.TabIndex = 14;
             // 
             // RecipeForm
             // 
@@ -210,10 +184,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.recipeDisplayLabel);
+            this.Controls.Add(this.recipeDisplayTextBox);
             this.Controls.Add(this.itemDisplaayLabel);
             this.Controls.Add(this.timeDisplayLabel);
             this.Controls.Add(this.kcalDisplayLabel);
@@ -251,9 +222,6 @@
 		private System.Windows.Forms.Label kcalDisplayLabel;
 		private System.Windows.Forms.Label timeDisplayLabel;
 		private System.Windows.Forms.Label itemDisplaayLabel;
-		private System.Windows.Forms.Label recipeDisplayLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox recipeDisplayTextBox;
     }
 }
