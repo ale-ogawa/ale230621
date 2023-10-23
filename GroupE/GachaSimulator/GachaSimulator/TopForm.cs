@@ -15,6 +15,8 @@ namespace GachaSimulator
         public TopForm()
         {
             InitializeComponent();
+
+            System.IO.DirectoryInfo di = System.IO.Directory.CreateDirectory(@"C:\gachacsv");
         }
 
         // 「ガチャを回す！」ボタンを押した時
