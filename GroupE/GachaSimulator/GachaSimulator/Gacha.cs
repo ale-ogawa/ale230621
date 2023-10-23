@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace GachaSimulator
 {
-    class Gacha
+    class GachaSimulator
     {
         public int Id { get; set; }
         public string Rarity { get; set; }
         public string Name { get; set; }
 
-        public Gacha(int id,string rarity,string name)
+        public int Gacha(int id,string rarity,string name)
         {
             Id = id;
             Rarity = rarity;
             Name = name;
+
+            return Id;
         }
     }
 }

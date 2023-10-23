@@ -21,10 +21,10 @@ namespace GachaSimulator
         int juelNum = 3000;
 
         //■１回分のジュエル消費数
-        int juelGacha1time = 300;
-        int juelGacha10times = 3000;
-        int juelGachaDebug = 0;
-        int juelAdd = 1000;
+        const int juelGacha1time = 300;
+        const int juelGacha10times = 3000;
+        const int juelGachaDebug = 0;
+        const int juelAdd = 1000;
 
         //■ガチャを回す回数のカウント
         int gachaTimes = 0;
@@ -104,47 +104,47 @@ namespace GachaSimulator
                 //■ガチャカウントを１回分減らす
                 gachaTimes--;
 
-                //★★★★★★★★仮ガチャ★★★★★★★★★★★★★★★★★★★
+                ////★★★★★★★★仮ガチャ★★★★★★★★★★★★★★★★★★★
 
-                //■0以上100未満のランダムな値
-                int rndVal = rnd.Next(100);
+                ////■0以上100未満のランダムな値
+                //int rndVal = rnd.Next(100);
 
-                //■ランダム値が10未満の場合はレア度A
-                if (rndVal < 10)
-                {
-                    ResultFormA resultFormA = new ResultFormA();
-                    resultFormA.ShowDialog();
-                }
-                //■ランダム値が10未満の場合はレア度B
-                else if (rndVal < 30)
-                {
-                    ResultFormB resultFormB = new ResultFormB();
-                    resultFormB.ShowDialog();
-                }
-                //■ランダム値が30未満の場合はレア度B
-                else if (rndVal < 30)
-                {
-                    ResultFormB resultFormB = new ResultFormB();
-                    resultFormB.ShowDialog();
-                }
-                //■ランダム値が60未満の場合はレア度C
-                else if (rndVal < 60)
-                {
-                    ResultFormC resultFormC = new ResultFormC();
-                    resultFormC.ShowDialog();
-                }
-                //■ランダム値が60未満の場合はレア度D
-                else if (rndVal < 100)
-                {
-                    ResultFormD resultFormD = new ResultFormD();
-                    resultFormD.ShowDialog();
-                }
-                //★★★★★★★★仮ガチャ★★★★★★★★★★★★★★★★★★★
+                ////■ランダム値が10未満の場合はレア度A
+                //if (rndVal < 10)
+                //{
+                //    ResultFormA resultFormA = new ResultFormA();
+                //    resultFormA.ShowDialog();
+                //}
+                ////■ランダム値が10未満の場合はレア度B
+                //else if (rndVal < 30)
+                //{
+                //    ResultFormB resultFormB = new ResultFormB();
+                //    resultFormB.ShowDialog();
+                //}
+                ////■ランダム値が30未満の場合はレア度B
+                //else if (rndVal < 30)
+                //{
+                //    ResultFormB resultFormB = new ResultFormB();
+                //    resultFormB.ShowDialog();
+                //}
+                ////■ランダム値が60未満の場合はレア度C
+                //else if (rndVal < 60)
+                //{
+                //    ResultFormC resultFormC = new ResultFormC();
+                //    resultFormC.ShowDialog();
+                //}
+                ////■ランダム値が60未満の場合はレア度D
+                //else if (rndVal < 100)
+                //{
+                //    ResultFormD resultFormD = new ResultFormD();
+                //    resultFormD.ShowDialog();
+                //}
+                ////★★★★★★★★仮ガチャ★★★★★★★★★★★★★★★★★★★
 
 
-                ////■ガチャ抽選中画面を立ち上げる
-                //LotteryForm lotteryForm = new LotteryForm();
-                //lotteryForm.ShowDialog();
+                //■ガチャ抽選中画面を立ち上げる
+                LotteryForm lotteryForm = new LotteryForm();
+                lotteryForm.ShowDialog();
 
             }
             //■所持ジュエル数が1回ガチャに必要なジュエル数より少ない場合はこちら
