@@ -91,14 +91,45 @@ namespace GroupWork
 					boxrecipe = "'" + recipeBox.Text + "'";
 					boxpic = "'" + picturePassBox.Text + "'";
 
-					//★INSERT文の定義
-					string Selectall5;
+                    //DBに保存するときはSQL側が「\マーク」を消してしまう。
+                    //そのため「\マーク」を代替処理として「他の文字」をかまして保存する。呼び出すときに「\マーク」に入れ替える
+                    string str2 = boxpic.Replace("\\", "変更用");
+
+                    //★INSERT文の定義
+                    string Selectall5;
 					if (menuBox.Text == "" || menuBox.Text == "" || kcalBox.Text == "" || timeBox.Text == ""
 					|| genreBox.Text == "" || itemBox.Text == "" || recipeBox.Text == "" || picturePassBox.Text == "")
 					{
-						MessageBox.Show("空白の項目を入力してください");
-						return;
-					}
+                        //MessageBox.Show("空白の項目を入力してください");
+                        //return;
+
+                        {
+                            //メッセージボックスを表示する
+                            DialogResult result = MessageBox.Show("空白の項目があります。\n「はい」➡空白のまま登録する。\n「いいえ」➡もう一度入力し直す。",
+                                "Empty items?",
+                                MessageBoxButtons.YesNoCancel,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button2);
+
+                            //何が選択されたか調べる
+                            if (result == DialogResult.Yes)
+                            {
+                                //「はい」が選択された時
+                                //Console.WriteLine("「はい」が選択されました");
+                            }
+                            else if (result == DialogResult.No)
+                            {
+                                //「いいえ」が選択された時
+                                return;
+                            }
+                            else if (result == DialogResult.Cancel)
+                            {
+                                //「キャンセル」が選択された時
+                                //Console.WriteLine("「キャンセル」が選択されました");
+                                return;
+                            }
+                        }
+                    }
 					if (recipeBox == null)//画像パスの登録がない場合はNULLのままDBテーブルへ登録
 					{
 						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},{boxtime},{boxgenre},{boxitem},{boxrecipe},null);";//$付与は{}内に変数指定可。@付与は複数文同時実行可                                                                                                                                     //★ CommandTextプロパティにMySQLで実行するSQLステートメント（命令文）を設定します。

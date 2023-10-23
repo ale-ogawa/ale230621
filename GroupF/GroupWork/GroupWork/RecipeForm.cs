@@ -17,9 +17,12 @@ namespace GroupWork
 	{
 		private string connStr = "Server =localhost; Port=3306; Database=menusuggestions; Uid=root; Pwd=root; Charset=utf8";
 		private string selectMenu;
-		
 
-		public RecipeForm(string menu)
+        //画像パス用変数
+        string imagePath = "";
+
+
+        public RecipeForm(string menu)
 		{
 			InitializeComponent();
 			selectMenu = menu;
@@ -53,14 +56,25 @@ namespace GroupWork
 					kcalDisplayLabel.Text = reader["men_kcal"].ToString();
 					timeDisplayLabel.Text = reader["men_time"].ToString();
 					itemDisplaayLabel.Text = reader["men_item"].ToString();
-					recipeDisplayLabel.Text = reader["men_recipe"].ToString();
+                    recipeDisplayTextBox.Text = reader["men_recipe"].ToString();
 
-					//画像の取得と表示
-					picDisplayBox.ImageLocation = reader["men_pic"].ToString();
-					picDisplayBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    //画像の取得と表示
+                    imagePath = reader["men_pic"].ToString();
 				}
-				reader.Close();
+
+                //画像呼び出し説明→DBで「\マーク」を「他の文字」に入れ替えて保存しておいた。
+                //呼び出すときは逆に「他の文字」を「\マーク」に入れ替えて呼び出す
+                string str2 = imagePath.Replace("変更用", "\\");
+                picDisplayBox.ImageLocation = str2;
+                picDisplayBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                reader.Close();
 			}
 		}
-	}
+
+        private void recipeDisplayLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
