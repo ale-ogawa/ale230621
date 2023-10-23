@@ -42,6 +42,9 @@ namespace C__JavaTypingGame
         //コンボカウンター
         private int Conb = 0;
 
+        //照合用問題文
+        private string question { get; set; }
+
         public playForm()
         {
             InitializeComponent();
@@ -58,39 +61,31 @@ namespace C__JavaTypingGame
                 ProblemFileReader pr = new ProblemFileReader();
                 pr.FileReader();
             }
+
+            //例外処理　言語選択画面へ遷移
             catch (FileNotFoundException)
             {
                 MessageBox.Show("問題ファイルが見つかりません");
-
-                //言語選択画面へ遷移
                 ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
             }
             catch (IOException) 
             {
                 MessageBox.Show("問題ファイルの読み取りに問題が起きました");
-
-                //言語選択画面へ遷移
                 ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
             }
             catch (IndexOutOfRangeException)
             {
                 MessageBox.Show("問題ファイルの内容に誤りがあります");
-
-                //言語選択画面へ遷移
                 ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
             }
             catch (NotSupportedException)
             { 
                 MessageBox.Show("ファイルパスに誤りがあります");
-
-                //言語選択画面へ遷移
                 ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
             }
             catch (Exception e) 
             {
                 MessageBox.Show(e.Message);
-
-                //言語選択画面へ遷移
                 ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
             }
         }
@@ -166,10 +161,18 @@ namespace C__JavaTypingGame
             int i = ProblemFileReader.Problem.Count;
 
             //リストからランダムに問題を取り出す
-            String[] line = ProblemFileReader.Problem[random.Next(0, i)];
+            String[] lines = ProblemFileReader.Problem[random.Next(0, i)];
 
-            //問題文を整形して返す 「"」、スペース、改行、「&」を適切な表示に変換
-            return line[2].Trim('"').Trim(' ').Replace(" ", "□").Replace("改行", "\n").Replace("\"\"", "\"").Replace("\"\"", "\"").Replace("&&","&&&&");
+            //問題文を整形 「"」、スペース、改行、「&」を適切な表示に変換
+            string line= lines[2].Trim('"').Trim(' ').Replace(" ", "□").Replace("改行", "\n").Replace("\"\"", "\"").Replace("\"\"", "\"").Replace("&&", "&&&&");
+
+            //正誤判定ロジック用の問題文整形
+            //改行を文字列に含める
+            //問題表示用に変換した文字列を戻す
+            String[] questions = line.Split('\n');
+            question = String.Join(",", questions).Replace("□", " ").Replace("&&&&", "&&");
+
+            return line;
         }
 
 
@@ -188,11 +191,6 @@ namespace C__JavaTypingGame
                 //ユーザーのバックスペース入力は処理をしない
                 if (ProblemIndex < questionLabel.Text.Length && answerTextBox.Text.Length >= ProblemIndex + 1)
                 {
-                    //改行を文字列に含める
-                    //問題表示用に変換した文字列を戻す
-                    String[] questions = questionLabel.Text.Split('\n');
-                    string question = String.Join(",", questions).Replace("□"," ").Replace("&&&&", "&&");
-
                     //ユーザー回答の取り出し
                     String[] answers = answerTextBox.Text.Split('\n');
                     string ans = String.Join(",", answers);
