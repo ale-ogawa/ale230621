@@ -32,6 +32,7 @@ namespace C__JavaTypingGame
             MissTextBox.Text = (playForm.MissCounter.ToString()) + "回";
             PlayerDTO.score = ((playForm.CorrectCouter - playForm.MissCounter) > 0) ? ((playForm.CorrectCouter - playForm.MissCounter) * Rate) : 0;
             TotalScoreTextBox.Text = PlayerDTO.score.ToString();
+
             //得点をランキングテーブルに保存
             PlayerDAO playerDAO = new PlayerDAO();
             playerDAO.RunkingData();
@@ -46,28 +47,21 @@ namespace C__JavaTypingGame
 
         private void retryButton_Click(object sender, EventArgs e)
         {
-            playForm play = new playForm();
-            this.Hide();
-            play.ShowDialog();
-            this.Close();
-
+            //プレイ画面へ遷移
+            ControlForm.CloseAndShow(this, typeof(playForm));
         }
 
 
         private void languageSelectionButton_Click(object sender, EventArgs e)
         {
-            languageSelectionForm lang = new languageSelectionForm();
-            this.Hide();
-            lang.ShowDialog();
-            this.Close();
+            //言語選択画面へ遷移
+            ControlForm.CloseAndShow(this,typeof(languageSelectionForm));
         }
 
         private void runkingButton_Click(object sender, EventArgs e)
         {
-            runkingForm runk = new runkingForm();
-            this.Hide();
-            runk.ShowDialog();
-            this.Close();
+            //ランキング画面へ遷移
+            ControlForm.CloseAndShow(this, typeof(runkingForm));
         }
 
         private void button1_Click(object sender, EventArgs e)
