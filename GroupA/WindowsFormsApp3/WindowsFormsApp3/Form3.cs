@@ -107,22 +107,33 @@ namespace WindowsFormsApp3
                 }
                 return false;
             }
+            catch (DirectoryNotFoundException)
+            {
+                MessageBox.Show("healthcareフォルダが存在しません");
+                LoginAccount account = new LoginAccount();
+                return false;
+            }
             catch (FileNotFoundException)
             {
-                MessageBox.Show("ファイルが存在しません");
+                MessageBox.Show("userListファイルが存在しません");
+                LoginAccount account = new LoginAccount();
+                return false;
             }
             catch (IOException ex)
             {
                 MessageBox.Show(ex.Message);
+                LoginAccount account = new LoginAccount();
+                return false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                LoginAccount account = new LoginAccount();
+                return false;
             }
             finally
             {
             }
-            return true;
         }
 
     }

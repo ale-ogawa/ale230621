@@ -44,10 +44,18 @@ namespace WindowsFormsApp3
         //削除
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            //削除する行が選択されていない時
-            if (mealDataGridView.SelectedRows.Count <= 0)
+            //フォルダの存在確認
+            if (Directory.Exists(@"C:\healthcare\") == false)
             {
-                MessageBox.Show("削除する項目が選択されていません");
+                MessageBox.Show("healthcareフォルダが存在しません");
+                this.Close();
+                return;
+            }
+            //ファイルの存在確認
+            if (File.Exists(@"C:\healthcare\week_mealRecord.txt") == false)
+            {
+                MessageBox.Show("week_mealRecordファイルが存在しません");
+                this.Close();
                 return;
             }
 
@@ -71,13 +79,13 @@ namespace WindowsFormsApp3
                 int index = this.mealDataGridView.CurrentCell.RowIndex;
                 mealDataGridView.Rows.RemoveAt(index);
             }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
-            }
             catch (IOException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("削除する項目が存在しません");
             }
             catch (Exception ex)
             {
@@ -90,6 +98,21 @@ namespace WindowsFormsApp3
 
         private void Form9_Load(object sender, EventArgs e)
         {
+            //フォルダの存在確認
+            if (Directory.Exists(@"C:\healthcare\") == false)
+            {
+                MessageBox.Show("healthcareフォルダが存在しません");
+                this.Close();
+                return;
+            }
+            //ファイルの存在確認
+            if (File.Exists(@"C:\healthcare\week_mealRecord.txt") == false)
+            {
+                MessageBox.Show("week_mealRecordファイルが存在しません");
+                this.Close();
+                return;
+            }
+
             //データグリッドビューの項目設定
             mealDataGridView.ColumnCount = 4;
             mealDataGridView.Columns[0].HeaderText = "日付";
@@ -110,10 +133,6 @@ namespace WindowsFormsApp3
                         }
                     }
                 }
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
             }
             catch (IOException ex)
             {

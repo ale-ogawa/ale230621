@@ -33,10 +33,6 @@ namespace WindowsFormsApp1
                     file.WriteLine(user.userId + "," + user.password + "," + user.birthday + "," + user.gender);
                 }
             }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("ファイルが存在しません");
-            }
             catch (IOException ex)
             {
                 MessageBox.Show(ex.Message);
