@@ -30,13 +30,11 @@ namespace typingGame
                 passText.PasswordChar = (char)0;
             else if (passCheck.Checked == false)
                 passText.PasswordChar = (char)1;
-
         }
 
         private void passText_TextChanged(object sender, EventArgs e)
         {
             passText.PasswordChar = '・';
-
         }
 
         private void checkButton_Click(object sender, EventArgs e)
@@ -47,18 +45,6 @@ namespace typingGame
             Registration.ShowDialog();
 
             this.Close();
-        }
-
-        private void userText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userText_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-       
+        }       
     }
 }

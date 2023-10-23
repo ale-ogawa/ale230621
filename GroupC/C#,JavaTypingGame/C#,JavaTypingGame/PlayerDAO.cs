@@ -22,7 +22,7 @@ namespace C__JavaTypingGame
         //コネクション
         private MySqlConnection Conn { get; set; }
         //トランザクション
-        MySqlTransaction transaction = null;
+        private MySqlTransaction transaction = null;
 
         //コネクション情報
         private string ConnStr { get; } = "Server=192.168.1.133;Port=3306;Database=typing_game;Uid=groupC;Pwd=password;Charset=utf8;Pooling=true";
@@ -203,12 +203,6 @@ namespace C__JavaTypingGame
             //データを取得
             da.Fill(dt);
             return dt;
-        }
-        public void ChengeForm(Form thisform,Form newForm)
-        {
-            thisform.Hide();
-            Form form = new Form();
-
         }
     }
 }

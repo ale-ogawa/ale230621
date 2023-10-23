@@ -16,8 +16,6 @@ namespace typingGame
         public loginForm()
         {
             InitializeComponent();
-            userText.Focus();
-            Application.DoEvents();
         }
         private void backButton_Click(object sender, EventArgs e)
         {
