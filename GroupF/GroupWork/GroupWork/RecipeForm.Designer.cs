@@ -63,7 +63,6 @@
 			this.picDisplayBox.Size = new System.Drawing.Size(315, 279);
 			this.picDisplayBox.TabIndex = 1;
 			this.picDisplayBox.TabStop = false;
-			this.picDisplayBox.Click += new System.EventHandler(this.picDisplayBox_Click);
 			// 
 			// menuNameLabel
 			// 
@@ -223,5 +222,5 @@
 		private System.Windows.Forms.Label timeDisplayLabel;
 		private System.Windows.Forms.Label itemDisplaayLabel;
 		private System.Windows.Forms.Label recipeDisplayLabel;
-    }
+	}
 }

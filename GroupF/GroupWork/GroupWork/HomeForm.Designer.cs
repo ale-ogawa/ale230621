@@ -98,7 +98,7 @@
 			this.Controls.Add(this.itemButton);
 			this.Controls.Add(this.menuButton);
 			this.Name = "HomeForm";
-			this.Text = "HomeForm";
+			this.Text = "Form1";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);

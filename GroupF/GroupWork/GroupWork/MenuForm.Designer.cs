@@ -96,9 +96,6 @@
 			// calComboBox
 			// 
 			this.calComboBox.FormattingEnabled = true;
-			this.calComboBox.Items.AddRange(new object[] {
-            "500",
-            "1000"});
 			this.calComboBox.Location = new System.Drawing.Point(12, 285);
 			this.calComboBox.Name = "calComboBox";
 			this.calComboBox.Size = new System.Drawing.Size(246, 20);
