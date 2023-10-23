@@ -30,7 +30,7 @@ namespace GroupWork
 
 		private void backButton_Click(object sender, EventArgs e)
 		{
-			MenuRegisterForm mrf = new MenuRegisterForm();
+			MenuForm mrf = new MenuForm();
 			mrf.StartPosition = FormStartPosition.Manual;
 			mrf.Location = this.Location;
 			mrf.FormClosing += (s, args) => this.Show();
@@ -59,6 +59,9 @@ namespace GroupWork
 					recipeDisplayLabel.Text = reader["men_recipe"].ToString();
 					imagePath = reader["men_pic"].ToString();
 
+					//画像の取得と表示
+					picDisplayBox.ImageLocation = reader["men_pic"].ToString();
+					picDisplayBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
 
 					//画像の取得と表示(今林さん作成画像表示コード)
@@ -69,8 +72,7 @@ namespace GroupWork
 				//画像呼び出し説明→DBで「\マーク」を「他の文字」に入れ替えて保存しておいた。
 				//呼び出すときは逆に「他の文字」を「\マーク」に入れ替えて呼び出す
 				string str2 = imagePath.Replace("変更用", "\\");
-				textBox1.Text = str2;
-				textBox2.Text = imagePath;
+				
                 picDisplayBox.SizeMode = PictureBoxSizeMode.StretchImage;
 				picDisplayBox.ImageLocation = str2;
 
