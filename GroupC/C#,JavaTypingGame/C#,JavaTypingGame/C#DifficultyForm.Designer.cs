@@ -33,6 +33,7 @@
             this.intermediateButton = new System.Windows.Forms.Button();
             this.beginnerButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // backButton
@@ -93,11 +94,22 @@
             this.label1.TabIndex = 31;
             this.label1.Text = "難易度を選択してください";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("ＭＳ 明朝", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(121, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 29);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "C#";
+            // 
             // C_DifficultyForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(782, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.advancedButton);
@@ -107,6 +119,7 @@
             this.Name = "C_DifficultyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "C_DifficultyForm";
+            this.Load += new System.EventHandler(this.C_DifficultyForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,5 +132,6 @@
         private System.Windows.Forms.Button intermediateButton;
         private System.Windows.Forms.Button beginnerButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
