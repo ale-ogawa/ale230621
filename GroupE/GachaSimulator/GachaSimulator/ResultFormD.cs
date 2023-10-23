@@ -33,6 +33,7 @@ namespace GachaSimulator
 
             //ここからcsvファイルに書き込むプログラムを作成する
 
+
             using (StreamWriter sw = new StreamWriter(filePath, true))
             {
                 // ID,level,name
