@@ -300,6 +300,11 @@ namespace C__JavaTypingGame
             //タイマー停止
             CountDownTimer.Stop();
 
+            //パラメーター初期化
+            CorrectCouter = 0;
+            MissCounter = 0;
+            Conb = 0;
+
             //言語選択画面へ遷移
             ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
         }
