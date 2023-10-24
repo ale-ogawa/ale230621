@@ -31,7 +31,7 @@ namespace GroupWork
 		//食材情報リスト
 		private List<Item> ingredientList = new List<Item>();
 		//メニュー情報リスト
-		private List<System.Windows.Forms.Menu> menuList = new List<System.Windows.Forms.Menu>();
+		private List<Menu> menuList = new List<Menu>();
 
         private MySqlConnection conn = null;
 
@@ -59,10 +59,10 @@ namespace GroupWork
 			menuShowButton.Font = new Font("Arial", 10, FontStyle.Bold);
 
 
-            //
-            //コネクションの確立
-            try
-            {
+			//
+			//コネクションの確立
+			try
+			{
                 conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString);
 
             }
@@ -74,6 +74,21 @@ namespace GroupWork
             {
                 MessageBox.Show(ex.Message);
             }
+
+            ////コンボボックスに追加
+            //ingredientList.Clear();
+            //menuList.Clear();
+            //GetIngredientName();
+            //GetNewMenuName();
+
+            //itemComboBox.DataSource = ingredientList;
+            //menuChoice.DataSource = menuList;
+
+            //itemComboBox.DisplayMember = "ItemInfo"; // 食材クラスの表示プロパティ名
+            //itemComboBox.ValueMember = "ItemId"; // 食材クラスの値プロパティ名
+
+            //menuChoice.DisplayMember = "MenuName"; // メニュークラスの表示プロパティ名
+            //menuChoice.ValueMember = "MenuId"; // メニュークラスの値プロパティ名
 
 
         }
@@ -384,7 +399,7 @@ namespace GroupWork
 			MySqlDataReader reader = command.ExecuteReader();
 			while (reader.Read())
 			{
-				//menuList.Add(new Menu(reader.GetInt32(0), reader.GetString(1)));
+				menuList.Add(new Menu(reader.GetInt32(0), reader.GetString(1)));
 			}
 			reader.Close();
 
@@ -465,19 +480,29 @@ namespace GroupWork
 			{
 				conn.Close();
 			}
+
+
 		}
 
 		private void backButton_Click(object sender, EventArgs e)
 		{
-			HomeForm mf = new HomeForm();
-			mf.StartPosition = FormStartPosition.Manual;
-			mf.Location = this.Location;
-			mf.FormClosing += (s, args) => this.Show();
-			mf.Show();
-			this.Hide();
-		}
+			//HomeForm mf = new HomeForm();
+			//mf.StartPosition = FormStartPosition.Manual;
+			//mf.Location = this.Location;
+			//mf.FormClosing += (s, args) => this.Show();
+			//mf.Show();
+			//this.Hide();
 
-		
-	}
+            //画面を非表示
+            this.Visible = false;
+
+            //ホーム画面を呼び出す
+            HomeForm hf = new HomeForm();
+            hf.ShowDialog();
+
+            //画面を閉じる
+            this.Close();
+        }
+    }
 	
 }
