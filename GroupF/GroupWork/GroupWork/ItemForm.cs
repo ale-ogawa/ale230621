@@ -31,15 +31,14 @@ namespace GroupWork
 		//食材情報リスト
 		private List<Item> ingredientList = new List<Item>();
 		//メニュー情報リスト
-		private List<Menu> menuList = new List<Menu>();
+		private List<System.Windows.Forms.Menu> menuList = new List<System.Windows.Forms.Menu>();
+		private MySqlConnection conn = null;
 
-        private MySqlConnection conn = null;
 
+		private string connStr = "Server =localhost; Port=3306; Database=menusuggestions; Uid=root; Pwd=root; Charset=utf8";
+		//private MySqlConnection conn = new MySqlConnection();
 
-        //private string connStr = "Server =localhost; Port=3306; Database=menusuggestions; Uid=root; Pwd=root; Charset=utf8";
-        //private MySqlConnection conn = new MySqlConnection();
-
-        public ItemForm()
+		public ItemForm()
 		{
 			InitializeComponent();
 
@@ -58,105 +57,85 @@ namespace GroupWork
 			itemDeleteButton.Font = new Font("Arial", 10, FontStyle.Bold);
 			menuShowButton.Font = new Font("Arial", 10, FontStyle.Bold);
 
-
-			//
-			//コネクションの確立
 			try
 			{
-                conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString);
+				conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString);
 
-            }
-            catch (MySqlException me)
-            {
-                MessageBox.Show(me.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+			}
+			catch (MySqlException me)
+			{
+				MessageBox.Show(me.Message);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
 
-            ////コンボボックスに追加
-            //ingredientList.Clear();
-            //menuList.Clear();
-            //GetIngredientName();
-            //GetNewMenuName();
-
-            //itemComboBox.DataSource = ingredientList;
-            //menuChoice.DataSource = menuList;
-
-            //itemComboBox.DisplayMember = "ItemInfo"; // 食材クラスの表示プロパティ名
-            //itemComboBox.ValueMember = "ItemId"; // 食材クラスの値プロパティ名
-
-            //menuChoice.DisplayMember = "MenuName"; // メニュークラスの表示プロパティ名
-            //menuChoice.ValueMember = "MenuId"; // メニュークラスの値プロパティ名
-
-
-        }
-
-        private void LoadIngredients()
+		private void LoadIngredients()
 		{
-			//try
-			//{
-			//	connection.Open();
-			//	string query = "SELECT ite_name FROM menusuggestions.item";
-			//	command = new MySqlCommand(query, connection);
-			//	MySqlDataReader reader = command.ExecuteReader();
+			try
+			{
+				connection.Open();
+				string query = "SELECT ite_name FROM menusuggestions.item";
+				command = new MySqlCommand(query, connection);
+				MySqlDataReader reader = command.ExecuteReader();
 
-			//	while (reader.Read())
-			//	{
-			//		itemComboBox.Items.Add(reader["ite_name"].ToString());
-			//	}
+				while (reader.Read())
+				{
+					itemComboBox.Items.Add(reader["ite_name"].ToString());
+				}
 
-			//	reader.Close();
-			//	connection.Close();
-			//}
-			//catch (MySqlException ex)
-			//{
-			//	MessageBox.Show($"Error: {ex.Message}");
-			//}
+				reader.Close();
+				connection.Close();
+			}
+			catch (MySqlException ex)
+			{
+				MessageBox.Show($"Error: {ex.Message}");
+			}
 		}
 
 		private void InitializeDatabaseConnection()
 		{
-			//server = "localhost";
-			//database = "menusuggestions";
-			//uid = "root";
-			//password = "root";
-			//port = 3306;
-			//charset = "utf8";
+			server = "localhost";
+			database = "menusuggestions";
+			uid = "root";
+			password = "root";
+			port = 3306;
+			charset = "utf8";
 
-			//string connectionString = $"SERVER={server};PORT={port};DATABASE={database};UID={uid};PASSWORD={password};CHARSET={charset}";
-			//connection = new MySqlConnection(connectionString);
+			string connectionString = $"SERVER={server};PORT={port};DATABASE={database};UID={uid};PASSWORD={password};CHARSET={charset}";
+			connection = new MySqlConnection(connectionString);
 		}
 
 		private void itemMenu()
 		{
-			////SQLクエリを作成
-			//string query =
-			//	"SELECT ite_name FROM menusuggestions.item";
+			//SQLクエリを作成
+			string query =
+				"SELECT ite_name FROM menusuggestions.item";
 
-			////データベース接続を作成
-			//using (conn = new MySqlConnection(conn))
-			//{
-			//	//SQLクエリ実行準備
-			//	MySqlCommand cmd = new MySqlCommand(query, conn);
+			//データベース接続を作成
+			using (conn = new MySqlConnection(connStr))
+			{
+				//SQLクエリ実行準備
+				MySqlCommand cmd = new MySqlCommand(query, conn);
 
-			//	//データベース接続を開く
-			//	conn.Open();
+				//データベース接続を開く
+				conn.Open();
 
-			//	//SQLクエリを実行、データを取得
-			//	MySqlDataReader reader = cmd.ExecuteReader();
+				//SQLクエリを実行、データを取得
+				MySqlDataReader reader = cmd.ExecuteReader();
 
-			//	//コンボボックスにデータを追加
-			//	while (reader.Read())
-			//	{
-			//		itemComboBox.Items.Add(reader["ite_name"].ToString());
-			//	}
+				//コンボボックスにデータを追加
+				while (reader.Read())
+				{
+					itemComboBox.Items.Add(reader["ite_name"].ToString());
+				}
 
-			//	//データベースを閉じる
-			//	reader.Close();
-			//	conn.Close();
-			//}
+				//データベースを閉じる
+				reader.Close();
+				conn.Close();
+			}
 		}
 
 
@@ -214,82 +193,78 @@ namespace GroupWork
 
 		private void InsertIngredient()
 		{
-            //MySqlTransaction transaction = null;
-            //if (conn == null)
-            //{
-            //	return; // コネクションが無効な場合は何もせずに終了
-            //}
+			/*MySqlTransaction transaction = null;
+			if (conn == null)
+			{
+				return; // コネクションが無効な場合は何もせずに終了
+			}
 
-            //string sql = "INSERT INTO Item(ite_name, ite_date) VALUES (@ite_name, @ite_date)";
-            //string itemName = itemNameTextBox.Text;
-            //string itemDate = dateTextBox.Text;
+			string sql = "INSERT INTO Item(ite_name, ite_date) VALUES (@ite_name, @ite_date)";
+			string itemName = itemNameTextBox.Text;
+			string itemDate = dateTextBox.Text;
 
-            //try
-            //{
-            //	conn.Open();
-            //	MySqlCommand cmd = new MySqlCommand(sql, conn);
-            //	cmd.Parameters.AddWithValue("@ite_name", itemName);
-            //	cmd.Parameters.AddWithValue("@ite_date", itemDate);
-            //	transaction = conn.BeginTransaction();
-            //	cmd.ExecuteNonQuery();
-            //	transaction.Commit();
-            //}
-            //catch (MySqlException me)
-            //{
-            //	MessageBox.Show(me.Message);
-            //	transaction?.Rollback();
-            //	throw;
-            //}
-            //catch (Exception ex)
-            //{
-            //	MessageBox.Show(ex.Message);
-            //	conn?.Close();
-            //}
-            //finally
-            //{
-            //	conn.Close();
-            //}
+			try
+			{
+				conn.Open();
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@ite_name", itemName);
+				cmd.Parameters.AddWithValue("@ite_date", itemDate);
+				transaction = conn.BeginTransaction();
+				cmd.ExecuteNonQuery();
+				transaction.Commit();
+			}
+			catch (MySqlException me)
+			{
+				MessageBox.Show(me.Message);
+				transaction?.Rollback();
+				throw;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				conn?.Close();
+			}
+			finally
+			{
+				conn.Close();
+			}*/
 
+			MySqlTransaction transaction = null;
+			if (conn == null)
+			{
+				return; // コネクションが無効な場合は何もせずに終了
+			}
 
-            MySqlTransaction transaction = null;
-            if (conn == null)
-            {
-                return; // コネクションが無効な場合は何もせずに終了
-            }
+			string sql = "INSERT INTO Item(ite_name, ite_date) VALUES (@ite_name, @ite_date)";
+			string itemName = itemNameTextBox.Text;
+			string itemDate = dateTextBox.Text;
 
-            string sql = "INSERT INTO Item(ite_name, ite_date) VALUES (@ite_name, @ite_date)";
-            string itemName = itemNameTextBox.Text;
-            string itemDate = dateTextBox.Text;
-
-            try
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ite_name", itemName);
-                cmd.Parameters.AddWithValue("@ite_date", itemDate);
-                transaction = conn.BeginTransaction();
-                cmd.ExecuteNonQuery();
-                transaction.Commit();
-            }
-            catch (MySqlException me)
-            {
-                MessageBox.Show(me.Message);
-                transaction?.Rollback();
-                throw;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                conn?.Close();
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-
-
-        }
+			try
+			{
+				conn.Open();
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@ite_name", itemName);
+				cmd.Parameters.AddWithValue("@ite_date", itemDate);
+				transaction = conn.BeginTransaction();
+				cmd.ExecuteNonQuery();
+				transaction.Commit();
+			}
+			catch (MySqlException me)
+			{
+				MessageBox.Show(me.Message);
+				transaction?.Rollback();
+				throw;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				conn?.Close();
+			}
+			finally
+			{
+				conn.Close();
+			}
+		}
 
 		private void itemUpdateButton_Click(object sender, EventArgs e)
 		{
@@ -399,7 +374,7 @@ namespace GroupWork
 			MySqlDataReader reader = command.ExecuteReader();
 			while (reader.Read())
 			{
-				menuList.Add(new Menu(reader.GetInt32(0), reader.GetString(1)));
+				//menuList.Add(new Menu(reader.GetInt32(0), reader.GetString(1)));
 			}
 			reader.Close();
 
@@ -480,29 +455,19 @@ namespace GroupWork
 			{
 				conn.Close();
 			}
-
-
 		}
 
 		private void backButton_Click(object sender, EventArgs e)
 		{
-			//HomeForm mf = new HomeForm();
-			//mf.StartPosition = FormStartPosition.Manual;
-			//mf.Location = this.Location;
-			//mf.FormClosing += (s, args) => this.Show();
-			//mf.Show();
-			//this.Hide();
+			HomeForm mf = new HomeForm();
+			mf.StartPosition = FormStartPosition.Manual;
+			mf.Location = this.Location;
+			mf.FormClosing += (s, args) => this.Show();
+			mf.Show();
+			this.Hide();
+		}
 
-            //画面を非表示
-            this.Visible = false;
-
-            //ホーム画面を呼び出す
-            HomeForm hf = new HomeForm();
-            hf.ShowDialog();
-
-            //画面を閉じる
-            this.Close();
-        }
-    }
+		
+	}
 	
 }

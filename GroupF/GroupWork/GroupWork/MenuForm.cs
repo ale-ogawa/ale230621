@@ -53,7 +53,7 @@ namespace GroupWork
 
 		private void genreAdd()
 		{
-			groupComboBox.Items.Add("和");
+			groupComboBox.Items.Add("和食");
 			groupComboBox.Items.Add("洋食");
 			groupComboBox.Items.Add("中華");
 			groupComboBox.Items.Add("韓国料理");
@@ -132,7 +132,7 @@ namespace GroupWork
 						{
 							if (!string.IsNullOrEmpty(genre))
 							{
-								query += "AND";
+								query += " AND ";
 							}
 
 							query += "men_kcal <= @calories";

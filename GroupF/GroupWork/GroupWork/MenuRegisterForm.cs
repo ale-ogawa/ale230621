@@ -14,6 +14,8 @@ namespace GroupWork
 {
 	public partial class MenuRegisterForm : Form
 	{
+
+		string Selectall5;
 		int men_number;
 		string men_name;
 		int men_kcal;
@@ -63,18 +65,13 @@ namespace GroupWork
 			clearTextButton.Font = new Font("Arial", 10, FontStyle.Bold);
 		}
 
-		private void MenuRegisterForm_Load(object sender, EventArgs e)
-		{
-
-		}
-
 		private void addButton_Click(object sender, EventArgs e)
 		{
 			try
 			{
 				// ★コネクションオブジェクトとコマンドオブジェクトを生成します。
 				using (var connection = new MySqlConnection(ConnectionString))
-				using (var command = new MySqlCommand())
+				using (var command = new MySqlCommand(Selectall5, connection))
 				{
 					// ★コネクションをオープンします。
 					connection.Open();
@@ -91,45 +88,75 @@ namespace GroupWork
 					boxrecipe = "'" + recipeBox.Text + "'";
 					boxpic = "'" + picturePassBox.Text + "'";
 
-                    //DBに保存するときはSQL側が「\マーク」を消してしまう。
-                    //そのため「\マーク」を代替処理として「他の文字」をかまして保存する。呼び出すときに「\マーク」に入れ替える
-                    string str2 = boxpic.Replace("\\", "変更用");
-					//14:17更新
-                    //★INSERT文の定義
-                    string Selectall5;
+					string picStr = boxpic.Replace("\\", "変更用");
+
+					//★INSERT文の定義
+
 					if (menuBox.Text == "" || menuBox.Text == "" || kcalBox.Text == "" || timeBox.Text == ""
 					|| genreBox.Text == "" || itemBox.Text == "" || recipeBox.Text == "" || picturePassBox.Text == "")
 					{
-                        //MessageBox.Show("空白の項目を入力してください");
-                        //return;
+						//メッセージボックスを表示する
+						DialogResult result = MessageBox.Show("空白の項目があります。\n「はい」➡空白のまま登録する。\n「いいえ」➡もう一度入力し直す。",
+							"Empty items?",
+							MessageBoxButtons.YesNoCancel,
+							MessageBoxIcon.Exclamation,
+							MessageBoxDefaultButton.Button2);
 
-                        {
-                            //メッセージボックスを表示する
-                            DialogResult result = MessageBox.Show("空白の項目があります。\n「はい」➡空白のまま登録する。\n「いいえ」➡もう一度入力し直す。",
-                                "Empty items?",
-                                MessageBoxButtons.YesNoCancel,
-                                MessageBoxIcon.Exclamation,
-                                MessageBoxDefaultButton.Button2);
+						//何が選択されたか調べる
+						if (result == DialogResult.Yes)
+						{
+							//「はい」が選択された時
+							//Console.WriteLine("「はい」が選択されました");
+						}
+						else if (result == DialogResult.No)
+						{
+							//「いいえ」が選択された時
+							return;
+						}
+						else if (result == DialogResult.Cancel)
+						{
+							//「キャンセル」が選択された時
+							//Console.WriteLine("「キャンセル」が選択されました");
+							return;
+						}
+					}
 
-                            //何が選択されたか調べる
-                            if (result == DialogResult.Yes)
-                            {
-                                //「はい」が選択された時
-                                //Console.WriteLine("「はい」が選択されました");
-                            }
-                            else if (result == DialogResult.No)
-                            {
-                                //「いいえ」が選択された時
-                                return;
-                            }
-                            else if (result == DialogResult.Cancel)
-                            {
-                                //「キャンセル」が選択された時
-                                //Console.WriteLine("「キャンセル」が選択されました");
-                                return;
-                            }
-                        }
-                    }
+					if (picturePassBox == null)//画像パスの登録がない場合はNULLのままDBテーブルへ登録
+					{
+						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},{boxtime},{boxgenre},{boxitem},{boxrecipe},null);";//$付与は{}内に変数指定可。@付与は複数文同時実行可                                                                                                                                     //★ CommandTextプロパティにMySQLで実行するSQLステートメント（命令文）を設定します。
+						command.CommandText = Selectall5;
+					}
+					else if (menuBox == null)//メニュー名がない場合
+					{
+						Selectall5 = $"use menusuggestions; insert into menu values(null,null,{boxkcal},{boxtime},{boxgenre},{boxitem},{boxrecipe},{picStr});";//$付与は{}内に変数指定可。@付与は複数文同時実行可                                                                                                                                     //★ CommandTextプロパティにMySQLで実行するSQLステートメント（命令文）を設定します。
+						command.CommandText = Selectall5;
+					}
+					else if (kcalBox == null)
+					{
+						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},null,{boxtime},{boxgenre},{boxitem},{boxrecipe},{picStr});";//$付与は{}内に変数指定可。@付与は複数文同時実行可                                                                                                                                     //★ CommandTextプロパティにMySQLで実行するSQLステートメント（命令文）を設定します。
+						command.CommandText = Selectall5;
+					}
+					else if (timeBox == null)
+					{
+						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},null,{boxgenre},{boxitem},{boxrecipe},{picStr});";//$付与は{}内に変数指定可。@付与は複数文同時実行可                                                                                                                                     //★ CommandTextプロパティにMySQLで実行するSQLステートメント（命令文）を設定します。
+						command.CommandText = Selectall5;
+					}
+					else if (genreBox == null)
+					{
+						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},{boxtime},null,{boxitem},{boxrecipe},{picStr});";//$付与は{}内に変数指定可。@付与は複数文同時実行可                                                                                                                                     //★ CommandTextプロパティにMySQLで実行するSQLステートメント（命令文）を設定します。
+						command.CommandText = Selectall5;
+					}
+					else if (itemBox == null)
+					{
+						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},{boxtime},{boxgenre},null,{boxrecipe},{picStr});";//$付与は{}内に変数指定可。@付与は複数文同時実行可                                                                                                                                     //★ CommandTextプロパティにMySQLで実行するSQLステートメント（命令文）を設定します。
+						command.CommandText = Selectall5;
+					}
+					else if (recipeBox == null)
+					{
+						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},{boxtime},{boxgenre},{boxitem},null,{picStr});";//$付与は{}内に変数指定可。@付与は複数文同時実行可                                                                                                                                     //★ CommandTextプロパティにMySQLで実行するSQLステートメント（命令文）を設定します。
+						command.CommandText = Selectall5;
+					}
+
 					if (recipeBox == null)//画像パスの登録がない場合はNULLのままDBテーブルへ登録
 					{
 						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},{boxtime},{boxgenre},{boxitem},{boxrecipe},null);";//$付与は{}内に変数指定可。@付与は複数文同時実行可                                                                                                                                     //★ CommandTextプロパティにMySQLで実行するSQLステートメント（命令文）を設定します。
@@ -138,7 +165,7 @@ namespace GroupWork
 
 					else if (recipeBox != null)//画像バスの登録がある場合はパスをDBテーブルへ登録
 					{
-						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},{boxtime},{boxgenre},{boxitem},{boxrecipe},{boxpic});";
+						Selectall5 = $"use menusuggestions; insert into menu values(null,{boxname},{boxkcal},{boxtime},{boxgenre},{boxitem},{boxrecipe},{picStr});";
 						command.CommandText = Selectall5;
 					}
 
@@ -162,6 +189,8 @@ namespace GroupWork
 				MessageBox.Show(ee.Message);//例外処理はメッセージボックスに表示
 			}
 		}
+	
+
 
 		private void pictureAddBotton_Click(object sender, EventArgs e)
 		{

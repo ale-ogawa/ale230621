@@ -171,7 +171,7 @@
 			this.Controls.Add(this.groupLabel);
 			this.Controls.Add(this.backButton);
 			this.Name = "MenuForm";
-			this.Text = "Form1";
+			this.Text = "MenuForm";
 			this.Load += new System.EventHandler(this.MenuForm_Load);
 			this.ResumeLayout(false);
 
