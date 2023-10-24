@@ -79,6 +79,7 @@
 			this.addPictureBox.Location = new System.Drawing.Point(592, 12);
 			this.addPictureBox.Name = "addPictureBox";
 			this.addPictureBox.Size = new System.Drawing.Size(196, 164);
+			this.addPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.addPictureBox.TabIndex = 2;
 			this.addPictureBox.TabStop = false;
 			// 
@@ -278,8 +279,7 @@
 			this.Controls.Add(this.pictureAddBotton);
 			this.Controls.Add(this.addButton);
 			this.Name = "MenuRegisterForm";
-			this.Text = "Form1";
-			this.Load += new System.EventHandler(this.MenuRegisterForm_Load);
+			this.Text = "MenuRegisterForm";
 			((System.ComponentModel.ISupportInitialize)(this.addPictureBox)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

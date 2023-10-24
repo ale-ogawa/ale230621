@@ -14,6 +14,9 @@ namespace GroupWork
 {
 	public partial class HomeForm : Form
 	{
+		private string connStr = "Server =localhost; Port=3306; Database=menusuggestions; Uid=root; Pwd=root; Charset=utf8";
+		
+
 		public HomeForm()
 		{
 			InitializeComponent();
@@ -49,7 +52,7 @@ namespace GroupWork
 			mf.Location = this.Location;
 			mf.FormClosing += (s, args) => this.Show();
 			mf.Show();
-			this.Hide();
+		    this.Hide();
 		}
 
 		private void itemButton_Click(object sender, EventArgs e)
@@ -62,15 +65,9 @@ namespace GroupWork
 			this.Hide();
 		}
 
-		private void HomeForm_Load(object sender, EventArgs e)
-		{
-			nowTime();
-		}
 
 		public void nowTime()
 		{
-			string connStr = "Server =localhost; Port=3306; Database=menusuggestions; Uid=root; Pwd=root; Charset=utf8";
-
 			MySqlConnection conn = new MySqlConnection(connStr);
 			conn.Open();
 
@@ -78,36 +75,35 @@ namespace GroupWork
 			DateTime oneWeek = now.AddDays(7);//一週間後の日付
 
 			//賞味期限一週間以内の食材を抽出するクエリ
-			string query = "SELECT ite_name " +
-				"FROM menusuggestions.item " +
-				"WHERE ite_date <= @now AND " +
-				"ite_date <= @oneWeek";
+			string query = "SELECT ite_name FROM menusuggestions.item WHERE ite_date >= @now AND ite_date <= @oneWeek";
 
 			MySqlCommand cmd = new MySqlCommand(query, conn);
 			cmd.Parameters.AddWithValue("@now", now);
-			cmd.Parameters.AddWithValue("@oneWeek", oneWeek);
+			cmd.Parameters.AddWithValue ("@oneWeek",oneWeek);
 
 			//クエリ実行、結果取得、ダイアログ表示
-			using (MySqlDataReader reader = cmd.ExecuteReader())
+			using(MySqlDataReader reader = cmd.ExecuteReader()) 
 			{
 				StringBuilder sb = new StringBuilder();
 
 				while (reader.Read())
 				{
 					string iteName = reader.GetString("ite_name");
-					sb.Append(iteName + "の賞味期限が近づいています。");
-
-					if (sb.Length > 0)
-					{
-						MessageBox.Show(sb.ToString(), "賞味期限の近づいた食材");
-					}
-					else
-					{
-						MessageBox.Show("賞味期限の近づいた食材はありません。");
-					}
+					sb.Append(iteName + ",");
 				}
-				conn.Close();
+				
+				if(sb.Length > 0)
+				{
+					MessageBox.Show(sb.ToString(), "賞味期限の近づいた食材");
+				}
+			    else
+				{
+						MessageBox.Show("賞味期限の近づいた食材はありません。");
+				}
 			}
+				conn.Close();
+			
 		}
 	}
 }
+

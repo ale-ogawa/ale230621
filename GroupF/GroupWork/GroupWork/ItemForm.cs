@@ -32,10 +32,11 @@ namespace GroupWork
 		private List<Item> ingredientList = new List<Item>();
 		//メニュー情報リスト
 		private List<System.Windows.Forms.Menu> menuList = new List<System.Windows.Forms.Menu>();
+		private MySqlConnection conn = null;
 
 
 		private string connStr = "Server =localhost; Port=3306; Database=menusuggestions; Uid=root; Pwd=root; Charset=utf8";
-		private MySqlConnection conn = new MySqlConnection();
+		//private MySqlConnection conn = new MySqlConnection();
 
 		public ItemForm()
 		{
@@ -56,6 +57,19 @@ namespace GroupWork
 			itemDeleteButton.Font = new Font("Arial", 10, FontStyle.Bold);
 			menuShowButton.Font = new Font("Arial", 10, FontStyle.Bold);
 
+			try
+			{
+				conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString);
+
+			}
+			catch (MySqlException me)
+			{
+				MessageBox.Show(me.Message);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		private void LoadIngredients()
@@ -179,6 +193,42 @@ namespace GroupWork
 
 		private void InsertIngredient()
 		{
+			/*MySqlTransaction transaction = null;
+			if (conn == null)
+			{
+				return; // コネクションが無効な場合は何もせずに終了
+			}
+
+			string sql = "INSERT INTO Item(ite_name, ite_date) VALUES (@ite_name, @ite_date)";
+			string itemName = itemNameTextBox.Text;
+			string itemDate = dateTextBox.Text;
+
+			try
+			{
+				conn.Open();
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@ite_name", itemName);
+				cmd.Parameters.AddWithValue("@ite_date", itemDate);
+				transaction = conn.BeginTransaction();
+				cmd.ExecuteNonQuery();
+				transaction.Commit();
+			}
+			catch (MySqlException me)
+			{
+				MessageBox.Show(me.Message);
+				transaction?.Rollback();
+				throw;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				conn?.Close();
+			}
+			finally
+			{
+				conn.Close();
+			}*/
+
 			MySqlTransaction transaction = null;
 			if (conn == null)
 			{

@@ -201,7 +201,7 @@
 			this.Controls.Add(this.itmLabel);
 			this.Controls.Add(this.backButton);
 			this.Name = "ItemForm";
-			this.Text = "Form1";
+			this.Text = "ItemForm";
 			this.Load += new System.EventHandler(this.ItemForm_Load_1);
 			this.ResumeLayout(false);
 			this.PerformLayout();

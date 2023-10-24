@@ -44,7 +44,7 @@
 			this.startButton.Name = "startButton";
 			this.startButton.Size = new System.Drawing.Size(302, 84);
 			this.startButton.TabIndex = 0;
-			this.startButton.Text = "START";
+			this.startButton.Text = "スタート";
 			this.startButton.UseVisualStyleBackColor = false;
 			this.startButton.Click += new System.EventHandler(this.startButton_Click);
 			// 
@@ -83,7 +83,7 @@
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.startButton);
 			this.Name = "TopForm";
-			this.Text = "Form1";
+			this.Text = "TopForm";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
