@@ -100,6 +100,8 @@ namespace C__JavaTypingGame
             //スタートボタンを非表示
             startBottun.Visible = false;
 
+            writer("プレイヤー名:" + PlayerDTO.Name);
+
             //ゲーム開始前カウントダウン
             try { StartCountDown(); }
             catch(Exception excep) { MessageBox.Show($"{excep.Message}"); }
@@ -172,6 +174,8 @@ namespace C__JavaTypingGame
             String[] questions = line.Split('\n');
             question = String.Join(",", questions).Replace("□", " ").Replace("&&&&", "&&");
 
+            writer("問題文" + question);
+
             return line;
         }
 
@@ -194,6 +198,8 @@ namespace C__JavaTypingGame
                     //ユーザー回答の取り出し
                     String[] answers = answerTextBox.Text.Split('\n');
                     string ans = String.Join(",", answers);
+
+                    writer(ans[ans.Length - 1].ToString(), question[ProblemIndex].ToString());
 
                     //正解時の処理
                     if (ans[ans.Length - 1] == question[ProblemIndex])
@@ -307,6 +313,19 @@ namespace C__JavaTypingGame
 
             //言語選択画面へ遷移
             ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
+        }
+        private void writer(params string[] s)
+        {
+            using (StreamWriter sr = new StreamWriter(@"C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\プレイ記録\log.txt", true))
+            {
+                if (s.Length == 1) sr.WriteLine(s[0]);
+                else
+                {
+                    foreach (string ss in s) { sr.Write(ss); sr.Write(","); }
+                    sr.WriteLine();
+                }
+
+            }
         }
     }
 }
