@@ -60,74 +60,88 @@ namespace GroupWork
 
 
             //
-          
+            //コネクションの確立
+            try
+            {
+                conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString);
 
-    }
+            }
+            catch (MySqlException me)
+            {
+                MessageBox.Show(me.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-		private void LoadIngredients()
+
+        }
+
+        private void LoadIngredients()
 		{
-			try
-			{
-				connection.Open();
-				string query = "SELECT ite_name FROM menusuggestions.item";
-				command = new MySqlCommand(query, connection);
-				MySqlDataReader reader = command.ExecuteReader();
+			//try
+			//{
+			//	connection.Open();
+			//	string query = "SELECT ite_name FROM menusuggestions.item";
+			//	command = new MySqlCommand(query, connection);
+			//	MySqlDataReader reader = command.ExecuteReader();
 
-				while (reader.Read())
-				{
-					itemComboBox.Items.Add(reader["ite_name"].ToString());
-				}
+			//	while (reader.Read())
+			//	{
+			//		itemComboBox.Items.Add(reader["ite_name"].ToString());
+			//	}
 
-				reader.Close();
-				connection.Close();
-			}
-			catch (MySqlException ex)
-			{
-				MessageBox.Show($"Error: {ex.Message}");
-			}
+			//	reader.Close();
+			//	connection.Close();
+			//}
+			//catch (MySqlException ex)
+			//{
+			//	MessageBox.Show($"Error: {ex.Message}");
+			//}
 		}
 
 		private void InitializeDatabaseConnection()
 		{
-			server = "localhost";
-			database = "menusuggestions";
-			uid = "root";
-			password = "root";
-			port = 3306;
-			charset = "utf8";
+			//server = "localhost";
+			//database = "menusuggestions";
+			//uid = "root";
+			//password = "root";
+			//port = 3306;
+			//charset = "utf8";
 
-			string connectionString = $"SERVER={server};PORT={port};DATABASE={database};UID={uid};PASSWORD={password};CHARSET={charset}";
-			connection = new MySqlConnection(connectionString);
+			//string connectionString = $"SERVER={server};PORT={port};DATABASE={database};UID={uid};PASSWORD={password};CHARSET={charset}";
+			//connection = new MySqlConnection(connectionString);
 		}
 
 		private void itemMenu()
 		{
-			//SQLクエリを作成
-			string query =
-				"SELECT ite_name FROM menusuggestions.item";
+			////SQLクエリを作成
+			//string query =
+			//	"SELECT ite_name FROM menusuggestions.item";
 
-			//データベース接続を作成
-			using (conn = new MySqlConnection(connStr))
-			{
-				//SQLクエリ実行準備
-				MySqlCommand cmd = new MySqlCommand(query, conn);
+			////データベース接続を作成
+			//using (conn = new MySqlConnection(conn))
+			//{
+			//	//SQLクエリ実行準備
+			//	MySqlCommand cmd = new MySqlCommand(query, conn);
 
-				//データベース接続を開く
-				conn.Open();
+			//	//データベース接続を開く
+			//	conn.Open();
 
-				//SQLクエリを実行、データを取得
-				MySqlDataReader reader = cmd.ExecuteReader();
+			//	//SQLクエリを実行、データを取得
+			//	MySqlDataReader reader = cmd.ExecuteReader();
 
-				//コンボボックスにデータを追加
-				while (reader.Read())
-				{
-					itemComboBox.Items.Add(reader["ite_name"].ToString());
-				}
+			//	//コンボボックスにデータを追加
+			//	while (reader.Read())
+			//	{
+			//		itemComboBox.Items.Add(reader["ite_name"].ToString());
+			//	}
 
-				//データベースを閉じる
-				reader.Close();
-				conn.Close();
-			}
+			//	//データベースを閉じる
+			//	reader.Close();
+			//	conn.Close();
+			//}
 		}
 
 
