@@ -24,6 +24,9 @@ namespace C__JavaTypingGame
         //ログイン状態のフラグ
         static public bool Login { get; set; } =false;
 
+        //ゲスト保存用スコア
+        static public Guest guest { get; set; } = null;
+
         //コンストラクター
         public PlayerDTO(string name,string pass)
         {

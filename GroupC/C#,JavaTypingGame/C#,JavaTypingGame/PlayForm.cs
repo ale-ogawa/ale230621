@@ -25,7 +25,7 @@ namespace C__JavaTypingGame
         private int ProblemIndex = 0;
 
         //ゲームの制限時間
-        private const int Time = 60;
+        private const int Time = 5;
 
         //ミスカウンター
         public static int MissCounter = 0;
@@ -189,9 +189,6 @@ namespace C__JavaTypingGame
         {
             try 
             {
-                //ミスタイプによるループを防ぐ
-                if(MissFlag) { MissFlag = false; return; }
-
                 //ユーザーのバックスペース入力は処理をしない
                 if (ProblemIndex < questionLabel.Text.Length && answerTextBox.Text.Length >= ProblemIndex + 1)
                 {
@@ -199,7 +196,11 @@ namespace C__JavaTypingGame
                     String[] answers = answerTextBox.Text.Split('\n');
                     string ans = String.Join(",", answers);
 
-                    writer(ans[ans.Length - 1].ToString(), question[ProblemIndex].ToString());
+                    //プレイログ
+                    writer(ans[ans.Length - 1].ToString(), question[ProblemIndex].ToString(), answerTextBox.Text,CorrectCouter.ToString(),MissCounter.ToString(),MissFlag.ToString());
+
+                    //ミスタイプによるループを防ぐ
+                    if (MissFlag) { MissFlag = false; return; }
 
                     //正解時の処理
                     if (ans[ans.Length - 1] == question[ProblemIndex])

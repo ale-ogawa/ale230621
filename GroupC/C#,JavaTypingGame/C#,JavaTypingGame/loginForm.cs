@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,33 @@ namespace typingGame
                 if (check != false)
                 {
                     MessageBox.Show("ログインしました");
+                    
+                    //ゲストプレイ時のスコアが残っていた場合
+                    if(File.Exists(@"C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\プレイ記録\スコア.csv"))
+                    {
+                        DialogResult result = MessageBox.Show($"ゲストプレイ時のスコアが保存されています。スコアをランキングに登録しますか?", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                        if (result == DialogResult.Yes)
+                        {
+                            using (StreamReader sr = new StreamReader(@"C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\プレイ記録\スコア.csv"))
+                            {
+                                string line = null;
+                                while((line = sr.ReadLine()) != null)
+                                {
+                                    PlayerDAO dao=new PlayerDAO();
+                                    string[] lines = line.Split(',');
+                                    PlayerDTO.Lang = lines[0];
+                                    PlayerDTO.score = int.Parse(lines[1]);
+                                    dao.RunkingData();
+                                }
+                                MessageBox.Show("スコアをランキングに登録しました");
+                            }
+                            File.Delete(@"C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\プレイ記録\スコア.csv");
+                        }
+                        PlayerDTO.Lang = null;
+                        PlayerDTO.score = 0;
+                        PlayerDTO.guest = null;
+                    }
+
                     //画面遷移
                     this.Hide();
                     languageSelectionForm ls = new languageSelectionForm();

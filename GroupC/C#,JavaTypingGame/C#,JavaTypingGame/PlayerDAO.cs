@@ -114,16 +114,18 @@ namespace C__JavaTypingGame
 
             Conn.Open();
             MySqlCommand com = new MySqlCommand(sql, Conn);
+
             //各パラメータへの代入
             com.Parameters.AddWithValue("@user_name", PlayerDTO.Name);
             com.Parameters.AddWithValue("@ranguage", PlayerDTO.Lang);
             com.Parameters.AddWithValue("@user_score", PlayerDTO.score);
+
             //トランザクション
             transaction = Conn.BeginTransaction();
             com.ExecuteNonQuery();
             transaction.Commit();
         }
-        catch (MySqlException mysqlEX)
+        catch (MySqlException)
         {
             transaction.Rollback();
             throw new ConstraintException("データベースに接続できません。\nsql文又はコネクション情報に誤りがある可能性があります。");

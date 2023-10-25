@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,19 @@ namespace C__JavaTypingGame
             {
                 PlayerDAO playerDAO = new PlayerDAO();
                 playerDAO.RunkingData();
+            }
+            else 
+            {
+                //次回ログイン時のスコア登録
+              　 DialogResult result= MessageBox.Show($"今回のスコアを一時的に保存して次回ログイン時にランキングに登録します。スコアを保存しますか?\n今回のスコア：{PlayerDTO.score}","確認",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
+                if (result == DialogResult.Yes)
+                {
+                    using(StreamWriter sr = new StreamWriter(@"C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\プレイ記録\スコア.csv",true))
+                    {
+                        sr.WriteLine(PlayerDTO.Lang+","+ PlayerDTO.score.ToString());
+                    }
+                    MessageBox.Show("保存完了しました。");
+                }
             }
 
             //リザルトの初期化
