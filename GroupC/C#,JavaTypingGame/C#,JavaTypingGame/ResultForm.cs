@@ -34,8 +34,11 @@ namespace C__JavaTypingGame
             TotalScoreTextBox.Text = PlayerDTO.score.ToString();
 
             //得点をランキングテーブルに保存
-            PlayerDAO playerDAO = new PlayerDAO();
-            playerDAO.RunkingData();
+            if (PlayerDTO.Login)
+            {
+                PlayerDAO playerDAO = new PlayerDAO();
+                playerDAO.RunkingData();
+            }
 
             //リザルトの初期化
             playForm.CorrectCouter = 0;
@@ -61,7 +64,8 @@ namespace C__JavaTypingGame
         private void runkingButton_Click(object sender, EventArgs e)
         {
             //ランキング画面へ遷移
-            ControlForm.CloseAndShow(this, typeof(runkingForm));
+            if (PlayerDTO.Login) ControlForm.CloseAndShow(this, typeof(runkingForm));
+            else MessageBox.Show("ゲストプレイではランキングの閲覧はできません");
         }
 
         private void button1_Click(object sender, EventArgs e)

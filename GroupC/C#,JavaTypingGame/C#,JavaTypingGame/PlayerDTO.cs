@@ -21,11 +21,15 @@ namespace C__JavaTypingGame
         //得点
         static public int score { set; get; }
 
+        //ログイン状態のフラグ
+        static public bool Login { get; set; } =false;
+
         //コンストラクター
         public PlayerDTO(string name,string pass)
         {
             Name = name;
             Pass = pass;
+            Login = true;
         }
     }
 

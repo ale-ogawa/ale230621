@@ -50,9 +50,9 @@ namespace typingGame
 
         private void runkingButton_Click(object sender, EventArgs e)
         {
-            runkingForm ruking =new runkingForm();
-            ruking.ShowDialog();
-            
+            //ランキング画面へ遷移
+            if (PlayerDTO.Login) ControlForm.CloseAndShow(this, typeof(runkingForm));
+            else MessageBox.Show("ゲストプレイではランキングの閲覧はできません");
         }
     }
 }
