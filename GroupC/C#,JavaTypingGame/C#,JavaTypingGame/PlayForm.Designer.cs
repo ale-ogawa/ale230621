@@ -37,6 +37,7 @@
             this.startBottun = new System.Windows.Forms.Button();
             this.CountDownTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.copyLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox
@@ -118,11 +119,23 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.UseWaitCursor = true;
             // 
+            // copyLabel
+            // 
+            this.copyLabel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.copyLabel.Enabled = false;
+            this.copyLabel.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.copyLabel.Location = new System.Drawing.Point(24, 35);
+            this.copyLabel.Name = "copyLabel";
+            this.copyLabel.Size = new System.Drawing.Size(1300, 305);
+            this.copyLabel.TabIndex = 10;
+            this.copyLabel.UseWaitCursor = true;
+            // 
             // playForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(1370, 693);
+            this.Controls.Add(this.copyLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.startBottun);
             this.Controls.Add(this.answerTextBox);
@@ -151,6 +164,7 @@
         private System.Windows.Forms.Button startBottun;
         private System.Windows.Forms.Timer CountDownTimer;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label copyLabel;
     }
 }
 

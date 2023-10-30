@@ -116,6 +116,7 @@ namespace C__JavaTypingGame
             try
             {
                 questionLabel.Text = ProblemEntry();
+                copyLabel.Text=questionLabel.Text;
                 System.Windows.Forms.Application.DoEvents();
             }
             catch (Exception exception) { MessageBox.Show($"{exception.Message}"); }
@@ -134,21 +135,21 @@ namespace C__JavaTypingGame
         private void StartCountDown()
         {
             //文字サイズと配置の変更
-            questionLabel.TextAlign = ContentAlignment.MiddleCenter;
-            questionLabel.Font = new Font(questionLabel.Font.FontFamily, 36);
+            copyLabel.TextAlign = ContentAlignment.MiddleCenter;
+            copyLabel.Font = new Font(questionLabel.Font.FontFamily, 36);
 
             //カウントダウン
             for (int i = 3; i > -1; i--)
             {
-                if (i != 0) questionLabel.Text = i.ToString();
-                else questionLabel.Text = "Start!!";
+                if (i != 0) copyLabel.Text = i.ToString();
+                else copyLabel.Text = "Start!!";
                 System.Windows.Forms.Application.DoEvents();
                 Thread.Sleep(1000);
             }
 
             //元の文字の仕様に戻す
-            questionLabel.TextAlign = ContentAlignment.TopLeft;
-            questionLabel.Font = new Font(questionLabel.Font.FontFamily, 20);
+            copyLabel.TextAlign = ContentAlignment.TopLeft;
+            copyLabel.Font = new Font(copyLabel.Font.FontFamily, 20);
             System.Windows.Forms.Application.DoEvents();
 
         }
@@ -200,13 +201,19 @@ namespace C__JavaTypingGame
                     writer(ans[ans.Length - 1].ToString(), question[ProblemIndex].ToString(), answerTextBox.Text,CorrectCouter.ToString(),MissCounter.ToString(),MissFlag.ToString());
 
                     //ミスタイプによるループを防ぐ
-                    if (MissFlag) { MissFlag = false; return; }
+                    //if (MissFlag) { MissFlag = false; return; }
 
                     //正解時の処理
                     if (ans[ans.Length - 1] == question[ProblemIndex])
                     {
                         //照合文字を一文字進める
                         ProblemIndex++;
+
+                        //表示問題のうち正解文字を消す
+                        string line = copyLabel.Text;//.Replace("&&&&", "&&");
+                        if (copyLabel.Text[0] == '&') copyLabel.Text = line.Remove(0, 2);
+                        else copyLabel.Text = line.Remove(0,1);
+                        System.Windows.Forms.Application.DoEvents();
 
                         //コンボを進める
                         Conb++;
@@ -222,10 +229,10 @@ namespace C__JavaTypingGame
                         Conb = 0;
 
                         //ミスフラグの変更
-                        MissFlag = true;
+                        //MissFlag = true;
 
                         //間違えた文字を削除
-                        answerTextBox.Text = answerTextBox.Text.Remove(ProblemIndex);
+                        answerTextBox.Text = answerTextBox.Text.Remove(ProblemIndex,1);
 
                         //カーソル位置を最後尾へ移動
                         answerTextBox.SelectionStart = answerTextBox.Text.Length;
@@ -263,6 +270,7 @@ namespace C__JavaTypingGame
 
             //新しい問題の出題
             questionLabel.Text = ProblemEntry();
+            copyLabel.Text = questionLabel.Text;    
             System.Windows.Forms.Application.DoEvents();
         }
 
@@ -325,8 +333,11 @@ namespace C__JavaTypingGame
                     foreach (string ss in s) { sr.Write(ss); sr.Write(","); }
                     sr.WriteLine();
                 }
-
             }
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
