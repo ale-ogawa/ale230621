@@ -38,6 +38,7 @@
             this.CountDownTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.copyLabel = new System.Windows.Forms.Label();
+            this.plactiseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox
@@ -130,11 +131,22 @@
             this.copyLabel.TabIndex = 10;
             this.copyLabel.UseWaitCursor = true;
             // 
+            // plactiseButton
+            // 
+            this.plactiseButton.Location = new System.Drawing.Point(134, 653);
+            this.plactiseButton.Name = "plactiseButton";
+            this.plactiseButton.Size = new System.Drawing.Size(96, 38);
+            this.plactiseButton.TabIndex = 11;
+            this.plactiseButton.Text = "練習";
+            this.plactiseButton.UseVisualStyleBackColor = true;
+            this.plactiseButton.Click += new System.EventHandler(this.plactiseButton_Click);
+            // 
             // playForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(1370, 693);
+            this.Controls.Add(this.plactiseButton);
             this.Controls.Add(this.copyLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.startBottun);
@@ -165,6 +177,7 @@
         private System.Windows.Forms.Timer CountDownTimer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label copyLabel;
+        private System.Windows.Forms.Button plactiseButton;
     }
 }
 

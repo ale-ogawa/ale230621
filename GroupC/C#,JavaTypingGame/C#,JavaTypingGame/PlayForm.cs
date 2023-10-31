@@ -99,6 +99,7 @@ namespace C__JavaTypingGame
         {
             //スタートボタンを非表示
             startBottun.Visible = false;
+            if(plactiseButton.Text=="練習") plactiseButton.Visible = false;
 
             writer("プレイヤー名:" + PlayerDTO.Name);
 
@@ -167,13 +168,13 @@ namespace C__JavaTypingGame
             String[] lines = ProblemFileReader.Problem[random.Next(0, i)];
 
             //問題文を整形 「"」、スペース、改行、「&」を適切な表示に変換
-            string line= lines[2].Trim('"').Trim(' ').Replace(" ", "□").Replace("改行", "\n").Replace("\"\"", "\"").Replace("\"\"", "\"").Replace("&&", "&&&&");
+            string line= lines[2].Trim('"').Trim(' ').Replace(" ", "_").Replace("改行", "\n").Replace("\"\"", "\"").Replace("\"\"", "\"").Replace("&&", "&&&&");
 
             //正誤判定ロジック用の問題文整形
             //改行を文字列に含める
             //問題表示用に変換した文字列を戻す
             String[] questions = line.Split('\n');
-            question = String.Join(",", questions).Replace("□", " ").Replace("&&&&", "&&");
+            question = String.Join(",", questions).Replace("_", " ").Replace("&&&&", "&&");
 
             writer("問題文" + question);
 
@@ -310,6 +311,11 @@ namespace C__JavaTypingGame
             }
         }
 
+        /// <summary>
+        /// 終了ボタン
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void endBottun_Click(object sender, EventArgs e)
         {
             //タイマー停止
@@ -323,6 +329,11 @@ namespace C__JavaTypingGame
             //言語選択画面へ遷移
             ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
         }
+
+        /// <summary>
+        /// ログ
+        /// </summary>
+        /// <param name="s"></param>
         private void writer(params string[] s)
         {
             using (StreamWriter sr = new StreamWriter(@"C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\プレイ記録\log.txt", true))
@@ -338,6 +349,60 @@ namespace C__JavaTypingGame
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// 練習モード
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void plactiseButton_Click(object sender, EventArgs e)
+        {
+            if (plactiseButton.Text == "練習")
+            {
+                //制限時間を最大にする
+                duration = int.MaxValue;
+
+                //ボタンの操作を消す
+                startBottun.Visible = false;
+                endBottun.Visible = false;
+
+                //ボタンのテキスト変更
+                plactiseButton.Text = "練習終了";
+                System.Windows.Forms.Application.DoEvents();
+
+                //ゲーム開始
+                startBottun_Click(sender,e);
+            }
+            else
+            {
+                //タイマー停止
+                CountDownTimer.Stop();
+
+                //制限時間の初期化
+                duration = Time;
+
+                //ボタンの操作を戻す
+                startBottun.Visible = true;
+                endBottun.Visible = true;
+
+                //スコアの初期化
+                CorrectCouter = 0;
+                MissCounter = 0;
+                Conb = 0;
+                ProblemIndex = 0;
+
+                //ラベル、テキストボックスの初期化
+                questionLabel.Text = null;
+                copyLabel.Text = null;
+                answerTextBox.Text = null;
+                answerTextBox.Enabled = false;
+
+                //ボタンのテキスト変更
+                plactiseButton.Text = "練習";
+                System.Windows.Forms.Application.DoEvents();
+
+            }
         }
     }
 }

@@ -152,29 +152,24 @@ C#,中級,a==1&&b==1
 C#,中級,a==1||b==1
 C#,中級,num%3==0||num%5==0
 C#,上級,"foreach (var item in array2dd)改行{改行Console.WriteLine(""{0}"", item);改行}
-C#,上級,if(month>=1 && month <=12)改行{改行Console.WriteLine(""""1以上、12以下の数値です"""");改行}"
-C#,上級,"if(isLeapYear)改行{改行Console.WriteLine(""うるう年です"");改行}
-C#,上級,catch(System.DivideByZeroException)改行{改行Console.WriteLine(""""ゼロは入力できません"""");改行}"
-C#,上級,"catch(System.FormatException)改行{改行Console.WriteLine(""数値を結合してください"");改行}
-C#,上級,catch(System.IndexOutOfRangeExeption)改行{改行Console.WriteLine(""""インデックスが有効範囲外です"""");改行}"
-C#,上級,"catch(System.IO.FileNoteFoundException)改行{改行Console.WriteLine(""ファイルが存在しません"");改行}
-C#,上級,catch(System.IO.DirectoryNotFoundException)改行{改行Console.WriteLine(""""ディレクトリが存在しません"""");改行}"
-C#,上級,"if(1<=n && n<= 12)改行{改行Console.WriteLine(""1以上12以下の数値です"");改行}
+C#,上級,catch(System.IndexOutOfRangeExeption e)改行{改行Console.WriteLine(e.Message);改行}"
+C#,上級,"catch(System.IO.FileNoteFoundException e)改行{改行Console.WriteLine(e.Message);改行}
+C#,上級,catch(System.IO.DirectoryNotFoundException e)改行{改行Console.WriteLine(e.Message);改行}"
 C#,上級, foreach(var x in aaa)改行{改行total += x;改行}"
 C#,上級," switch(value)改行{改行case 1:Console.WriteLine(""case1"");改行break;改行case 2:改行Console.WriteLine(""case2"");改行break;改行case 3:改行Console.WriteLine(""case3"");改行break;改行}
-C#,上級,while (true)改行{改行var line = Console.ReadLine();改行if (int.TryParse(line"
+C#,上級,while (true)改行{改行var line = Console.ReadLine();改行if (int.TryParse(line))"
 C#,上級,"Random rnd = new Random();改行var aaa = rnd.Next(0, 10);改行var array2d = new int[3, 3]改行{改行{45,1,2},改行{3,-8,5},改行{91,7,92},改行};
-C#,上級,for (int i = n; i > 0; i--)改行{改行for (int j = 0; j < i; j++)改行{改行Console.Write(""""●"""");改行}改行Console.WriteLine();改行}"
+C#,上級,for (int i = n; i > 0; i--)改行{改行for (int j = 0; j < i; j++)改行{改行Console.Write(""""*"""");改行}改行Console.WriteLine();改行}"
 C#,上級," for (var col = 0; col < array2d.GetLength(1); col++)改行{改行Console.Write(""{0}"", array2d[row,col]);改行}
-C#,上級,var lists = new List<string>();改行lists.Add(""""おはよう"""");改行lists.Add(""""こんにちは"""");改行lists.Add(""""こんばんは"""");"""
-C#,上級," int n = 4;改行for (int i = 0; i < n; i++)改行{改行for (int j = 0; j < n; j++)改行{改行if (i > j)改行{改行Console.Write("" "");改行}改行}改行else{Console.Write(""●"");}Console.WriteLine();}
-C#,上級,if (a >= b && a >= c)改行{改行Console.WriteLine(""""最大値 : """" + a);改行}改行else if (b >= a && b >= c){改行Console.WriteLine(""""最大値 : """" + b);改行}改行else改行{改行Console.WriteLine(""""最大値 : """" + c);改行}"
+C#,上級,var lists = new List<string>();改行lists.Add(""""Good morning"""");改行lists.Add(""""Hello"""");改行lists.Add(""""Good night"""");"""
+C#,上級," int n = 4;改行for (int i = 0; i < n; i++)改行{改行for (int j = 0; j < n; j++)改行{改行if (i > j)改行{改行Console.Write("" "");改行}改行}改行else{Console.Write(""*"");}Console.WriteLine();}
+C#,上級,if (a >= b && a >= c)改行{改行Console.WriteLine(""""Min : """" + a);改行}改行else if (b >= a && b >= c){改行Console.WriteLine(""""Max : """" + b);改行}改行else改行{改行Console.WriteLine(""""Max : """" + c);改行}"
 C#,上級,"string[] weekDays = { ""Sun"", ""Mon"", ""Tue"", ""Wed"", ""Thu"", ""Fri"", ""Sat"" };"
 C#,上級,"double[]numbers={55.1,54.8,54.5,58.4}"
 C#,上級,(year%4==0&&year%100!=0)||year%400==0)
-C#,上級,"var person = new Person改行{改行FirstName = ""はるか"",改行LastName = ""佐々木"",改行Email = ""hsasaki@example.com""改行};改行person.Print();"
+C#,上級,"var person = new Person改行{改行FirstName = ""haruka"",改行LastName = ""sasaki"",改行Email = ""hsasaki@example.com""改行};改行person.Print();"
 C#,上級,"class Book改行{改行public string Title { get; set; }改行public string Author { get; set; }改行public int Pages { get; set; }改行public int Rating { get; set; }改行public Book(string title, string author, int pages, int rating)改行{改行Title = title; Author = author; Pages = pages; Rating = rating;改行}
-C#,上級,if (-12 < time && time < 12)改行{改行DateTime newDt = dt.AddHours(time);改行Hour = newDt.Hour;改行Minute = newDt.Minute;改行Second = newDt.Second;改行}改行else{Console.WriteLine($""""時刻が表示できません。""""); return;}"
+C#,上級,if (-12 < time && time < 12)改行{改行DateTime newDt = dt.AddHours(time);改行Hour = newDt.Hour;改行Minute = newDt.Minute;改行Second = newDt.Second;改行}改行else{Console.WriteLine($""""Unable to display""""); return;}"
 Java,初級,abstract
 Java,初級,case
 Java,初級,continue
