@@ -39,6 +39,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.copyLabel = new System.Windows.Forms.Label();
             this.plactiseButton = new System.Windows.Forms.Button();
+            this.conbLabel = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox
@@ -112,11 +114,11 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(131, 8);
+            this.label1.Location = new System.Drawing.Point(122, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(316, 23);
+            this.label1.Size = new System.Drawing.Size(429, 23);
             this.label1.TabIndex = 7;
-            this.label1.Text = "□は半角スペースキーを入力してください";
+            this.label1.Text = "_(アンダーバー)は半角スペースキーを入力してください";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.UseWaitCursor = true;
             // 
@@ -139,13 +141,34 @@
             this.plactiseButton.TabIndex = 11;
             this.plactiseButton.Text = "練習";
             this.plactiseButton.UseVisualStyleBackColor = true;
+            this.plactiseButton.UseWaitCursor = true;
             this.plactiseButton.Click += new System.EventHandler(this.plactiseButton_Click);
+            // 
+            // conbLabel
+            // 
+            this.conbLabel.Location = new System.Drawing.Point(908, 8);
+            this.conbLabel.Name = "conbLabel";
+            this.conbLabel.Size = new System.Drawing.Size(100, 19);
+            this.conbLabel.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(821, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 23);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "コンボ数";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.UseWaitCursor = true;
             // 
             // playForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(1370, 693);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.conbLabel);
             this.Controls.Add(this.plactiseButton);
             this.Controls.Add(this.copyLabel);
             this.Controls.Add(this.label1);
@@ -178,6 +201,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label copyLabel;
         private System.Windows.Forms.Button plactiseButton;
+        private System.Windows.Forms.TextBox conbLabel;
+        private System.Windows.Forms.Label label2;
     }
 }
 

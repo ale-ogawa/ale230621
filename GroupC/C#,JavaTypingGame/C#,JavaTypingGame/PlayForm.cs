@@ -218,6 +218,9 @@ namespace C__JavaTypingGame
 
                         //コンボを進める
                         Conb++;
+                        conbLabel.Text = Conb.ToString();
+                        System.Windows.Forms.Application.DoEvents();
+
                     }
 
                     //不正解処理
@@ -228,6 +231,7 @@ namespace C__JavaTypingGame
 
                         //コンボリセット
                         Conb = 0;
+                        conbLabel.Text = Conb.ToString();
 
                         //ミスフラグの変更
                         //MissFlag = true;
@@ -250,7 +254,7 @@ namespace C__JavaTypingGame
                     }
 
                     //10の倍数コンボ毎に制限時間を1秒増やす
-                    if (Conb % 10 == 0 && Conb > 9) Conb++;
+                    if (Conb % 10 == 0 && Conb > 9)duration++;
                 }
             }
             catch (Exception exc) { MessageBox.Show($"{exc.Message}"); }

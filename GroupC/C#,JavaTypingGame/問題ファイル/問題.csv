@@ -170,6 +170,8 @@ C#,上級,(year%4==0&&year%100!=0)||year%400==0)
 C#,上級,"var person = new Person改行{改行FirstName = ""haruka"",改行LastName = ""sasaki"",改行Email = ""hsasaki@example.com""改行};改行person.Print();"
 C#,上級,"class Book改行{改行public string Title { get; set; }改行public string Author { get; set; }改行public int Pages { get; set; }改行public int Rating { get; set; }改行public Book(string title, string author, int pages, int rating)改行{改行Title = title; Author = author; Pages = pages; Rating = rating;改行}
 C#,上級,if (-12 < time && time < 12)改行{改行DateTime newDt = dt.AddHours(time);改行Hour = newDt.Hour;改行Minute = newDt.Minute;改行Second = newDt.Second;改行}改行else{Console.WriteLine($""""Unable to display""""); return;}"
+C#,上級,using(StreamWriter sr = new StreamWriter(addres))改行{改行string line;改行while(line=sr.ReadLine()!=null)改行{改行list.Add(line);改行}改行}
+C#,上級,try改行{改行Conn.Open();改行MySqlCommand mySql = new MySqlCommand(sql, Conn);改行mySql.Parameters.AddWithValue("user_id", DBNull.Value);改行transaction = Conn.BeginTransaction();改行mySql.ExecuteNonQuery();改行transaction.Commit();改行}改行catch(Exception e)改行{改行transaction.Rollback();改行Messagebox.Show(e.Message);改行}改行finally{Conn.Close();}
 Java,初級,abstract
 Java,初級,case
 Java,初級,continue
