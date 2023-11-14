@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace C__JavaTypingGame
 {
+    //CSVファイルから問題文を取り出すクラス
     internal class ProblemFileReader
     {
         //アドレス
@@ -24,9 +25,7 @@ namespace C__JavaTypingGame
         /// CSVファイルから問題の読み取りとリストへの格納実行メソッド
         /// </summary>
         public void FileReader()
-        {
-            //try
-            //{
+        {   
                 //リストの初期化
                 Problem = null;
 
@@ -46,7 +45,6 @@ namespace C__JavaTypingGame
                 }
                 //選択した言語と難易度の問題を取り出してリストに格納
                 Problem = list.Where(x => x[0] == PlayerDTO.Lang && x[1] == PlayerDTO.level.ToString()).ToList();
-            //}catch (Exception ex) { }
         }
     }
     internal static class ArraySplit

@@ -150,6 +150,7 @@
             this.conbLabel.Name = "conbLabel";
             this.conbLabel.Size = new System.Drawing.Size(100, 19);
             this.conbLabel.TabIndex = 12;
+            this.conbLabel.UseWaitCursor = true;
             // 
             // label2
             // 

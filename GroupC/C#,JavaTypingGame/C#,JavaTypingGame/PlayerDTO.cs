@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace C__JavaTypingGame
 {
+    //プレイヤー情報を保持するクラス
     internal class PlayerDTO
     {
         //プレイヤーID
@@ -24,9 +25,6 @@ namespace C__JavaTypingGame
         //ログイン状態のフラグ
         static public bool Login { get; set; } =false;
 
-        //ゲスト保存用スコア
-        static public Guest guest { get; set; } = null;
-
         //コンストラクター
         public PlayerDTO(string name,string pass)
         {
@@ -35,7 +33,9 @@ namespace C__JavaTypingGame
             Login = true;
         }
     }
-
+    /// <summary>
+    /// 難易度の列挙型
+    /// </summary>
     public enum Level
     {
         初級,

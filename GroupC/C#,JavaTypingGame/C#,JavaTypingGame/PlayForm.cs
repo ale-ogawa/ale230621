@@ -16,6 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace C__JavaTypingGame
 {
+    //ゲームプレイ画面
     public partial class playForm : Form
     {
         //問題出題用ランダム関数
@@ -42,7 +43,7 @@ namespace C__JavaTypingGame
         //コンボカウンター
         private int Conb = 0;
 
-        //照合用問題文
+        //内部処理用問題文　正誤判定に使用
         private string question { get; set; }
 
         public playForm()
@@ -91,7 +92,7 @@ namespace C__JavaTypingGame
         }
 
         /// <summary>
-        /// 開始ボタンを押す
+        /// ゲーム開始
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -101,13 +102,14 @@ namespace C__JavaTypingGame
             startBottun.Visible = false;
             if(plactiseButton.Text=="練習") plactiseButton.Visible = false;
 
+            //プレイヤー名のログを残す
             writer("プレイヤー名:" + PlayerDTO.Name);
 
             //ゲーム開始前カウントダウン
             try { StartCountDown(); }
             catch(Exception excep) { MessageBox.Show($"{excep.Message}"); }
 
-            //テキストボックスの入力を受付
+            //テキストボックスの入力を受付開始
             answerTextBox.Enabled = true;
             answerTextBox.Multiline = true;
             answerTextBox.WordWrap = false;
@@ -129,7 +131,6 @@ namespace C__JavaTypingGame
             try{CountDownTimer.Start();}
             catch(Exception ex) { MessageBox.Show($"{ex.Message}"); }
         }
-
         /// <summary>
         /// ゲーム開始のカウントダウン
         /// </summary>
@@ -154,7 +155,6 @@ namespace C__JavaTypingGame
             System.Windows.Forms.Application.DoEvents();
 
         }
-
         /// <summary>
         /// 問題出題メソッド
         /// </summary>
@@ -167,15 +167,15 @@ namespace C__JavaTypingGame
             //リストからランダムに問題を取り出す
             String[] lines = ProblemFileReader.Problem[random.Next(0, i)];
 
-            //問題文を整形 「"」、スペース、改行、「&」を適切な表示に変換
-            string line= lines[2].Trim('"').Trim(' ').Replace(" ", "_").Replace("改行", "\n").Replace("\"\"", "\"").Replace("\"\"", "\"").Replace("&&", "&&&&");
+            //CSVファイルからから取り込んだ時に余分についた記号類を正しい表示に戻す「"」、スペース、改行、「&」
+            string line = lines[2].Trim('"').Trim(' ').Replace(" ", "_").Replace("改行", "\n").Replace("\"\"", "\"").Replace("\"\"", "\"").Replace("&&", "&&&&");
 
-            //正誤判定ロジック用の問題文整形
-            //改行を文字列に含める
-            //問題表示用に変換した文字列を戻す
+            //内部処理用の問題文を整形
+            //改行を「,」に変換
             String[] questions = line.Split('\n');
             question = String.Join(",", questions).Replace("_", " ").Replace("&&&&", "&&");
 
+            //問題文をログに残す
             writer("問題文" + question);
 
             return line;
@@ -191,18 +191,15 @@ namespace C__JavaTypingGame
         {
             try 
             {
-                //ユーザーのバックスペース入力は処理をしない
+                //ユーザーのバックスペース入力を除く
                 if (ProblemIndex < questionLabel.Text.Length && answerTextBox.Text.Length >= ProblemIndex + 1)
                 {
                     //ユーザー回答の取り出し
                     String[] answers = answerTextBox.Text.Split('\n');
                     string ans = String.Join(",", answers);
 
-                    //プレイログ
+                    //ユーザー入力文字と内部処理で照合される文字をログに残す
                     writer(ans[ans.Length - 1].ToString(), question[ProblemIndex].ToString(), answerTextBox.Text,CorrectCouter.ToString(),MissCounter.ToString(),MissFlag.ToString());
-
-                    //ミスタイプによるループを防ぐ
-                    //if (MissFlag) { MissFlag = false; return; }
 
                     //正解時の処理
                     if (ans[ans.Length - 1] == question[ProblemIndex])
@@ -211,7 +208,7 @@ namespace C__JavaTypingGame
                         ProblemIndex++;
 
                         //表示問題のうち正解文字を消す
-                        string line = copyLabel.Text;//.Replace("&&&&", "&&");
+                        string line = copyLabel.Text;
                         if (copyLabel.Text[0] == '&') copyLabel.Text = line.Remove(0, 2);
                         else copyLabel.Text = line.Remove(0,1);
                         System.Windows.Forms.Application.DoEvents();
@@ -220,7 +217,6 @@ namespace C__JavaTypingGame
                         Conb++;
                         conbLabel.Text = Conb.ToString();
                         System.Windows.Forms.Application.DoEvents();
-
                     }
 
                     //不正解処理
@@ -259,7 +255,6 @@ namespace C__JavaTypingGame
             }
             catch (Exception exc) { MessageBox.Show($"{exc.Message}"); }
         }
-
         /// <summary>
         ///　正解後の事後処理
         /// </summary>
@@ -278,7 +273,6 @@ namespace C__JavaTypingGame
             copyLabel.Text = questionLabel.Text;    
             System.Windows.Forms.Application.DoEvents();
         }
-
         /// <summary>
         /// ゲームプレイ中のカウントダウン
         /// </summary>
@@ -314,7 +308,6 @@ namespace C__JavaTypingGame
                 System.Windows.Forms.Application.DoEvents();
             }
         }
-
         /// <summary>
         /// 終了ボタン
         /// </summary>
@@ -333,15 +326,15 @@ namespace C__JavaTypingGame
             //言語選択画面へ遷移
             ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
         }
-
         /// <summary>
-        /// ログ
+        /// プレイログ
         /// </summary>
         /// <param name="s"></param>
         private void writer(params string[] s)
         {
             using (StreamWriter sr = new StreamWriter(@"C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\プレイ記録\log.txt", true))
             {
+                //引数の要素数によってログ内容を判別
                 if (s.Length == 1) sr.WriteLine(s[0]);
                 else
                 {
@@ -350,11 +343,6 @@ namespace C__JavaTypingGame
                 }
             }
         }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// 練習モード
         /// </summary>
@@ -362,6 +350,7 @@ namespace C__JavaTypingGame
         /// <param name="e"></param>
         private void plactiseButton_Click(object sender, EventArgs e)
         {
+            //ボタンクリック時のテキスト内容により練習開始、終了の処理を分岐
             if (plactiseButton.Text == "練習")
             {
                 //制限時間を最大にする

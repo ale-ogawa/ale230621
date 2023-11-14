@@ -12,40 +12,51 @@ using System.Windows.Forms;
 
 namespace typingGame
 {
+    //ログイン画面
     public partial class loginForm : Form
     {
         public loginForm()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// タイトル画面に遷移
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form1 title = new Form1();
-            title.ShowDialog();
-            this.Close();
+        {   
+            ControlForm.CloseAndShow(this, typeof(Form1));
         }
-
+        /// <summary>
+        /// パスワードの目隠
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void passCheck_CheckedChanged(object sender, EventArgs e)
         {
-            if (passCheck.Checked == true)
-                passText.PasswordChar = (char)0;
-            else if (passCheck.Checked == false)
-                passText.PasswordChar = (char)1;
+            if (passCheck.Checked)passText.PasswordChar = (char)0;
+            else passText.PasswordChar = (char)1;
         }
         private void passText_TextChanged(object sender, EventArgs e)
         {
             passText.PasswordChar = '・';
         }
-
+        /// <summary>
+        /// ユーザーログイン
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loginButton_Click(object sender, EventArgs e)
         {
             try
             {
-                //DBに確認
+                //入力されたユーザー名とパスワードの一致をDBに確認
                 PlayerDTO player = new PlayerDTO(userText.Text, passText.Text);
                 PlayerDAO playerDAO = new PlayerDAO();
                 bool check= playerDAO.PlayerLogin(player);
+
+                //一致した場合
                 if (check != false)
                 {
                     MessageBox.Show("ログインしました");
@@ -56,6 +67,7 @@ namespace typingGame
                         DialogResult result = MessageBox.Show($"ゲストプレイ時のスコアが保存されています。スコアをランキングに登録しますか?", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                         if (result == DialogResult.Yes)
                         {
+                            //保存されているスコアをDBに登録
                             using (StreamReader sr = new StreamReader(@"C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\プレイ記録\スコア.csv"))
                             {
                                 string line = null;
@@ -69,27 +81,24 @@ namespace typingGame
                                 }
                                 MessageBox.Show("スコアをランキングに登録しました");
                             }
+                            //登録完了後ファイル削除
                             File.Delete(@"C:\GitRepos\ale230621\GroupC\C#,JavaTypingGame\プレイ記録\スコア.csv");
                         }
-                        PlayerDTO.Lang = null;
-                        PlayerDTO.score = 0;
-                        PlayerDTO.guest = null;
                     }
 
                     //画面遷移
-                    this.Hide();
-                    languageSelectionForm ls = new languageSelectionForm();
-                    ls.ShowDialog();
-                    this.Close();
+                    ControlForm.CloseAndShow(this, typeof(languageSelectionForm));
                 }
+                //不一致の場合
                 else MessageBox.Show("ログイン情報に誤りがあります");
             }
-            catch (MySql.Data.MySqlClient.MySqlException mysqlEX) { MessageBox.Show("データベースに接続できません。\nコネクション情報に誤りがある可能性があります。"); }
+            catch (MySql.Data.MySqlClient.MySqlException) { MessageBox.Show("データベースに接続できません。\nコネクション情報に誤りがある可能性があります。"); }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void loginForm_Activated(object sender, EventArgs e)
         {
+            //カーソル初期位置
             userText.Focus();
         }
     }

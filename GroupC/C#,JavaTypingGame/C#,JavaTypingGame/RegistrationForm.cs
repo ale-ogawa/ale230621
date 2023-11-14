@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace typingGame
 {
+    //新規登録確認画面
     public partial class RegistrationForm : Form
     {
         public RegistrationForm(string user, string pass)
@@ -20,7 +21,11 @@ namespace typingGame
             this.userName.Text = user;
             this.password.Text = pass;
         }
-
+        /// <summary>
+        /// パスワードの目隠
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void passCheck_CheckedChanged(object sender, EventArgs e)
         {
             if (passCheck.Checked == false)
@@ -28,16 +33,21 @@ namespace typingGame
             if (passCheck.Checked == true)
                 password.Visible = true;
         }
-
-
+        /// <summary>
+        /// 新規登録画面に遷移
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            newRegistrationForm nr = new newRegistrationForm();
-            nr.ShowDialog();
-            this.Close();
+            ControlForm.CloseAndShow(this,typeof(newRegistrationForm));
         }
-
+        /// <summary>
+        /// ユーザー登録の実行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="ConstraintException"></exception>
         private void RegistrationButton_Click(object sender, EventArgs e)
         {
             try
@@ -46,29 +56,14 @@ namespace typingGame
                 PlayerDTO player = new PlayerDTO(this.userName.Text, this.password.Text);
                 PlayerDAO dao = new PlayerDAO();
                 dao.PlayerRegistration(player);
-                //画面遷移
-                this.Hide();
-                languageSelectionForm ls = new languageSelectionForm();
-                newRegistrationForm nr = new newRegistrationForm();
-                ls.ShowDialog();
-                this.Close();
 
+                //画面遷移
+                ControlForm.CloseAndShow(this,typeof(languageSelectionForm));
             }
-            catch (MySqlException mysqlEX) 
-            {
-                throw new ConstraintException("データベースに接続できません。\nsql文又はコネクション情報に誤りがある可能性があります。");
-            }
+            catch (MySqlException sqlex) { MessageBox.Show(sqlex.Message); }
             catch (ConstraintException conEX) { MessageBox.Show(conEX.Message); }
-            catch (ArgumentException ae)
-            {
-                MessageBox.Show(ae.Message);
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                
-            }
+            catch (ArgumentException ae){MessageBox.Show(ae.Message);}
+            catch (Exception ex){MessageBox.Show(ex.Message);}
         }
     }
 }

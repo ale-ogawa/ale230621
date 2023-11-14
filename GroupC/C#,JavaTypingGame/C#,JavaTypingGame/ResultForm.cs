@@ -13,6 +13,7 @@ using typingGame;
 
 namespace C__JavaTypingGame
 {
+    //リザルト画面
     public partial class ResultForm : Form
     {
         private int Rate { get; set; }
@@ -34,12 +35,13 @@ namespace C__JavaTypingGame
             PlayerDTO.score = ((playForm.CorrectCouter - playForm.MissCounter) > 0) ? ((playForm.CorrectCouter - playForm.MissCounter) * Rate) : 0;
             TotalScoreTextBox.Text = PlayerDTO.score.ToString();
 
-            //得点をランキングテーブルに保存
+            //登録ユーザーは得点をランキングテーブルに保存
             if (PlayerDTO.Login)
             {
                 PlayerDAO playerDAO = new PlayerDAO();
                 playerDAO.RunkingData();
             }
+            //ゲストユーザーの場合スコアをローカルに保存
             else 
             {
                 //次回ログイン時のスコア登録
@@ -61,27 +63,39 @@ namespace C__JavaTypingGame
             //選択言語、レベルの表示
             langLevelTextBox.Text = $"<{PlayerDTO.Lang}>                             <{PlayerDTO.level.ToString()}>";
         }
-
+        /// <summary>
+        /// プレイ画面に遷移
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void retryButton_Click(object sender, EventArgs e)
         {
-            //プレイ画面へ遷移
             ControlForm.CloseAndShow(this, typeof(playForm));
         }
-
-
+        /// <summary>
+        /// 言語選択画面に遷移
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void languageSelectionButton_Click(object sender, EventArgs e)
         {
-            //言語選択画面へ遷移
             ControlForm.CloseAndShow(this,typeof(languageSelectionForm));
         }
-
+        /// <summary>
+        /// ランキング画面に遷移
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void runkingButton_Click(object sender, EventArgs e)
         {
-            //ランキング画面へ遷移
             if (PlayerDTO.Login) ControlForm.CloseAndShow(this, typeof(runkingForm));
             else MessageBox.Show("ゲストプレイではランキングの閲覧はできません");
         }
-
+        /// <summary>
+        /// システムの終了
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
